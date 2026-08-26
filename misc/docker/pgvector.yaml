@@ -1,0 +1,17 @@
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: postgres-vector
+    restart: always
+    environment:
+      POSTGRES_DB: rags01_db
+      POSTGRES_USER: xapi_admin
+      POSTGRES_PASSWORD: <change>
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+
