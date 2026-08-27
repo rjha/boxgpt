@@ -1,0 +1,2680 @@
+{
+  "pages": [
+    {
+      "index": 0,
+      "markdown": "मूल्य: ₹50\n\nजनवरी-फरवरी 2026\n\nआई. एस. ओ. 9001: 2015 संगठन\n\nवैज्ञानिक बागवानी की लोकप्रिय पत्रिका\n\n![img-0.jpeg](img-0.jpeg)\n\n# फुल फूल\n\n![img-1.jpeg](img-1.jpeg)\n\n# इस अंक में\n\n- बोनवाल खिलके से बनी, कंडी\n- किजू फसल से रोधी एवं कोट नियंत्रण\n- बोनवाल उत्पादन से उद्यमिता\n- फीतरोध नोट एक्स में विनिमय उत्पादन\n\n![img-2.jpeg](img-2.jpeg)\n\n![img-3.jpeg](img-3.jpeg)\n\n![img-4.jpeg](img-4.jpeg)\n\n![img-5.jpeg](img-5.jpeg)\n\n/InAgrisearch\n\n/user/icarindia\n\nofficialicarindia\n\nwww.icar.org.in\n\n/icarindia",
+      "images": [
+        {
+          "id": "img-0.jpeg",
+          "top_left_x": 128,
+          "top_left_y": 163,
+          "bottom_right_x": 193,
+          "bottom_right_y": 256,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-1.jpeg",
+          "top_left_x": 532,
+          "top_left_y": 173,
+          "bottom_right_x": 595,
+          "bottom_right_y": 236,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-2.jpeg",
+          "top_left_x": 106,
+          "top_left_y": 767,
+          "bottom_right_x": 226,
+          "bottom_right_y": 883,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-3.jpeg",
+          "top_left_x": 236,
+          "top_left_y": 784,
+          "bottom_right_x": 352,
+          "bottom_right_y": 896,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-4.jpeg",
+          "top_left_x": 367,
+          "top_left_y": 767,
+          "bottom_right_x": 484,
+          "bottom_right_y": 883,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-5.jpeg",
+          "top_left_x": 499,
+          "top_left_y": 767,
+          "bottom_right_x": 616,
+          "bottom_right_y": 883,
+          "image_base64": null,
+          "image_annotation": null
+        }
+      ],
+      "dimensions": {
+        "dpi": 87,
+        "height": 1018,
+        "width": 720
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 82,
+          "top_left_y": 81,
+          "bottom_right_x": 141,
+          "bottom_right_y": 99,
+          "content": "मूल्य: ₹50",
+          "confidence_scores": null,
+          "type": "header"
+        },
+        {
+          "top_left_x": 303,
+          "top_left_y": 77,
+          "bottom_right_x": 424,
+          "bottom_right_y": 98,
+          "content": "जनवरी-फरवरी 2026",
+          "confidence_scores": null,
+          "type": "header"
+        },
+        {
+          "top_left_x": 498,
+          "top_left_y": 81,
+          "bottom_right_x": 643,
+          "bottom_right_y": 97,
+          "content": "आई. एस. ओ. 9001: 2015 संगठन",
+          "confidence_scores": null,
+          "type": "header"
+        },
+        {
+          "top_left_x": 267,
+          "top_left_y": 139,
+          "bottom_right_x": 475,
+          "bottom_right_y": 157,
+          "content": "वैज्ञानिक बागवानी की लोकप्रिय पत्रिका",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 128,
+          "top_left_y": 163,
+          "bottom_right_x": 193,
+          "bottom_right_y": 256,
+          "content": "![img-0.jpeg](img-0.jpeg)",
+          "image_id": "img-0.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 215,
+          "top_left_y": 161,
+          "bottom_right_x": 510,
+          "bottom_right_y": 257,
+          "content": "# फुल फूल",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 532,
+          "top_left_y": 173,
+          "bottom_right_x": 595,
+          "bottom_right_y": 236,
+          "content": "![img-1.jpeg](img-1.jpeg)",
+          "image_id": "img-1.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 493,
+          "top_left_y": 645,
+          "bottom_right_x": 564,
+          "bottom_right_y": 665,
+          "content": "# इस अंक में",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 430,
+          "top_left_y": 671,
+          "bottom_right_x": 625,
+          "bottom_right_y": 754,
+          "content": "- बोनवाल खिलके से बनी, कंडी\n- किजू फसल से रोधी एवं कोट नियंत्रण\n- बोनवाल उत्पादन से उद्यमिता\n- फीतरोध नोट एक्स में विनिमय उत्पादन",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 106,
+          "top_left_y": 767,
+          "bottom_right_x": 226,
+          "bottom_right_y": 883,
+          "content": "![img-2.jpeg](img-2.jpeg)",
+          "image_id": "img-2.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 236,
+          "top_left_y": 784,
+          "bottom_right_x": 352,
+          "bottom_right_y": 896,
+          "content": "![img-3.jpeg](img-3.jpeg)",
+          "image_id": "img-3.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 367,
+          "top_left_y": 767,
+          "bottom_right_x": 484,
+          "bottom_right_y": 883,
+          "content": "![img-4.jpeg](img-4.jpeg)",
+          "image_id": "img-4.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 499,
+          "top_left_y": 767,
+          "bottom_right_x": 616,
+          "bottom_right_y": 883,
+          "content": "![img-5.jpeg](img-5.jpeg)",
+          "image_id": "img-5.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 91,
+          "top_left_y": 940,
+          "bottom_right_x": 189,
+          "bottom_right_y": 959,
+          "content": "/InAgrisearch",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 203,
+          "top_left_y": 940,
+          "bottom_right_x": 306,
+          "bottom_right_y": 959,
+          "content": "/user/icarindia",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 319,
+          "top_left_y": 940,
+          "bottom_right_x": 424,
+          "bottom_right_y": 959,
+          "content": "officialicarindia",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 450,
+          "top_left_y": 940,
+          "bottom_right_x": 558,
+          "bottom_right_y": 959,
+          "content": "www.icar.org.in",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 571,
+          "top_left_y": 940,
+          "bottom_right_x": 646,
+          "bottom_right_y": 959,
+          "content": "/icarindia",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "markdown": "नवाचार\n\n# प्याज एवं लहसुन के लिए बाँस आधारित हवादार भंडारण कक्ष\n\nभारतीय कृषि में कटाई के बाद की क्षति वह अदृश्य कारक है, जो उत्पादन आँकड़ों से परे जाकर किसान की आय, पोषण सुरक्षा और बाजार की स्थिरता को सीधे प्रभावित करता है। कटाई के बाद फसल सुरक्षा को लेकर अनेक आधुनिक भंडारण समाधान मौजूद हैं जैसे कोल्ड स्टोरेज, नियंत्रित वातावरण भंडार, वेंटिलेटेड गोदाम और धातु/सीमेंट आधारित संरचनाएँ। लेकिन इन सभी में ऊर्जा पर निर्भरता, उच्च पूँजी लागत और रखरखाव खर्च किसानों की पहुँच को सीमित कर देते हैं। ऐसे में पारंपरिक ज्ञान और स्थानीय संसाधन आधारित नवाचार ग्रामीण भंडारण व्यवस्था के लिए लाभकारी सिद्ध हो सकता है। इसी कड़ी में पश्चिमी राजस्थान के किसान श्री संतोष कुमार द्वारा विकसित बाँस आधारित प्राकृतिक हवादार भंडारण मॉडल एक अनूठा क्षेत्रीय समाधान प्रस्तुत करता है।\n\nफलोदी (राजस्थान) का क्षेत्र अपनी अत्यधिक गर्मी, कम वर्षा और शुष्क वातावरण के लिए जाना जाता है जहाँ पारंपरिक भंडारण साधन अक्सर असफल साबित होते हैं। इसी भौगोलिक परिस्थिति को ध्यान में रखते हुए, श्री संतोष कुमार द्वारा विकसित बाँस आधारित प्राकृतिक हवादार भंडारण संरचना को बेहतर वायु प्रवाह, तापमान संतुलन, नमी से सुरक्षा और दीर्घकालिक भंडारण क्षमता प्रदान करने के लिए डिज़ाइन किया गया है।\n\nयह भंडारण मॉडल स्थानीय स्तर पर सुलभ और प्राकृतिक रूप से ताप अवरोधक भी है। संरचना के फर्श को हवादार बनाने के लिए बाँस का फर्श तैयार किया गया है, जिसके नीचे और किनारों से नियंत्रित वेंटिलेशन को सुविधा दी गई है। ढांचे की मजबूती और स्थायित्व को सुनिश्चित करने हेतु गैल्वेनाइज्ड आयरन (जीआई) चैनलों का उपयोग किया गया है। यह सामग्री जंगरोधी होने के कारण संरचना के जीवन को बढ़ाने में सहायक है। छत के लिए एस्बेस्टस शीट लगाई गई है, जिसे बारिश के पानी के छींटों, सीधी धूप और नमी से बचाव हेतु दोनों ओर 2 फीट तक विस्तारित किया गया है। यह डिज़ाइन भंडारण में ताप नियंत्रण और आर्द्रता संतुलन को स्थिर बनाए रखने में मदद करता है। इससे अंकुरण और फफूंद के जोखिम में व्यापक कमी आती है।\n\n# लागत प्रभावी\n\nइस मॉडल की अनुमानित लागत ₹ 1.75 लाख है, जो 25 मीट्रिक टन क्षमता वाले भंडारण ढांचे के लिए बेहद किफायती है। पारंपरिक कोल्ड-स्टोरेज की तुलना में विद्युत आधारित परिचालन लागत शून्य है, जिससे किसान भंडारण खर्च में भारी बचत कर अधिक लाभ अर्जित कर सकते हैं। चार महीने तक सुरक्षित भंडारण संभव होने से किसान फसल की कीमतों में सुधार आने पर बेच सकते हैं। इससे औसत लाभ में संभावित वृद्धि दर्ज की जा सकती है।\n\n![img-6.jpeg](img-6.jpeg)\n\nबल्बों का सुरक्षित एवं पर्यावरण अनुकूल भंडारण\n\nसंरचना की फर्श से ऊँचाई 1.5 फीट रखी गई है, जबकि भंडारण हेतु बैग रखने के लिए 2 फीट ऊँचा प्लेटफॉर्म भी तैयार किया गया है। यह ऊँचाई आधारित पृथक्करण फसल को जमीन की नमी से दूर रखने और भंडार कक्ष में मुक्त वायु प्रवाह की दशा बनाए रखने में सहायक है। फर्श और साइड की दीवारें\n\n![img-7.jpeg](img-7.jpeg)\n\nलागत प्रभावी बाँस आधारित भंडारण कक्ष\n\n1.5 इंच व्यास वाले बाँस के खंभों से बनी हैं, जिन्हें प्रभावी वेंटिलेशन प्राप्त करने हेतु 1.5 इंच के समान अंतराल पर लगाया गया है। इससे भंडार के भीतर वायु स्थिर नहीं रहती और बल्बों की ताजगी बनी रहती है।\n\nसंरचना के आयाम 40 फीट लंबाई, 16 फीट चौड़ाई, 6 फीट साइड दीवार ऊँचाई और 10 फीट केंद्रीय ऊँचाई हैं। यह संरचना 25 मीट्रिक टन की भंडारण क्षमता प्रदान करती है जो व्यक्तिगत किसान की आवश्यकताओं को पूरा करने में सक्षम है। इस संरचना में बल्बों का\n\nभंडारण जीवन 4 माह तक सफलतापूर्वक दर्ज किया गया है, जो फसल की दीर्घकालिक सुरक्षा और बाजार-चक्र आधारित विक्रय रणनीतियों को सशक्त आधार देता है।\n\n# वैज्ञानिक पुष्टीकरण\n\nहालांकि यह नवाचार व्यावहारिक स्तर पर प्रभावी प्रतीत होता है, परंतु संरचना के भौतिक जीवन, भारधारण क्षमता, भंडारण जनित गुणवत्ता, पोषणीय परिवर्तन, आर्थिक लाभ और मौसम रोधी दक्षता के विस्तृत परीक्षण हेतु वैज्ञानिक पुष्टीकरण की आवश्यकता है। इस मॉडल का आर्थिक लाभ आकलन और टिकाऊ जीवन परीक्षण किया जाना आवश्यक है, ताकि इस नवाचार को राष्ट्रीय स्तर पर तकनीकी मान्यता एवं प्रमाणित अनुशंसाएं प्राप्त हो सकें।\n\nबाँस आधारित हवादार भंडारण संरचना ग्रामीण भंडारण विज्ञान में कम लागत और पर्यावरण अनुकूल समाधान का सशक्त उदाहरण है। स्थानीय संसाधन आधारित वैज्ञानिक डिज़ाइन के कारण यह केंद्रीय फसलों को अंकुरण, नमी और फफूंद से सुरक्षित रखता है तथा किसानों को बाजार मूल्य में सुधार आने तक उपज भंडारित कर बेहतर लाभ कमाने का अवसर देता है। यदि इसका वैज्ञानिक मूल्यांकन और मानकीकरण किया जाए, तो यह मॉडल भंडारण हानि घटाकर किसानों की आय को टिकाऊ रूप से संरक्षित करने में महत्वपूर्ण भूमिका निभा सकता है।\n\n(प्रो: विकसित कृषि संकल्प अभियान)",
+      "images": [
+        {
+          "id": "img-6.jpeg",
+          "top_left_x": 270,
+          "top_left_y": 279,
+          "bottom_right_x": 639,
+          "bottom_right_y": 441,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-7.jpeg",
+          "top_left_x": 270,
+          "top_left_y": 585,
+          "bottom_right_x": 447,
+          "bottom_right_y": 714,
+          "image_base64": null,
+          "image_annotation": null
+        }
+      ],
+      "dimensions": {
+        "dpi": 87,
+        "height": 1018,
+        "width": 720
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 330,
+          "top_left_y": 72,
+          "bottom_right_x": 378,
+          "bottom_right_y": 89,
+          "content": "नवाचार",
+          "confidence_scores": null,
+          "type": "header"
+        },
+        {
+          "top_left_x": 90,
+          "top_left_y": 106,
+          "bottom_right_x": 632,
+          "bottom_right_y": 143,
+          "content": "# प्याज एवं लहसुन के लिए बाँस आधारित हवादार भंडारण कक्ष",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 89,
+          "top_left_y": 161,
+          "bottom_right_x": 635,
+          "bottom_right_y": 260,
+          "content": "भारतीय कृषि में कटाई के बाद की क्षति वह अदृश्य कारक है, जो उत्पादन आँकड़ों से परे जाकर किसान की आय, पोषण सुरक्षा और बाजार की स्थिरता को सीधे प्रभावित करता है। कटाई के बाद फसल सुरक्षा को लेकर अनेक आधुनिक भंडारण समाधान मौजूद हैं जैसे कोल्ड स्टोरेज, नियंत्रित वातावरण भंडार, वेंटिलेटेड गोदाम और धातु/सीमेंट आधारित संरचनाएँ। लेकिन इन सभी में ऊर्जा पर निर्भरता, उच्च पूँजी लागत और रखरखाव खर्च किसानों की पहुँच को सीमित कर देते हैं। ऐसे में पारंपरिक ज्ञान और स्थानीय संसाधन आधारित नवाचार ग्रामीण भंडारण व्यवस्था के लिए लाभकारी सिद्ध हो सकता है। इसी कड़ी में पश्चिमी राजस्थान के किसान श्री संतोष कुमार द्वारा विकसित बाँस आधारित प्राकृतिक हवादार भंडारण मॉडल एक अनूठा क्षेत्रीय समाधान प्रस्तुत करता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 278,
+          "bottom_right_x": 262,
+          "bottom_right_y": 438,
+          "content": "फलोदी (राजस्थान) का क्षेत्र अपनी अत्यधिक गर्मी, कम वर्षा और शुष्क वातावरण के लिए जाना जाता है जहाँ पारंपरिक भंडारण साधन अक्सर असफल साबित होते हैं। इसी भौगोलिक परिस्थिति को ध्यान में रखते हुए, श्री संतोष कुमार द्वारा विकसित बाँस आधारित प्राकृतिक हवादार भंडारण संरचना को बेहतर वायु प्रवाह, तापमान संतुलन, नमी से सुरक्षा और दीर्घकालिक भंडारण क्षमता प्रदान करने के लिए डिज़ाइन किया गया है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 439,
+          "bottom_right_x": 262,
+          "bottom_right_y": 709,
+          "content": "यह भंडारण मॉडल स्थानीय स्तर पर सुलभ और प्राकृतिक रूप से ताप अवरोधक भी है। संरचना के फर्श को हवादार बनाने के लिए बाँस का फर्श तैयार किया गया है, जिसके नीचे और किनारों से नियंत्रित वेंटिलेशन को सुविधा दी गई है। ढांचे की मजबूती और स्थायित्व को सुनिश्चित करने हेतु गैल्वेनाइज्ड आयरन (जीआई) चैनलों का उपयोग किया गया है। यह सामग्री जंगरोधी होने के कारण संरचना के जीवन को बढ़ाने में सहायक है। छत के लिए एस्बेस्टस शीट लगाई गई है, जिसे बारिश के पानी के छींटों, सीधी धूप और नमी से बचाव हेतु दोनों ओर 2 फीट तक विस्तारित किया गया है। यह डिज़ाइन भंडारण में ताप नियंत्रण और आर्द्रता संतुलन को स्थिर बनाए रखने में मदद करता है। इससे अंकुरण और फफूंद के जोखिम में व्यापक कमी आती है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 132,
+          "top_left_y": 716,
+          "bottom_right_x": 211,
+          "bottom_right_y": 735,
+          "content": "# लागत प्रभावी",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 89,
+          "top_left_y": 740,
+          "bottom_right_x": 256,
+          "bottom_right_y": 913,
+          "content": "इस मॉडल की अनुमानित लागत ₹ 1.75 लाख है, जो 25 मीट्रिक टन क्षमता वाले भंडारण ढांचे के लिए बेहद किफायती है। पारंपरिक कोल्ड-स्टोरेज की तुलना में विद्युत आधारित परिचालन लागत शून्य है, जिससे किसान भंडारण खर्च में भारी बचत कर अधिक लाभ अर्जित कर सकते हैं। चार महीने तक सुरक्षित भंडारण संभव होने से किसान फसल की कीमतों में सुधार आने पर बेच सकते हैं। इससे औसत लाभ में संभावित वृद्धि दर्ज की जा सकती है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 270,
+          "top_left_y": 279,
+          "bottom_right_x": 639,
+          "bottom_right_y": 441,
+          "content": "![img-6.jpeg](img-6.jpeg)",
+          "image_id": "img-6.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 363,
+          "top_left_y": 443,
+          "bottom_right_x": 543,
+          "bottom_right_y": 458,
+          "content": "बल्बों का सुरक्षित एवं पर्यावरण अनुकूल भंडारण",
+          "confidence_scores": null,
+          "type": "caption"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 467,
+          "bottom_right_x": 450,
+          "bottom_right_y": 578,
+          "content": "संरचना की फर्श से ऊँचाई 1.5 फीट रखी गई है, जबकि भंडारण हेतु बैग रखने के लिए 2 फीट ऊँचा प्लेटफॉर्म भी तैयार किया गया है। यह ऊँचाई आधारित पृथक्करण फसल को जमीन की नमी से दूर रखने और भंडार कक्ष में मुक्त वायु प्रवाह की दशा बनाए रखने में सहायक है। फर्श और साइड की दीवारें",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 270,
+          "top_left_y": 585,
+          "bottom_right_x": 447,
+          "bottom_right_y": 714,
+          "content": "![img-7.jpeg](img-7.jpeg)",
+          "image_id": "img-7.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 283,
+          "top_left_y": 714,
+          "bottom_right_x": 435,
+          "bottom_right_y": 729,
+          "content": "लागत प्रभावी बाँस आधारित भंडारण कक्ष",
+          "confidence_scores": null,
+          "type": "caption"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 738,
+          "bottom_right_x": 450,
+          "bottom_right_y": 817,
+          "content": "1.5 इंच व्यास वाले बाँस के खंभों से बनी हैं, जिन्हें प्रभावी वेंटिलेशन प्राप्त करने हेतु 1.5 इंच के समान अंतराल पर लगाया गया है। इससे भंडार के भीतर वायु स्थिर नहीं रहती और बल्बों की ताजगी बनी रहती है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 817,
+          "bottom_right_x": 450,
+          "bottom_right_y": 913,
+          "content": "संरचना के आयाम 40 फीट लंबाई, 16 फीट चौड़ाई, 6 फीट साइड दीवार ऊँचाई और 10 फीट केंद्रीय ऊँचाई हैं। यह संरचना 25 मीट्रिक टन की भंडारण क्षमता प्रदान करती है जो व्यक्तिगत किसान की आवश्यकताओं को पूरा करने में सक्षम है। इस संरचना में बल्बों का",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 467,
+          "bottom_right_x": 641,
+          "bottom_right_y": 530,
+          "content": "भंडारण जीवन 4 माह तक सफलतापूर्वक दर्ज किया गया है, जो फसल की दीर्घकालिक सुरक्षा और बाजार-चक्र आधारित विक्रय रणनीतियों को सशक्त आधार देता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 536,
+          "bottom_right_x": 545,
+          "bottom_right_y": 552,
+          "content": "# वैज्ञानिक पुष्टीकरण",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 553,
+          "bottom_right_x": 641,
+          "bottom_right_y": 711,
+          "content": "हालांकि यह नवाचार व्यावहारिक स्तर पर प्रभावी प्रतीत होता है, परंतु संरचना के भौतिक जीवन, भारधारण क्षमता, भंडारण जनित गुणवत्ता, पोषणीय परिवर्तन, आर्थिक लाभ और मौसम रोधी दक्षता के विस्तृत परीक्षण हेतु वैज्ञानिक पुष्टीकरण की आवश्यकता है। इस मॉडल का आर्थिक लाभ आकलन और टिकाऊ जीवन परीक्षण किया जाना आवश्यक है, ताकि इस नवाचार को राष्ट्रीय स्तर पर तकनीकी मान्यता एवं प्रमाणित अनुशंसाएं प्राप्त हो सकें।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 712,
+          "bottom_right_x": 641,
+          "bottom_right_y": 918,
+          "content": "बाँस आधारित हवादार भंडारण संरचना ग्रामीण भंडारण विज्ञान में कम लागत और पर्यावरण अनुकूल समाधान का सशक्त उदाहरण है। स्थानीय संसाधन आधारित वैज्ञानिक डिज़ाइन के कारण यह केंद्रीय फसलों को अंकुरण, नमी और फफूंद से सुरक्षित रखता है तथा किसानों को बाजार मूल्य में सुधार आने तक उपज भंडारित कर बेहतर लाभ कमाने का अवसर देता है। यदि इसका वैज्ञानिक मूल्यांकन और मानकीकरण किया जाए, तो यह मॉडल भंडारण हानि घटाकर किसानों की आय को टिकाऊ रूप से संरक्षित करने में महत्वपूर्ण भूमिका निभा सकता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 486,
+          "top_left_y": 920,
+          "bottom_right_x": 641,
+          "bottom_right_y": 936,
+          "content": "(प्रो: विकसित कृषि संकल्प अभियान)",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "markdown": "[LOGO]\n\n# फल फूल\n\nवैज्ञानिक बागवानी की लोकप्रिय द्विमासिकी\nवर्ष: 47, अंक: 1, जनवरी-फरवरी 2026\n\n## संपादन सलाहकार समिति\n\n1. डॉ. संजय कुमार सिंह\n   अध्यक्ष\n   उपमहानिदेशक (बागवानी विज्ञान)\n   भारतीय कृषि अनुसंधान परिषद\n2. डॉ. अनुराधा अग्रवाल\n   सदस्य\n   परियोजना निदेशक (कृपाप्रति)\n   भारतीय कृषि अनुसंधान परिषद\n3. डॉ. टी दामोदरन\n   सदस्य\n   निदेशक\n   भाकअनुप-केन्द्रीय उद्योग बागवानी संस्थान, लखनऊ\n4. डॉ. जगदीश राणे\n   सदस्य\n   निदेशक\n   भाकअनुप-केन्द्रीय शुष्क बागवानी संस्थान, बीकानेर,\n   राजस्थान\n5. डॉ. मकबजे सिंह\n   सदस्य\n   विभागाध्यक्ष\n   पुष्प विज्ञान विभाग, भाकअनुप-भाकअनुप,\n   नई दिल्ली\n6. प्रो. राजेश्वर सिंह चंदेल\n   सदस्य\n   कुलपति\n   डॉ. वाई एस परमार बागवानी एवं वानिकी\n   विश्वविद्यालय, नौनी, हिमाचल प्रदेश\n7. श्री शरद पांडे\n   सदस्य\n   कृषि पत्रकार\n8. श्री कंवल सिंह चौहान\n   सदस्य\n   प्रगतिशील किसान\n9. सुश्री सुनीता अरोड़ा\n   सदस्य सचिव\n   संपादक, हिंदी संपादकीय एकक (कृपाप्रति)\n   भारतीय कृषि अनुसंधान परिषद\n\nप्रधान संपादक\nडा. अनुराधा अग्रवाल\nसंपादक\nसुनीता अरोड़ा\nसंपादन सहयोग\nगजेन्द्र\n\nप्रभारी (उत्पादन एकक)\nपुनीत भसीन\n\nप्रभारी (व्यवसाय एकक)\n\nभूपेन्द्र दत्त\n\nदूरभाष: 011-25843657\n\nE-mail: businessuniticar@gmail.com\n\nभारतीय कृषि अनुसंधान परिषद\n\nकृषि अनुसंधान भवन, पूसा गेट, नई दिल्ली-12\n\nएक प्रति: रु. 50.00 वार्षिक : रु. 250.00\n\nविशेषांक : रु. 200.00\n\nE-mail : phalphul@gmail.com\n\n## डिस्क्लेमर\n\nलेखों में व्यक्त विचारों, जानकारी, आंकड़ों आदि के लिए लेखक स्वयं उत्तरदायी हैं। उनसे भाकअनुप की सहमति आवश्यक नहीं है। पत्रिका में प्रकाशित लेखों तथा अन्य सामग्री का कॉपीराइट अधिकार भाकअनुप-प्रोफेशनल के पास सुरक्षित है। इन्हें पुनः प्रकाशित करने के लिए प्रकाशक की अनुमति अनिवार्य है। रसायनों-कीटनाशकों की डोज संबंधित संस्तुतियों का प्रयोग विशेषज्ञों से परामर्श के बाद करें। समस्त विचारों के लिए न्याय क्षेत्र दिल्ली होगा।\n\n# विषय सूची\n\nबदली बागवानी की दिशा- अनुराधा अग्रवाल\n\n![img-8.jpeg](img-8.jpeg)\n\nउद्यमिता\n\nबोनसाई उत्पादन-युवाओं के लिए उभरता व्यवसाय\n\nमीनू कुमारी, परमवीर सिंह, ललिता राणा और श्वेता कुमारी\n\n![img-9.jpeg](img-9.jpeg)\n\nकफ गार्डनिंग\n\nछत पर जैविक किचन गार्डन\n\nआर. के. सिंह, आकांक्षा सिंह, निधि प्रिया, बृज बिहारी शर्मा और\n\nअर्जुन लाल ओला\n\n![img-10.jpeg](img-10.jpeg)\n\nप्रसंस्करण\n\nगलगल छिलके से कैंडी बनाने की विधि\n\nप्रीति चौधरी और मीनाक्षी ठाकुर\n\n![img-11.jpeg](img-11.jpeg)\n\nसफलता गाथा\n\nसंकर सब्जियों और फूलों से आत्मनिर्भरता\n\nद्वारका और निशा चद्दार\n\n![img-12.jpeg](img-12.jpeg)\n\nआमदनी\n\nग्रीष्म ऋतु में गेंदा की खेती\n\nसचिता घोष, आर.के. तिवारी, भारती उपाध्याय और धीरू कुमार तिवारी\n\n![img-13.jpeg](img-13.jpeg)\n\nप्रबंधन\n\nकिन्तु फसल में कीट एवं रोगों का निदान\n\nगजेन्द्र सिंह और शिवम कुमार राजपूत\n\n![img-14.jpeg](img-14.jpeg)\n\nनया आयाम\n\nटमाटर के मूल्यसंवर्धन द्वारा रोजगार\n\nरीतू सिंह और डी. के. राणा\n\n![img-15.jpeg](img-15.jpeg)\n\nरोकथाम\n\nसेब में डीमेटोफोरा जड़ सड़न का प्रबंधन\n\nदीपिका शर्मा, सतीश कुमार शर्मा और शालिनी वर्मा\n\n![img-16.jpeg](img-16.jpeg)\n\nउपयोगी\n\nभिर्च फसल में नीमास्व द्वारा ब्लैक एफिड्स का नियंत्रण\n\nअंजलि कुमारी झा, आलोक कुमार, प्रिंस कुमार और अभिषेक कुमार\n\n![img-17.jpeg](img-17.jpeg)\n\nतकनीक\n\nजड़ वाली सब्जियों का शुद्ध बीज उत्पादन\n\nप्रवेश कुमार, अनिल कुमार, वीरेन्द्र कुमार और विपिन\n\n![img-18.jpeg](img-18.jpeg)\n\nविधि\n\nआम के बाग में वैज्ञानिक सस्य क्रियाएं\n\nराजेश कथवाल और पूनम सैनी\n\n4\n\n12\n\n16\n\n19\n\n21\n\n24\n\n26\n\n28\n\n31",
+      "images": [
+        {
+          "id": "img-8.jpeg",
+          "top_left_x": 269,
+          "top_left_y": 160,
+          "bottom_right_x": 345,
+          "bottom_right_y": 217,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-9.jpeg",
+          "top_left_x": 269,
+          "top_left_y": 229,
+          "bottom_right_x": 345,
+          "bottom_right_y": 286,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-10.jpeg",
+          "top_left_x": 269,
+          "top_left_y": 300,
+          "bottom_right_x": 345,
+          "bottom_right_y": 357,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-11.jpeg",
+          "top_left_x": 269,
+          "top_left_y": 368,
+          "bottom_right_x": 345,
+          "bottom_right_y": 425,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-12.jpeg",
+          "top_left_x": 269,
+          "top_left_y": 438,
+          "bottom_right_x": 345,
+          "bottom_right_y": 495,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-13.jpeg",
+          "top_left_x": 269,
+          "top_left_y": 508,
+          "bottom_right_x": 345,
+          "bottom_right_y": 566,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-14.jpeg",
+          "top_left_x": 269,
+          "top_left_y": 578,
+          "bottom_right_x": 345,
+          "bottom_right_y": 635,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-15.jpeg",
+          "top_left_x": 269,
+          "top_left_y": 647,
+          "bottom_right_x": 345,
+          "bottom_right_y": 704,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-16.jpeg",
+          "top_left_x": 269,
+          "top_left_y": 717,
+          "bottom_right_x": 345,
+          "bottom_right_y": 774,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-17.jpeg",
+          "top_left_x": 269,
+          "top_left_y": 787,
+          "bottom_right_x": 345,
+          "bottom_right_y": 844,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-18.jpeg",
+          "top_left_x": 269,
+          "top_left_y": 856,
+          "bottom_right_x": 345,
+          "bottom_right_y": 913,
+          "image_base64": null,
+          "image_annotation": null
+        }
+      ],
+      "dimensions": {
+        "dpi": 87,
+        "height": 1018,
+        "width": 720
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 139,
+          "top_left_y": 67,
+          "bottom_right_x": 202,
+          "bottom_right_y": 158,
+          "content": "[LOGO]",
+          "confidence_scores": null,
+          "type": "header"
+        },
+        {
+          "top_left_x": 87,
+          "top_left_y": 160,
+          "bottom_right_x": 255,
+          "bottom_right_y": 217,
+          "content": "# फल फूल",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 83,
+          "top_left_y": 219,
+          "bottom_right_x": 259,
+          "bottom_right_y": 256,
+          "content": "वैज्ञानिक बागवानी की लोकप्रिय द्विमासिकी\nवर्ष: 47, अंक: 1, जनवरी-फरवरी 2026",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 121,
+          "top_left_y": 258,
+          "bottom_right_x": 222,
+          "bottom_right_y": 272,
+          "content": "## संपादन सलाहकार समिति",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 83,
+          "top_left_y": 273,
+          "bottom_right_x": 260,
+          "bottom_right_y": 603,
+          "content": "1. डॉ. संजय कुमार सिंह\n   अध्यक्ष\n   उपमहानिदेशक (बागवानी विज्ञान)\n   भारतीय कृषि अनुसंधान परिषद\n2. डॉ. अनुराधा अग्रवाल\n   सदस्य\n   परियोजना निदेशक (कृपाप्रति)\n   भारतीय कृषि अनुसंधान परिषद\n3. डॉ. टी दामोदरन\n   सदस्य\n   निदेशक\n   भाकअनुप-केन्द्रीय उद्योग बागवानी संस्थान, लखनऊ\n4. डॉ. जगदीश राणे\n   सदस्य\n   निदेशक\n   भाकअनुप-केन्द्रीय शुष्क बागवानी संस्थान, बीकानेर,\n   राजस्थान\n5. डॉ. मकबजे सिंह\n   सदस्य\n   विभागाध्यक्ष\n   पुष्प विज्ञान विभाग, भाकअनुप-भाकअनुप,\n   नई दिल्ली\n6. प्रो. राजेश्वर सिंह चंदेल\n   सदस्य\n   कुलपति\n   डॉ. वाई एस परमार बागवानी एवं वानिकी\n   विश्वविद्यालय, नौनी, हिमाचल प्रदेश\n7. श्री शरद पांडे\n   सदस्य\n   कृषि पत्रकार\n8. श्री कंवल सिंह चौहान\n   सदस्य\n   प्रगतिशील किसान\n9. सुश्री सुनीता अरोड़ा\n   सदस्य सचिव\n   संपादक, हिंदी संपादकीय एकक (कृपाप्रति)\n   भारतीय कृषि अनुसंधान परिषद",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 130,
+          "top_left_y": 607,
+          "bottom_right_x": 214,
+          "bottom_right_y": 696,
+          "content": "प्रधान संपादक\nडा. अनुराधा अग्रवाल\nसंपादक\nसुनीता अरोड़ा\nसंपादन सहयोग\nगजेन्द्र",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 126,
+          "top_left_y": 701,
+          "bottom_right_x": 215,
+          "bottom_right_y": 729,
+          "content": "प्रभारी (उत्पादन एकक)\nपुनीत भसीन",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 126,
+          "top_left_y": 733,
+          "bottom_right_x": 217,
+          "bottom_right_y": 746,
+          "content": "प्रभारी (व्यवसाय एकक)",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 151,
+          "top_left_y": 748,
+          "bottom_right_x": 193,
+          "bottom_right_y": 761,
+          "content": "भूपेन्द्र दत्त",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 126,
+          "top_left_y": 762,
+          "bottom_right_x": 217,
+          "bottom_right_y": 775,
+          "content": "दूरभाष: 011-25843657",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 98,
+          "top_left_y": 775,
+          "bottom_right_x": 244,
+          "bottom_right_y": 788,
+          "content": "E-mail: businessuniticar@gmail.com",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 115,
+          "top_left_y": 788,
+          "bottom_right_x": 227,
+          "bottom_right_y": 801,
+          "content": "भारतीय कृषि अनुसंधान परिषद",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 86,
+          "top_left_y": 802,
+          "bottom_right_x": 257,
+          "bottom_right_y": 816,
+          "content": "कृषि अनुसंधान भवन, पूसा गेट, नई दिल्ली-12",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 95,
+          "top_left_y": 816,
+          "bottom_right_x": 247,
+          "bottom_right_y": 829,
+          "content": "एक प्रति: रु. 50.00 वार्षिक : रु. 250.00",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 130,
+          "top_left_y": 831,
+          "bottom_right_x": 213,
+          "bottom_right_y": 845,
+          "content": "विशेषांक : रु. 200.00",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 110,
+          "top_left_y": 848,
+          "bottom_right_x": 234,
+          "bottom_right_y": 862,
+          "content": "E-mail : phalphul@gmail.com",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 148,
+          "top_left_y": 869,
+          "bottom_right_x": 192,
+          "bottom_right_y": 882,
+          "content": "## डिस्क्लेमर",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 78,
+          "top_left_y": 882,
+          "bottom_right_x": 262,
+          "bottom_right_y": 953,
+          "content": "लेखों में व्यक्त विचारों, जानकारी, आंकड़ों आदि के लिए लेखक स्वयं उत्तरदायी हैं। उनसे भाकअनुप की सहमति आवश्यक नहीं है। पत्रिका में प्रकाशित लेखों तथा अन्य सामग्री का कॉपीराइट अधिकार भाकअनुप-प्रोफेशनल के पास सुरक्षित है। इन्हें पुनः प्रकाशित करने के लिए प्रकाशक की अनुमति अनिवार्य है। रसायनों-कीटनाशकों की डोज संबंधित संस्तुतियों का प्रयोग विशेषज्ञों से परामर्श के बाद करें। समस्त विचारों के लिए न्याय क्षेत्र दिल्ली होगा।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 390,
+          "top_left_y": 65,
+          "bottom_right_x": 515,
+          "bottom_right_y": 105,
+          "content": "# विषय सूची",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 113,
+          "bottom_right_x": 515,
+          "bottom_right_y": 128,
+          "content": "बदली बागवानी की दिशा- अनुराधा अग्रवाल",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 160,
+          "bottom_right_x": 345,
+          "bottom_right_y": 217,
+          "content": "![img-8.jpeg](img-8.jpeg)",
+          "image_id": "img-16.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 173,
+          "bottom_right_x": 375,
+          "bottom_right_y": 186,
+          "content": "उद्यमिता",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 189,
+          "bottom_right_x": 541,
+          "bottom_right_y": 202,
+          "content": "बोनसाई उत्पादन-युवाओं के लिए उभरता व्यवसाय",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 202,
+          "bottom_right_x": 560,
+          "bottom_right_y": 216,
+          "content": "मीनू कुमारी, परमवीर सिंह, ललिता राणा और श्वेता कुमारी",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 229,
+          "bottom_right_x": 345,
+          "bottom_right_y": 286,
+          "content": "![img-9.jpeg](img-9.jpeg)",
+          "image_id": "img-17.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 228,
+          "bottom_right_x": 394,
+          "bottom_right_y": 242,
+          "content": "कफ गार्डनिंग",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 243,
+          "bottom_right_x": 460,
+          "bottom_right_y": 257,
+          "content": "छत पर जैविक किचन गार्डन",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 257,
+          "bottom_right_x": 582,
+          "bottom_right_y": 271,
+          "content": "आर. के. सिंह, आकांक्षा सिंह, निधि प्रिया, बृज बिहारी शर्मा और",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 271,
+          "bottom_right_x": 411,
+          "bottom_right_y": 285,
+          "content": "अर्जुन लाल ओला",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 300,
+          "bottom_right_x": 345,
+          "bottom_right_y": 357,
+          "content": "![img-10.jpeg](img-10.jpeg)",
+          "image_id": "img-18.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 313,
+          "bottom_right_x": 381,
+          "bottom_right_y": 326,
+          "content": "प्रसंस्करण",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 326,
+          "bottom_right_x": 502,
+          "bottom_right_y": 340,
+          "content": "गलगल छिलके से कैंडी बनाने की विधि",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 340,
+          "bottom_right_x": 463,
+          "bottom_right_y": 355,
+          "content": "प्रीति चौधरी और मीनाक्षी ठाकुर",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 368,
+          "bottom_right_x": 345,
+          "bottom_right_y": 425,
+          "content": "![img-11.jpeg](img-11.jpeg)",
+          "image_id": "img-11.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 382,
+          "bottom_right_x": 397,
+          "bottom_right_y": 395,
+          "content": "सफलता गाथा",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 396,
+          "bottom_right_x": 510,
+          "bottom_right_y": 411,
+          "content": "संकर सब्जियों और फूलों से आत्मनिर्भरता",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 411,
+          "bottom_right_x": 433,
+          "bottom_right_y": 424,
+          "content": "द्वारका और निशा चद्दार",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 438,
+          "bottom_right_x": 345,
+          "bottom_right_y": 495,
+          "content": "![img-12.jpeg](img-12.jpeg)",
+          "image_id": "img-12.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 451,
+          "bottom_right_x": 375,
+          "bottom_right_y": 465,
+          "content": "आमदनी",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 466,
+          "bottom_right_x": 453,
+          "bottom_right_y": 480,
+          "content": "ग्रीष्म ऋतु में गेंदा की खेती",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 480,
+          "bottom_right_x": 600,
+          "bottom_right_y": 494,
+          "content": "सचिता घोष, आर.के. तिवारी, भारती उपाध्याय और धीरू कुमार तिवारी",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 508,
+          "bottom_right_x": 345,
+          "bottom_right_y": 566,
+          "content": "![img-13.jpeg](img-13.jpeg)",
+          "image_id": "img-13.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 522,
+          "bottom_right_x": 370,
+          "bottom_right_y": 535,
+          "content": "प्रबंधन",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 535,
+          "bottom_right_x": 507,
+          "bottom_right_y": 549,
+          "content": "किन्तु फसल में कीट एवं रोगों का निदान",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 549,
+          "bottom_right_x": 483,
+          "bottom_right_y": 564,
+          "content": "गजेन्द्र सिंह और शिवम कुमार राजपूत",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 578,
+          "bottom_right_x": 345,
+          "bottom_right_y": 635,
+          "content": "![img-14.jpeg](img-14.jpeg)",
+          "image_id": "img-14.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 591,
+          "bottom_right_x": 388,
+          "bottom_right_y": 604,
+          "content": "नया आयाम",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 605,
+          "bottom_right_x": 484,
+          "bottom_right_y": 620,
+          "content": "टमाटर के मूल्यसंवर्धन द्वारा रोजगार",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 620,
+          "bottom_right_x": 448,
+          "bottom_right_y": 634,
+          "content": "रीतू सिंह और डी. के. राणा",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 647,
+          "bottom_right_x": 345,
+          "bottom_right_y": 704,
+          "content": "![img-15.jpeg](img-15.jpeg)",
+          "image_id": "img-15.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 661,
+          "bottom_right_x": 375,
+          "bottom_right_y": 675,
+          "content": "रोकथाम",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 676,
+          "bottom_right_x": 505,
+          "bottom_right_y": 690,
+          "content": "सेब में डीमेटोफोरा जड़ सड़न का प्रबंधन",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 690,
+          "bottom_right_x": 533,
+          "bottom_right_y": 704,
+          "content": "दीपिका शर्मा, सतीश कुमार शर्मा और शालिनी वर्मा",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 717,
+          "bottom_right_x": 345,
+          "bottom_right_y": 774,
+          "content": "![img-16.jpeg](img-16.jpeg)",
+          "image_id": "img-16.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 731,
+          "bottom_right_x": 374,
+          "bottom_right_y": 744,
+          "content": "उपयोगी",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 745,
+          "bottom_right_x": 561,
+          "bottom_right_y": 759,
+          "content": "भिर्च फसल में नीमास्व द्वारा ब्लैक एफिड्स का नियंत्रण",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 759,
+          "bottom_right_x": 593,
+          "bottom_right_y": 773,
+          "content": "अंजलि कुमारी झा, आलोक कुमार, प्रिंस कुमार और अभिषेक कुमार",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 787,
+          "bottom_right_x": 345,
+          "bottom_right_y": 844,
+          "content": "![img-17.jpeg](img-17.jpeg)",
+          "image_id": "img-17.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 800,
+          "bottom_right_x": 375,
+          "bottom_right_y": 813,
+          "content": "तकनीक",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 814,
+          "bottom_right_x": 510,
+          "bottom_right_y": 828,
+          "content": "जड़ वाली सब्जियों का शुद्ध बीज उत्पादन",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 828,
+          "bottom_right_x": 540,
+          "bottom_right_y": 843,
+          "content": "प्रवेश कुमार, अनिल कुमार, वीरेन्द्र कुमार और विपिन",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 856,
+          "bottom_right_x": 345,
+          "bottom_right_y": 913,
+          "content": "![img-18.jpeg](img-18.jpeg)",
+          "image_id": "img-18.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 869,
+          "bottom_right_x": 365,
+          "bottom_right_y": 882,
+          "content": "विधि",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 882,
+          "bottom_right_x": 497,
+          "bottom_right_y": 897,
+          "content": "आम के बाग में वैज्ञानिक सस्य क्रियाएं",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 345,
+          "top_left_y": 897,
+          "bottom_right_x": 460,
+          "bottom_right_y": 911,
+          "content": "राजेश कथवाल और पूनम सैनी",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 615,
+          "top_left_y": 160,
+          "bottom_right_x": 625,
+          "bottom_right_y": 168,
+          "content": "4",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 615,
+          "top_left_y": 296,
+          "bottom_right_x": 625,
+          "bottom_right_y": 306,
+          "content": "12",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 615,
+          "top_left_y": 436,
+          "bottom_right_x": 625,
+          "bottom_right_y": 446,
+          "content": "16",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 615,
+          "top_left_y": 506,
+          "bottom_right_x": 625,
+          "bottom_right_y": 517,
+          "content": "19",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 615,
+          "top_left_y": 576,
+          "bottom_right_x": 625,
+          "bottom_right_y": 586,
+          "content": "21",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 615,
+          "top_left_y": 646,
+          "bottom_right_x": 625,
+          "bottom_right_y": 656,
+          "content": "24",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 615,
+          "top_left_y": 716,
+          "bottom_right_x": 625,
+          "bottom_right_y": 727,
+          "content": "26",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 615,
+          "top_left_y": 785,
+          "bottom_right_x": 625,
+          "bottom_right_y": 795,
+          "content": "28",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 615,
+          "top_left_y": 854,
+          "bottom_right_x": 625,
+          "bottom_right_y": 864,
+          "content": "31",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "markdown": "# विषय सूची\n\n![img-19.jpeg](img-19.jpeg)\n\nविकल्प\nअकौआ की खेती से बढ़ाएं आय\nएम.एस. परमार, प्रीति कौर सचदेवा और विकास सिंह\n\n33\n\n![img-20.jpeg](img-20.jpeg)\n\nप्रणाली\nशहतूत उत्पादन की उन्नत विधि\nशालिनी सिंह और विभू पाण्डेय\n\n36\n\n![img-21.jpeg](img-21.jpeg)\n\nप्रयोग\nकोटरोधी नेट हाउस में लिलियम की संरक्षित खेती\nशुभम राय, भानु प्रताप, संकेत मोर्चा, अनामिका और शान्ता एम.बनिमुट्टी\n\n39\n\n![img-22.jpeg](img-22.jpeg)\n\nजानकारी\nजनवरी-फरवरी माह के बागवानी कार्य\nहरे कृष्ण, अरविंद कुमार सिंह, शुभम कुमार तिवारी और\nअनूप प्रताप सिंह\n\n42\n\n![img-23.jpeg](img-23.jpeg)\n\nनवाचार\nप्याज एवं लहसुन के लिए बाँस आधारित हवादार भंडारण कक्ष\n\nआवरण-II\n\n![img-24.jpeg](img-24.jpeg)\n\nसार-समाचार\n- हिमालयी क्षेत्रों में हरियाली के लिए गंभीर संकट बनती लैंटाना\n- बिना मिट्टी-पानी के पौधे उगाने की नई तकनीक\n\nआवरण-III",
+      "images": [
+        {
+          "id": "img-19.jpeg",
+          "top_left_x": 279,
+          "top_left_y": 99,
+          "bottom_right_x": 355,
+          "bottom_right_y": 156,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-20.jpeg",
+          "top_left_x": 279,
+          "top_left_y": 169,
+          "bottom_right_x": 355,
+          "bottom_right_y": 226,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-21.jpeg",
+          "top_left_x": 279,
+          "top_left_y": 237,
+          "bottom_right_x": 355,
+          "bottom_right_y": 296,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-22.jpeg",
+          "top_left_x": 279,
+          "top_left_y": 307,
+          "bottom_right_x": 355,
+          "bottom_right_y": 364,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-23.jpeg",
+          "top_left_x": 279,
+          "top_left_y": 377,
+          "bottom_right_x": 355,
+          "bottom_right_y": 434,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-24.jpeg",
+          "top_left_x": 279,
+          "top_left_y": 450,
+          "bottom_right_x": 355,
+          "bottom_right_y": 507,
+          "image_base64": null,
+          "image_annotation": null
+        }
+      ],
+      "dimensions": {
+        "dpi": 87,
+        "height": 1018,
+        "width": 720
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 106,
+          "top_left_y": 392,
+          "bottom_right_x": 192,
+          "bottom_right_y": 675,
+          "content": "# विषय सूची",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 279,
+          "top_left_y": 99,
+          "bottom_right_x": 355,
+          "bottom_right_y": 156,
+          "content": "![img-19.jpeg](img-19.jpeg)",
+          "image_id": "img-19.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 354,
+          "top_left_y": 112,
+          "bottom_right_x": 551,
+          "bottom_right_y": 156,
+          "content": "विकल्प\nअकौआ की खेती से बढ़ाएं आय\nएम.एस. परमार, प्रीति कौर सचदेवा और विकास सिंह",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 622,
+          "top_left_y": 98,
+          "bottom_right_x": 638,
+          "bottom_right_y": 109,
+          "content": "33",
+          "confidence_scores": null,
+          "type": "header"
+        },
+        {
+          "top_left_x": 279,
+          "top_left_y": 169,
+          "bottom_right_x": 355,
+          "bottom_right_y": 226,
+          "content": "![img-20.jpeg](img-20.jpeg)",
+          "image_id": "img-20.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 354,
+          "top_left_y": 182,
+          "bottom_right_x": 479,
+          "bottom_right_y": 226,
+          "content": "प्रणाली\nशहतूत उत्पादन की उन्नत विधि\nशालिनी सिंह और विभू पाण्डेय",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 622,
+          "top_left_y": 167,
+          "bottom_right_x": 638,
+          "bottom_right_y": 179,
+          "content": "36",
+          "confidence_scores": null,
+          "type": "header"
+        },
+        {
+          "top_left_x": 279,
+          "top_left_y": 237,
+          "bottom_right_x": 355,
+          "bottom_right_y": 296,
+          "content": "![img-21.jpeg](img-21.jpeg)",
+          "image_id": "img-21.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 354,
+          "top_left_y": 252,
+          "bottom_right_x": 614,
+          "bottom_right_y": 296,
+          "content": "प्रयोग\nकोटरोधी नेट हाउस में लिलियम की संरक्षित खेती\nशुभम राय, भानु प्रताप, संकेत मोर्चा, अनामिका और शान्ता एम.बनिमुट्टी",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 622,
+          "top_left_y": 237,
+          "bottom_right_x": 638,
+          "bottom_right_y": 250,
+          "content": "39",
+          "confidence_scores": null,
+          "type": "header"
+        },
+        {
+          "top_left_x": 279,
+          "top_left_y": 307,
+          "bottom_right_x": 355,
+          "bottom_right_y": 364,
+          "content": "![img-22.jpeg](img-22.jpeg)",
+          "image_id": "img-22.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 354,
+          "top_left_y": 306,
+          "bottom_right_x": 561,
+          "bottom_right_y": 365,
+          "content": "जानकारी\nजनवरी-फरवरी माह के बागवानी कार्य\nहरे कृष्ण, अरविंद कुमार सिंह, शुभम कुमार तिवारी और\nअनूप प्रताप सिंह",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 622,
+          "top_left_y": 307,
+          "bottom_right_x": 638,
+          "bottom_right_y": 319,
+          "content": "42",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 279,
+          "top_left_y": 377,
+          "bottom_right_x": 355,
+          "bottom_right_y": 434,
+          "content": "![img-23.jpeg](img-23.jpeg)",
+          "image_id": "img-23.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 354,
+          "top_left_y": 388,
+          "bottom_right_x": 604,
+          "bottom_right_y": 421,
+          "content": "नवाचार\nप्याज एवं लहसुन के लिए बाँस आधारित हवादार भंडारण कक्ष",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 590,
+          "top_left_y": 374,
+          "bottom_right_x": 638,
+          "bottom_right_y": 387,
+          "content": "आवरण-II",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 279,
+          "top_left_y": 450,
+          "bottom_right_x": 355,
+          "bottom_right_y": 507,
+          "content": "![img-24.jpeg](img-24.jpeg)",
+          "image_id": "img-24.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 354,
+          "top_left_y": 462,
+          "bottom_right_x": 610,
+          "bottom_right_y": 508,
+          "content": "सार-समाचार\n- हिमालयी क्षेत्रों में हरियाली के लिए गंभीर संकट बनती लैंटाना\n- बिना मिट्टी-पानी के पौधे उगाने की नई तकनीक",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 587,
+          "top_left_y": 446,
+          "bottom_right_x": 638,
+          "bottom_right_y": 461,
+          "content": "आवरण-III",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "markdown": "![img-25.jpeg](img-25.jpeg)\n\nनिदेशक की कलम से\n\n# बदली बागवानी की दिशा\n\n2025 का वर्ष भारतीय कृषि के लिए एक परिवर्तनकारी वर्ष के रूप में उभरा है, जहां बागवानी ने न केवल पारंपरिक कृषि की सीमाओं को पीछे छोड़ा है, बल्कि आज यह रोजगार, आय और अर्थव्यवस्था के नये स्तंभ के रूप में स्थापित हो रही है। फल, सब्जियां, फूल और मसाले ने केवल घरेलू उपभोक्ता की मांग को पूरा कर रहे हैं बल्कि निर्यात में भी महत्वपूर्ण भूमिका निभा रहे हैं।\n\nभारत में बागवानी क्षेत्र में पिछले वर्ष उल्लेखनीय प्रगति दर्ज की गई है। इस रिकॉर्ड वृद्धि के पीछे केवल प्राकृतिक कारण ही नहीं, बल्कि सरकारी नीति, अनुसंधान और किसानों की मेहनत का भी बहुत बड़ा योगदान है। पिछले वर्ष बागवानी क्षेत्र ने न केवल उत्पादन के नये रिकॉर्ड बनाए बल्कि यह स्पष्ट कर दिया कि यह कृषि की एक मजबूत और स्थिर शाखा है।\n\nबागवानी फसल उत्पादन में बीते साल विस्तार देखने को मिला। सरकार द्वारा जारी तीसरे एडवांस्ड आंकड़ों के अनुसार फलों व सब्जियों की कुल उत्पादन मात्रा में वृद्धि दर्ज की गयी। इतना ही नहीं इनका रकबा बढ़कर अब 29.488 मिलियन हैक्टर हो गया है, जिससे कुल बागवानी उत्पादन बढ़कर 369 मिलियन टन तक पहुंच गया है। इनमें केला, आम, पपीता, कटहल, तरबूज और अमरूद का विशेष योगदान रहा है। सब्जी फसलों की वृद्धि भी 4 प्रतिशत से अधिक देखने को मिली है और अब यह बढ़कर 215.68 मिलियन टन तक जा पहुंची है। इसमें आलू और प्याज सहित कुछ अन्य सब्जियों की उपज में इस अवधि में उछाल देखा गया है। इसी प्रकार मसाला, औषधीय एवं संगंधीय फसलों की उपज में भी इस दौरान अधिक उत्पादन देखा गया। इससे पता चलता है कि यह क्षेत्र न केवल उत्पादन में बढ़ रहा है, बल्कि कृषि अर्थव्यवस्था में अपना महत्वपूर्ण योगदान भी बढ़ा रहा है।\n\nवर्ष 2023-24 में बागवानी फसलों का उत्पादन लगभग 354.74 मिलियन टन रहा, जो 2024-25 में बढ़कर 369.05 मिलियन टन हो गया। इस अवधि में बागवानी फसलों के अंतर्गत आने वाला क्षेत्र 29.08 मिलियन हैक्टर से बढ़कर लगभग 29.48 मिलियन हैक्टर हो गया। कुल उत्पादन वृद्धि के कारक में मुख्य रूप से फल, सब्जियां, मसाले, सुगंधित और औषधीय पौधे शामिल हैं।\n\nबागवानी उत्पादन की वृद्धि में फल और सब्जियों का महत्वपूर्ण योगदान रहा है। फल उत्पादन में लगभग 5.12 प्रतिशत की बढ़ोतरी दर्ज की गई है, जबकि सब्जी उत्पादन भी लगभग 4.09 प्रतिशत तक बढ़ा है। प्याज का उत्पादन पिछले वर्ष 242.67 लाख टन से बढ़कर लगभग 307.89 लाख टन तक पहुंच गया जो लगभग 26.9 प्रतिशत की अप्रत्याशित वृद्धि दर्शाता है।\n\nकृषि वैज्ञानिकों और अनुसंधान केंद्रों द्वारा नई तकनीकों और बीजों के विकास ने उत्पादकता को बढ़ाया है। सरकार के कई समर्थन कार्यक्रम जैसे बीज सहायता, सब्सिडी और बेहतर विपणन नेटवर्क ने भी किसानों को बेहतर उत्पादन देने के लिए प्रेरित किया।\n\nफल और सब्जियों की बढ़ती पैदावार जमीन के विस्तार और बेहतर तकनीकों के उपयोग ने पिछले वर्ष की उत्पादन वृद्धि में अहम भूमिका निभाई है। भविष्य में यदि सरकार, वैज्ञानिक समुदाय और किसान मिलकर अनुसंधान, संसाधन और मार्केटिंग का सही संतुलन बनाए रखें तो बागवानी क्षेत्र न केवल आत्मनिर्भरता की दिशा में आगे बढ़ेगा, बल्कि रोजगार सृजन और आर्थिक समृद्धि में भी बड़ा योगदान देगा। इस बात में कोई दोराय नहीं है कि इस वर्ष ने बागवानी को एक स्थायी, तकनीक सक्षम और किसान मित्र क्षेत्र के रूप में स्थापित भी किया है।\n\nअनुराधा\n\n(अनुराधा अग्रवाल)\n\nजनवरी-फरवरी, 2026 | फल फूल | 3",
+      "images": [
+        {
+          "id": "img-25.jpeg",
+          "top_left_x": 102,
+          "top_left_y": 125,
+          "bottom_right_x": 179,
+          "bottom_right_y": 183,
+          "image_base64": null,
+          "image_annotation": null
+        }
+      ],
+      "dimensions": {
+        "dpi": 87,
+        "height": 1018,
+        "width": 720
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 102,
+          "top_left_y": 125,
+          "bottom_right_x": 179,
+          "bottom_right_y": 183,
+          "content": "![img-25.jpeg](img-25.jpeg)",
+          "image_id": "img-25.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 100,
+          "top_left_y": 182,
+          "bottom_right_x": 182,
+          "bottom_right_y": 197,
+          "content": "निदेशक की कलम से",
+          "confidence_scores": null,
+          "type": "header"
+        },
+        {
+          "top_left_x": 251,
+          "top_left_y": 221,
+          "bottom_right_x": 467,
+          "bottom_right_y": 251,
+          "content": "# बदली बागवानी की दिशा",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 144,
+          "top_left_y": 272,
+          "bottom_right_x": 576,
+          "bottom_right_y": 335,
+          "content": "2025 का वर्ष भारतीय कृषि के लिए एक परिवर्तनकारी वर्ष के रूप में उभरा है, जहां बागवानी ने न केवल पारंपरिक कृषि की सीमाओं को पीछे छोड़ा है, बल्कि आज यह रोजगार, आय और अर्थव्यवस्था के नये स्तंभ के रूप में स्थापित हो रही है। फल, सब्जियां, फूल और मसाले ने केवल घरेलू उपभोक्ता की मांग को पूरा कर रहे हैं बल्कि निर्यात में भी महत्वपूर्ण भूमिका निभा रहे हैं।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 144,
+          "top_left_y": 337,
+          "bottom_right_x": 576,
+          "bottom_right_y": 404,
+          "content": "भारत में बागवानी क्षेत्र में पिछले वर्ष उल्लेखनीय प्रगति दर्ज की गई है। इस रिकॉर्ड वृद्धि के पीछे केवल प्राकृतिक कारण ही नहीं, बल्कि सरकारी नीति, अनुसंधान और किसानों की मेहनत का भी बहुत बड़ा योगदान है। पिछले वर्ष बागवानी क्षेत्र ने न केवल उत्पादन के नये रिकॉर्ड बनाए बल्कि यह स्पष्ट कर दिया कि यह कृषि की एक मजबूत और स्थिर शाखा है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 144,
+          "top_left_y": 404,
+          "bottom_right_x": 576,
+          "bottom_right_y": 545,
+          "content": "बागवानी फसल उत्पादन में बीते साल विस्तार देखने को मिला। सरकार द्वारा जारी तीसरे एडवांस्ड आंकड़ों के अनुसार फलों व सब्जियों की कुल उत्पादन मात्रा में वृद्धि दर्ज की गयी। इतना ही नहीं इनका रकबा बढ़कर अब 29.488 मिलियन हैक्टर हो गया है, जिससे कुल बागवानी उत्पादन बढ़कर 369 मिलियन टन तक पहुंच गया है। इनमें केला, आम, पपीता, कटहल, तरबूज और अमरूद का विशेष योगदान रहा है। सब्जी फसलों की वृद्धि भी 4 प्रतिशत से अधिक देखने को मिली है और अब यह बढ़कर 215.68 मिलियन टन तक जा पहुंची है। इसमें आलू और प्याज सहित कुछ अन्य सब्जियों की उपज में इस अवधि में उछाल देखा गया है। इसी प्रकार मसाला, औषधीय एवं संगंधीय फसलों की उपज में भी इस दौरान अधिक उत्पादन देखा गया। इससे पता चलता है कि यह क्षेत्र न केवल उत्पादन में बढ़ रहा है, बल्कि कृषि अर्थव्यवस्था में अपना महत्वपूर्ण योगदान भी बढ़ा रहा है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 144,
+          "top_left_y": 548,
+          "bottom_right_x": 576,
+          "bottom_right_y": 611,
+          "content": "वर्ष 2023-24 में बागवानी फसलों का उत्पादन लगभग 354.74 मिलियन टन रहा, जो 2024-25 में बढ़कर 369.05 मिलियन टन हो गया। इस अवधि में बागवानी फसलों के अंतर्गत आने वाला क्षेत्र 29.08 मिलियन हैक्टर से बढ़कर लगभग 29.48 मिलियन हैक्टर हो गया। कुल उत्पादन वृद्धि के कारक में मुख्य रूप से फल, सब्जियां, मसाले, सुगंधित और औषधीय पौधे शामिल हैं।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 144,
+          "top_left_y": 614,
+          "bottom_right_x": 576,
+          "bottom_right_y": 678,
+          "content": "बागवानी उत्पादन की वृद्धि में फल और सब्जियों का महत्वपूर्ण योगदान रहा है। फल उत्पादन में लगभग 5.12 प्रतिशत की बढ़ोतरी दर्ज की गई है, जबकि सब्जी उत्पादन भी लगभग 4.09 प्रतिशत तक बढ़ा है। प्याज का उत्पादन पिछले वर्ष 242.67 लाख टन से बढ़कर लगभग 307.89 लाख टन तक पहुंच गया जो लगभग 26.9 प्रतिशत की अप्रत्याशित वृद्धि दर्शाता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 144,
+          "top_left_y": 680,
+          "bottom_right_x": 576,
+          "bottom_right_y": 728,
+          "content": "कृषि वैज्ञानिकों और अनुसंधान केंद्रों द्वारा नई तकनीकों और बीजों के विकास ने उत्पादकता को बढ़ाया है। सरकार के कई समर्थन कार्यक्रम जैसे बीज सहायता, सब्सिडी और बेहतर विपणन नेटवर्क ने भी किसानों को बेहतर उत्पादन देने के लिए प्रेरित किया।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 144,
+          "top_left_y": 731,
+          "bottom_right_x": 576,
+          "bottom_right_y": 808,
+          "content": "फल और सब्जियों की बढ़ती पैदावार जमीन के विस्तार और बेहतर तकनीकों के उपयोग ने पिछले वर्ष की उत्पादन वृद्धि में अहम भूमिका निभाई है। भविष्य में यदि सरकार, वैज्ञानिक समुदाय और किसान मिलकर अनुसंधान, संसाधन और मार्केटिंग का सही संतुलन बनाए रखें तो बागवानी क्षेत्र न केवल आत्मनिर्भरता की दिशा में आगे बढ़ेगा, बल्कि रोजगार सृजन और आर्थिक समृद्धि में भी बड़ा योगदान देगा। इस बात में कोई दोराय नहीं है कि इस वर्ष ने बागवानी को एक स्थायी, तकनीक सक्षम और किसान मित्र क्षेत्र के रूप में स्थापित भी किया है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 492,
+          "top_left_y": 823,
+          "bottom_right_x": 576,
+          "bottom_right_y": 849,
+          "content": "अनुराधा",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 487,
+          "top_left_y": 865,
+          "bottom_right_x": 587,
+          "bottom_right_y": 882,
+          "content": "(अनुराधा अग्रवाल)",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 250,
+          "top_left_y": 923,
+          "bottom_right_x": 449,
+          "bottom_right_y": 942,
+          "content": "जनवरी-फरवरी, 2026 | फल फूल | 3",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "markdown": "![img-26.jpeg](img-26.jpeg)\n\n# बोनसाई उत्पादन-युवाओं के लिए उभरता व्यवसाय\n\nमीनू कुमारी, परमवीर सिंह, ललिता राणा और श्वेता कुमारी\n\nबोनसाई मुख्यतः काष्ठीय पौधों को उनके वास्तविक रूप से छोटा बनाकर छोटे गमलों या पात्रों में उगाने की कला है। इस शैली का उद्गम लगभग 2000 वर्ष पूर्व चीन में हुआ था, लेकिन इसकी वैश्विक लोकप्रियता जापान में बढ़ी। शब्द “बोनसाई” जापानी भाषा से लिया गया है, जिसमें “बोन” का अर्थ है ट्रे और “साई” का अर्थ है पौधा। शाब्दिक अर्थ है “पौधा ट्रे में उगाया गया।” बोनसाई तैयार करते समय वृक्षों को विशेष तकनीकों द्वारा छोटा आकार दिया जाता है, ताकि पौधे के सभी गुण सुरक्षित रहें। यह प्रकृति की सुंदरता का संक्षिप्त रूप प्रस्तुत करता है और बड़े वृक्षों व पौधों को सीमित जगह में प्राकृतिक रूप में प्रदर्शित करने का अवसर देता है। वर्तमान समय में बोनसाई रखने का प्रचलन तीव्र गति से बढ़ रहा है। छोटे-छोटे गमलों में तैयार बोनसाई विशेष रूप से लोकप्रिय हो रहे हैं, क्योंकि ये प्राकृतिक दृश्य को सजीव रूप में प्रस्तुत करते हैं। बोनसाई के माध्यम से बड़े वृक्षों और पौधों को उनके प्राकृतिक स्वरूप में सीमित स्थान में उगाया जा सकता है, जो शहरी परिवेश के लिए अत्यंत उपयुक्त है। बोनसाई उत्पादन एक लाभकारी और रचनात्मक व्यवसाय है, जो युवाओं के लिए रोजगार सृजन, कला कौशल विकास और प्रकृति के प्रति संवेदनशीलता बढ़ाने का अवसर प्रदान करता है।\n\nबोनसाई अपने विशिष्ट रूप और जटिल संरचना के कारण संघर्ष, संतुलन और सौंदर्य का भाव प्रकट करता है तथा एक अनूठी कलात्मक अभिव्यक्ति प्रस्तुत करता है। समूह में लगाए गए बोनसाई प्राकृतिक वातावरण का आभास करवाते हैं।\n\nबोनसाई पौधों को तैयार करना अपने आप में धैर्य, अनुशासन और कलात्मक कौशल का प्रतीक है। इसके निर्माण में तकनीकी ज्ञान और अनुभव की आवश्यकता होती है, साथ ही यह पर्यावरण संतुलन बनाए रखने में भी महत्वपूर्ण भूमिका निभाता है।\n\nबोनसाई कला को समृद्ध करने वाले व्यक्ति साबुरो काटो के योगदान के सम्मान\n\nउद्यान पुष्प एवं भूदृश्य विभाग, बिहार कृषि महाविद्यालय, सबौर, राजेंद्र प्रसाद केंद्रीय कृषि विश्वविद्यालय, बिरसा कृषि विश्वविद्यालय, कांके\n\n![img-27.jpeg](img-27.jpeg)\n\nखुली जड़ वाला बोनसाई\n\nमें प्रतिवर्ष 14 मई को विश्व बोनसाई दिवस मनाया जाता है। जापानी संस्कृति में बोनसाई सद्भाव और संतुलन का प्रतीक माना जाता है, जिसमें छोटे और नियंत्रित वातावरण में प्रकृति की अद्भुत सुंदरता को साकार किया जाता है।\n\nअंतर्राष्ट्रीय स्तर पर बोनसाई को शांति, सम्मान और मित्रता के प्रतीक के रूप में स्वीकार किया गया है, इसलिए इसे कई देशों में उपहार स्वरूप भी प्रदान किया जाता है। वर्तमान परिप्रेक्ष्य में बोनसाई निर्माण न केवल एक विशिष्ट और कौशलपूर्ण कला है, बल्कि यह रोजगार सृजन का एक प्रभावी और आकर्षक माध्यम भी बनता जा रहा है। वास्तव में, बोनसाई विज्ञान, कला, कल्पना और प्रकृति का संतुलित एवं विकासशील संगम है।\n\nजनवरी-फरवरी, 2026 | फल फूल | 4",
+      "images": [
+        {
+          "id": "img-26.jpeg",
+          "top_left_x": 83,
+          "top_left_y": 81,
+          "bottom_right_x": 637,
+          "bottom_right_y": 354,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-27.jpeg",
+          "top_left_x": 271,
+          "top_left_y": 633,
+          "bottom_right_x": 445,
+          "bottom_right_y": 887,
+          "image_base64": null,
+          "image_annotation": null
+        }
+      ],
+      "dimensions": {
+        "dpi": 87,
+        "height": 1018,
+        "width": 720
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 83,
+          "top_left_y": 81,
+          "bottom_right_x": 637,
+          "bottom_right_y": 354,
+          "content": "![img-26.jpeg](img-26.jpeg)",
+          "image_id": "img-26.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 83,
+          "top_left_y": 362,
+          "bottom_right_x": 637,
+          "bottom_right_y": 406,
+          "content": "# बोनसाई उत्पादन-युवाओं के लिए उभरता व्यवसाय",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 203,
+          "top_left_y": 406,
+          "bottom_right_x": 515,
+          "bottom_right_y": 426,
+          "content": "मीनू कुमारी, परमवीर सिंह, ललिता राणा और श्वेता कुमारी",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 87,
+          "top_left_y": 441,
+          "bottom_right_x": 635,
+          "bottom_right_y": 606,
+          "content": "बोनसाई मुख्यतः काष्ठीय पौधों को उनके वास्तविक रूप से छोटा बनाकर छोटे गमलों या पात्रों में उगाने की कला है। इस शैली का उद्गम लगभग 2000 वर्ष पूर्व चीन में हुआ था, लेकिन इसकी वैश्विक लोकप्रियता जापान में बढ़ी। शब्द “बोनसाई” जापानी भाषा से लिया गया है, जिसमें “बोन” का अर्थ है ट्रे और “साई” का अर्थ है पौधा। शाब्दिक अर्थ है “पौधा ट्रे में उगाया गया।” बोनसाई तैयार करते समय वृक्षों को विशेष तकनीकों द्वारा छोटा आकार दिया जाता है, ताकि पौधे के सभी गुण सुरक्षित रहें। यह प्रकृति की सुंदरता का संक्षिप्त रूप प्रस्तुत करता है और बड़े वृक्षों व पौधों को सीमित जगह में प्राकृतिक रूप में प्रदर्शित करने का अवसर देता है। वर्तमान समय में बोनसाई रखने का प्रचलन तीव्र गति से बढ़ रहा है। छोटे-छोटे गमलों में तैयार बोनसाई विशेष रूप से लोकप्रिय हो रहे हैं, क्योंकि ये प्राकृतिक दृश्य को सजीव रूप में प्रस्तुत करते हैं। बोनसाई के माध्यम से बड़े वृक्षों और पौधों को उनके प्राकृतिक स्वरूप में सीमित स्थान में उगाया जा सकता है, जो शहरी परिवेश के लिए अत्यंत उपयुक्त है। बोनसाई उत्पादन एक लाभकारी और रचनात्मक व्यवसाय है, जो युवाओं के लिए रोजगार सृजन, कला कौशल विकास और प्रकृति के प्रति संवेदनशीलता बढ़ाने का अवसर प्रदान करता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 624,
+          "bottom_right_x": 262,
+          "bottom_right_y": 730,
+          "content": "बोनसाई अपने विशिष्ट रूप और जटिल संरचना के कारण संघर्ष, संतुलन और सौंदर्य का भाव प्रकट करता है तथा एक अनूठी कलात्मक अभिव्यक्ति प्रस्तुत करता है। समूह में लगाए गए बोनसाई प्राकृतिक वातावरण का आभास करवाते हैं।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 731,
+          "bottom_right_x": 262,
+          "bottom_right_y": 829,
+          "content": "बोनसाई पौधों को तैयार करना अपने आप में धैर्य, अनुशासन और कलात्मक कौशल का प्रतीक है। इसके निर्माण में तकनीकी ज्ञान और अनुभव की आवश्यकता होती है, साथ ही यह पर्यावरण संतुलन बनाए रखने में भी महत्वपूर्ण भूमिका निभाता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 829,
+          "bottom_right_x": 262,
+          "bottom_right_y": 863,
+          "content": "बोनसाई कला को समृद्ध करने वाले व्यक्ति साबुरो काटो के योगदान के सम्मान",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 871,
+          "bottom_right_x": 262,
+          "bottom_right_y": 916,
+          "content": "उद्यान पुष्प एवं भूदृश्य विभाग, बिहार कृषि महाविद्यालय, सबौर, राजेंद्र प्रसाद केंद्रीय कृषि विश्वविद्यालय, बिरसा कृषि विश्वविद्यालय, कांके",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 271,
+          "top_left_y": 633,
+          "bottom_right_x": 445,
+          "bottom_right_y": 887,
+          "content": "![img-27.jpeg](img-27.jpeg)",
+          "image_id": "img-27.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 295,
+          "top_left_y": 890,
+          "bottom_right_x": 396,
+          "bottom_right_y": 906,
+          "content": "खुली जड़ वाला बोनसाई",
+          "confidence_scores": null,
+          "type": "caption"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 631,
+          "bottom_right_x": 641,
+          "bottom_right_y": 719,
+          "content": "में प्रतिवर्ष 14 मई को विश्व बोनसाई दिवस मनाया जाता है। जापानी संस्कृति में बोनसाई सद्भाव और संतुलन का प्रतीक माना जाता है, जिसमें छोटे और नियंत्रित वातावरण में प्रकृति की अद्भुत सुंदरता को साकार किया जाता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 720,
+          "bottom_right_x": 641,
+          "bottom_right_y": 898,
+          "content": "अंतर्राष्ट्रीय स्तर पर बोनसाई को शांति, सम्मान और मित्रता के प्रतीक के रूप में स्वीकार किया गया है, इसलिए इसे कई देशों में उपहार स्वरूप भी प्रदान किया जाता है। वर्तमान परिप्रेक्ष्य में बोनसाई निर्माण न केवल एक विशिष्ट और कौशलपूर्ण कला है, बल्कि यह रोजगार सृजन का एक प्रभावी और आकर्षक माध्यम भी बनता जा रहा है। वास्तव में, बोनसाई विज्ञान, कला, कल्पना और प्रकृति का संतुलित एवं विकासशील संगम है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 249,
+          "top_left_y": 923,
+          "bottom_right_x": 450,
+          "bottom_right_y": 942,
+          "content": "जनवरी-फरवरी, 2026 | फल फूल | 4",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "markdown": "## गमले का चयन\n\nबोनसाई के लिए गमले विभिन्न आकारों में उपयोग किए जाते हैं—आयताकार, वर्गाकार, गोलाकार, अंडाकार या षट्कोणीय।\n\n- गमले में मिट्टी कम होने पर पौधों को पर्याप्त पोषण नहीं मिलता और उनकी लंबाई व आकार में वृद्धि सीमित होती है।\n- जल निकास के लिए गमले में 3-4 छेद होना आवश्यक है।\n- गमले का रंग पौधों को सुशोभित करें, भड़कौला न हो।\n- आजकल चीनी मिट्टी के गहरे और हल्के गमले (2-15 सें.मी. गहराई, 40 सें.मी. चौड़ाई तक) भी उपयोग में हैं।\n- गर्म और आर्द्र जलवायु वाले क्षेत्रों में मिट्टी के गमले अधिक उपयुक्त हैं।\n\n### बोनसाई की शैलियाँ\n\nबोनसाई कला विभिन्न शैलियों पर आधारित होती है। इसे नर्सरी या घर के बगीचे में तैयार किया जा सकता है, जहाँ पर्याप्त धूप और छाया हो। बोनसाई संघ के अनुसार शैली का निर्धारण मुख्य तने की आकृति और एक ही पात्र में उगाए गए वृक्षों की संख्या के आधार पर किया जाता है। प्रमुख शैलियाँ इस प्रकार हैं:\n\n#### सीधा बोनसाई/चौकन शैली\n\nइस शैली के बोनसाई सामान्य और\n\n![img-28.jpeg](img-28.jpeg)\n\nआकर्षक बोनसाई\n\nसंतुलित होते हैं। इसमें मुख्य तना सीधा होता है तथा शीर्ष की ओर क्रमशः पतला होता जाता है। द्वितीयक शाखाएँ मुख्य तने से लगभग 90 डिग्री के कोण पर निकलती हैं, जबकि तृतीयक शाखाओं को विकसित नहीं होने दिया जाता। परिणामस्वरूप इस प्रकार के बोनसाई सूक्ष्म वृक्ष के समान प्रतीत होते हैं।\n\n#### तिरछा बोनसाई\n\nइस शैली में मुख्य तने को पात्र से लगभग 45 डिग्री के कोण पर झुकाया जाता है, जिससे वृक्ष झुका हुआ प्रतीत होता है। इसमें झुके हुए मुख्य तने से भूमि के समानांतर द्वितीयक शाखाओं को विकसित होने दिया जाता है।\n\n#### कैस्केड बोनसाई\n\nइस शैली में मुख्य तने को इस प्रकार झुकाया जाता है कि वृक्ष अधोमुखी दिखाई\n\n## वृक्षों का चयन\n\nबोनसाई निर्माण के लिए वृक्षों का चयन उनके उगने वाली जलवायु के अनुसार किया जाना चाहिए, जैसे उष्णकटिबंधीय या शीतोष्ण जलवायु के पौधे। चयन करते समय पत्तियों का आकार, रंग-रूप, फूलों और फलों की सुंदरता, उनके निकलने का समय तथा पुष्पण अवधि पर विशेष ध्यान देना आवश्यक है। कुछ वृक्ष ऐसे भी चयनित किए जाते हैं, जिनका स्वरूप पत्तियाँ गिरने के बाद और अधिक आकर्षक हो जाता है। सामान्यतः बोनसाई के लिए दीर्घायु वृक्षों का चयन किया जाता है। छोटे पत्तों वाले वृक्षों से तैयार बोनसाई अधिक सुंदर और संतुलित प्रतीत होते हैं। हालांकि बड़े पत्तों वाले वृक्ष, जैसे बरगद और पीपल, भी उचित तकनीकों द्वारा सफलतापूर्वक बोनसाई के रूप में विकसित किए जा सकते हैं।\n\n#### सदाबहार वृक्ष\n\nनीम, आंवला, केजुरिना, केसिया, सेमल, पंगारा, गूलर, बरगद, फाइकस प्रजातियाँ, जेड प्लांट, प्राइड ऑफ इंडिया, आम, अमरूद, जामुन, गुलमोहर, पीपल, नीबू आदि प्रमुख सदाबहार वृक्ष हैं।\n\n#### पतझड़ी वृक्ष\n\nअनार, बेर, बोगनविलिया, फर, फलदार प्लम, मेलस, नाशपाती, बर्च, मेपल, बुडेलिया, देवदार आदि पतझड़ी वृक्षों में शामिल हैं।\n\n## लिटराती शैली\n\nइस शैली में मुख्य शाखा को लगभग 60 डिग्री के कोण पर झुकाया जाता है तथा द्वितीयक शाखाओं को एक ही दिशा में विकसित होने दिया जाता है। वृक्ष की वृद्धि मुख्यतः शीर्ष भाग में रखी जाती है और नीचे की शाखाओं को काट-छाँट कर हटा दिया जाता है, जिससे वृक्ष का स्वरूप कलात्मक और आकर्षक बना रहता है।\n\nदे। तने को केवल 60 से 90 सेंटीमीटर तक बढ़ने दिया जाता है, जिससे वह पात्र की निचली सतह से भी नीचे पहुँच जाता है। यह शैली पर्वतीय क्षेत्रों में चट्टानों के किनारे लटके वृक्षों से प्रेरित होती है।\n\n#### चट्टानी बोनसाई\n\nइस शैली में गमले की मिट्टी की सतह पर पत्थर या चट्टान के टुकड़े रखे जाते हैं, जिनमें वृक्ष की जड़ें फैलती हैं। चट्टानों को जड़ों के पास इस प्रकार रखा जाता है कि वृक्ष मानो चट्टान से ही उग रहा हो। यह शैली वृक्ष की आयु और प्रबलता का प्रतीक मानी जाती है।\n\n#### राफ्ट अथवा इकाइबुकी शैली\n\nइस शैली में मुख्य तने को क्षैतिज रूप से पात्र में लगाया जाता है। इससे 2-3 स्थानों से ऊर्ध्वाधर शाखाएँ निकलती हैं, जो आगे चलकर एकल छतरी का रूप ले लेती हैं। मुख्य तने से नई जड़ें विकसित होती हैं, जो शाखाओं को पोषक तत्व प्रदान करती हैं। यह शैली प्रकृति में हवा और तूफान से क्षतिग्रस्त वृक्षों से प्रेरित होती है।\n\n#### विण्ड स्वीट शैली\n\nयह शैली लगातार तेज हवाओं से\n\nजनवरी-फरवरी, 2026 | फल-फूल | 5",
+      "images": [
+        {
+          "id": "img-28.jpeg",
+          "top_left_x": 270,
+          "top_left_y": 83,
+          "bottom_right_x": 636,
+          "bottom_right_y": 310,
+          "image_base64": null,
+          "image_annotation": null
+        }
+      ],
+      "dimensions": {
+        "dpi": 87,
+        "height": 1018,
+        "width": 720
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 126,
+          "top_left_y": 89,
+          "bottom_right_x": 217,
+          "bottom_right_y": 107,
+          "content": "## गमले का चयन",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 89,
+          "top_left_y": 112,
+          "bottom_right_x": 255,
+          "bottom_right_y": 178,
+          "content": "बोनसाई के लिए गमले विभिन्न आकारों में उपयोग किए जाते हैं—आयताकार, वर्गाकार, गोलाकार, अंडाकार या षट्कोणीय।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 89,
+          "top_left_y": 180,
+          "bottom_right_x": 255,
+          "bottom_right_y": 416,
+          "content": "- गमले में मिट्टी कम होने पर पौधों को पर्याप्त पोषण नहीं मिलता और उनकी लंबाई व आकार में वृद्धि सीमित होती है।\n- जल निकास के लिए गमले में 3-4 छेद होना आवश्यक है।\n- गमले का रंग पौधों को सुशोभित करें, भड़कौला न हो।\n- आजकल चीनी मिट्टी के गहरे और हल्के गमले (2-15 सें.मी. गहराई, 40 सें.मी. चौड़ाई तक) भी उपयोग में हैं।\n- गर्म और आर्द्र जलवायु वाले क्षेत्रों में मिट्टी के गमले अधिक उपयुक्त हैं।",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 425,
+          "bottom_right_x": 174,
+          "bottom_right_y": 441,
+          "content": "### बोनसाई की शैलियाँ",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 443,
+          "bottom_right_x": 262,
+          "bottom_right_y": 566,
+          "content": "बोनसाई कला विभिन्न शैलियों पर आधारित होती है। इसे नर्सरी या घर के बगीचे में तैयार किया जा सकता है, जहाँ पर्याप्त धूप और छाया हो। बोनसाई संघ के अनुसार शैली का निर्धारण मुख्य तने की आकृति और एक ही पात्र में उगाए गए वृक्षों की संख्या के आधार पर किया जाता है। प्रमुख शैलियाँ इस प्रकार हैं:",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 570,
+          "bottom_right_x": 205,
+          "bottom_right_y": 586,
+          "content": "#### सीधा बोनसाई/चौकन शैली",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 108,
+          "top_left_y": 587,
+          "bottom_right_x": 262,
+          "bottom_right_y": 602,
+          "content": "इस शैली के बोनसाई सामान्य और",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 270,
+          "top_left_y": 83,
+          "bottom_right_x": 636,
+          "bottom_right_y": 310,
+          "content": "![img-28.jpeg](img-28.jpeg)",
+          "image_id": "img-28.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 429,
+          "top_left_y": 311,
+          "bottom_right_x": 502,
+          "bottom_right_y": 326,
+          "content": "आकर्षक बोनसाई",
+          "confidence_scores": null,
+          "type": "caption"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 332,
+          "bottom_right_x": 450,
+          "bottom_right_y": 442,
+          "content": "संतुलित होते हैं। इसमें मुख्य तना सीधा होता है तथा शीर्ष की ओर क्रमशः पतला होता जाता है। द्वितीयक शाखाएँ मुख्य तने से लगभग 90 डिग्री के कोण पर निकलती हैं, जबकि तृतीयक शाखाओं को विकसित नहीं होने दिया जाता। परिणामस्वरूप इस प्रकार के बोनसाई सूक्ष्म वृक्ष के समान प्रतीत होते हैं।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 446,
+          "bottom_right_x": 338,
+          "bottom_right_y": 463,
+          "content": "#### तिरछा बोनसाई",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 463,
+          "bottom_right_x": 450,
+          "bottom_right_y": 555,
+          "content": "इस शैली में मुख्य तने को पात्र से लगभग 45 डिग्री के कोण पर झुकाया जाता है, जिससे वृक्ष झुका हुआ प्रतीत होता है। इसमें झुके हुए मुख्य तने से भूमि के समानांतर द्वितीयक शाखाओं को विकसित होने दिया जाता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 556,
+          "bottom_right_x": 342,
+          "bottom_right_y": 573,
+          "content": "#### कैस्केड बोनसाई",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 573,
+          "bottom_right_x": 450,
+          "bottom_right_y": 603,
+          "content": "इस शैली में मुख्य तने को इस प्रकार झुकाया जाता है कि वृक्ष अधोमुखी दिखाई",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 221,
+          "top_left_y": 613,
+          "bottom_right_x": 308,
+          "bottom_right_y": 633,
+          "content": "## वृक्षों का चयन",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 89,
+          "top_left_y": 637,
+          "bottom_right_x": 443,
+          "bottom_right_y": 785,
+          "content": "बोनसाई निर्माण के लिए वृक्षों का चयन उनके उगने वाली जलवायु के अनुसार किया जाना चाहिए, जैसे उष्णकटिबंधीय या शीतोष्ण जलवायु के पौधे। चयन करते समय पत्तियों का आकार, रंग-रूप, फूलों और फलों की सुंदरता, उनके निकलने का समय तथा पुष्पण अवधि पर विशेष ध्यान देना आवश्यक है। कुछ वृक्ष ऐसे भी चयनित किए जाते हैं, जिनका स्वरूप पत्तियाँ गिरने के बाद और अधिक आकर्षक हो जाता है। सामान्यतः बोनसाई के लिए दीर्घायु वृक्षों का चयन किया जाता है। छोटे पत्तों वाले वृक्षों से तैयार बोनसाई अधिक सुंदर और संतुलित प्रतीत होते हैं। हालांकि बड़े पत्तों वाले वृक्ष, जैसे बरगद और पीपल, भी उचित तकनीकों द्वारा सफलतापूर्वक बोनसाई के रूप में विकसित किए जा सकते हैं।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 89,
+          "top_left_y": 788,
+          "bottom_right_x": 154,
+          "bottom_right_y": 804,
+          "content": "#### सदाबहार वृक्ष",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 89,
+          "top_left_y": 805,
+          "bottom_right_x": 443,
+          "bottom_right_y": 855,
+          "content": "नीम, आंवला, केजुरिना, केसिया, सेमल, पंगारा, गूलर, बरगद, फाइकस प्रजातियाँ, जेड प्लांट, प्राइड ऑफ इंडिया, आम, अमरूद, जामुन, गुलमोहर, पीपल, नीबू आदि प्रमुख सदाबहार वृक्ष हैं।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 89,
+          "top_left_y": 859,
+          "bottom_right_x": 147,
+          "bottom_right_y": 874,
+          "content": "#### पतझड़ी वृक्ष",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 89,
+          "top_left_y": 874,
+          "bottom_right_x": 443,
+          "bottom_right_y": 909,
+          "content": "अनार, बेर, बोगनविलिया, फर, फलदार प्लम, मेलस, नाशपाती, बर्च, मेपल, बुडेलिया, देवदार आदि पतझड़ी वृक्षों में शामिल हैं।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 502,
+          "top_left_y": 339,
+          "bottom_right_x": 589,
+          "bottom_right_y": 360,
+          "content": "## लिटराती शैली",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 461,
+          "top_left_y": 364,
+          "bottom_right_x": 633,
+          "bottom_right_y": 513,
+          "content": "इस शैली में मुख्य शाखा को लगभग 60 डिग्री के कोण पर झुकाया जाता है तथा द्वितीयक शाखाओं को एक ही दिशा में विकसित होने दिया जाता है। वृक्ष की वृद्धि मुख्यतः शीर्ष भाग में रखी जाती है और नीचे की शाखाओं को काट-छाँट कर हटा दिया जाता है, जिससे वृक्ष का स्वरूप कलात्मक और आकर्षक बना रहता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 454,
+          "top_left_y": 528,
+          "bottom_right_x": 640,
+          "bottom_right_y": 605,
+          "content": "दे। तने को केवल 60 से 90 सेंटीमीटर तक बढ़ने दिया जाता है, जिससे वह पात्र की निचली सतह से भी नीचे पहुँच जाता है। यह शैली पर्वतीय क्षेत्रों में चट्टानों के किनारे लटके वृक्षों से प्रेरित होती है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 454,
+          "top_left_y": 607,
+          "bottom_right_x": 528,
+          "bottom_right_y": 624,
+          "content": "#### चट्टानी बोनसाई",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 454,
+          "top_left_y": 624,
+          "bottom_right_x": 640,
+          "bottom_right_y": 732,
+          "content": "इस शैली में गमले की मिट्टी की सतह पर पत्थर या चट्टान के टुकड़े रखे जाते हैं, जिनमें वृक्ष की जड़ें फैलती हैं। चट्टानों को जड़ों के पास इस प्रकार रखा जाता है कि वृक्ष मानो चट्टान से ही उग रहा हो। यह शैली वृक्ष की आयु और प्रबलता का प्रतीक मानी जाती है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 454,
+          "top_left_y": 734,
+          "bottom_right_x": 595,
+          "bottom_right_y": 750,
+          "content": "#### राफ्ट अथवा इकाइबुकी शैली",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 454,
+          "top_left_y": 750,
+          "bottom_right_x": 640,
+          "bottom_right_y": 873,
+          "content": "इस शैली में मुख्य तने को क्षैतिज रूप से पात्र में लगाया जाता है। इससे 2-3 स्थानों से ऊर्ध्वाधर शाखाएँ निकलती हैं, जो आगे चलकर एकल छतरी का रूप ले लेती हैं। मुख्य तने से नई जड़ें विकसित होती हैं, जो शाखाओं को पोषक तत्व प्रदान करती हैं। यह शैली प्रकृति में हवा और तूफान से क्षतिग्रस्त वृक्षों से प्रेरित होती है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 454,
+          "top_left_y": 875,
+          "bottom_right_x": 541,
+          "bottom_right_y": 894,
+          "content": "#### विण्ड स्वीट शैली",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 481,
+          "top_left_y": 894,
+          "bottom_right_x": 640,
+          "bottom_right_y": 911,
+          "content": "यह शैली लगातार तेज हवाओं से",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 249,
+          "top_left_y": 923,
+          "bottom_right_x": 450,
+          "bottom_right_y": 942,
+          "content": "जनवरी-फरवरी, 2026 | फल-फूल | 5",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "markdown": "प्रभावित वृक्षों को दर्शाती है, जिससे उनमें झुकाव और गतिशीलता दिखाई देती है। इसमें पौधे भूमि की सतह से लगभग 90 डिग्री के कोण पर बढ़ते हैं और मुख्य तने से निकलने वाली शाखाओं को एक ही दिशा में विकसित होने दिया जाता है। इस शैली में एक से अधिक मुख्य तने भी हो सकते हैं। यह शैली प्रकृति की प्रबलता को दर्शाती है।\n\n### वृक्ष समूह शैली\n\nइस शैली में एक ही गमले में कई वृक्ष लगाए जाते हैं। सबसे बड़ा वृक्ष मध्य में तथा छोटे वृक्ष उसके चारों ओर लगाए जाते हैं, जिससे यह वन्य भूदृश्य जैसा प्रतीत होता है। यह शैली प्राकृतिक वन वातावरण से प्रेरित होती है।\n\n### सिनुअस राफ्ट शैली\n\nइस शैली में एक ही वृक्ष से भूमि की सतह के पास कई तनों की वृद्धि करवाई जाती है। यह ऐसा प्रतीत होता है जैसे कोई वृक्ष गिर गया हो और उससे कई शाखाएँ विकसित हो रही हों।\n\n### खुली जड़ वाले वृक्ष\n\nइस शैली में वृक्ष की जड़ें गमले की सतह के ऊपर स्पष्ट रूप से दिखाई देती हैं, जिससे प्राकृतिक, सुंदर और आकर्षक रूप प्राप्त होता है। इस विधि में पौधा लगाते समय जड़ों को मिट्टी की सतह के ऊपर खुला रखा जाता है और उनके चारों ओर बालू भर दी जाती है।\n\n### पोषण प्रबंधन एवं सिंचाई\n\nबोनसाई पौधों को अधिक खाद और पानी की आवश्यकता नहीं होती, परंतु इनका संतुलित उपयोग अत्यंत आवश्यक है। मई-जून में प्रतिदिन एक बार तथा सर्दियों में एक या दो दिनों के अंतराल पर सिंचाई करनी चाहिए। सभी आवश्यक पोषक तत्व सीमित मात्रा में जैविक रूप में दिए जाने चाहिए। खाद देने के लिए मई-जून का समय उपयुक्त होता है, क्योंकि इस अवधि में शाखाएँ कठोर हो चुकी होती हैं। बोनसाई पौधे अत्यधिक ठंड या गर्मी सहन नहीं कर पाते, इसलिए उनसे संरक्षण आवश्यक है। गमले में नमी बनाए रखने के लिए माँस घास का प्रयोग किया जा सकता है। यथासंभव गमलों को खुले और ऊँचे स्थान पर रखें, जहाँ पर्याप्त धूप और जल की व्यवस्था हो।\n\n![img-29.jpeg](img-29.jpeg)\n\nबोनसाई की वृक्ष समूह शैली\n\n### बोनसाई निर्माण की विधि\n\nबोनसाई निर्माण के लिए बीज अथवा कलमी पौधों को छिछले गमलों में लगाया जाता है। कलमी पौधों से बोनसाई तैयार करने में अपेक्षाकृत कम समय लगता है। इसके लिए नर्सरी से 2 से 10 वर्ष आयु के कलमी पौधे लिए जा सकते हैं, जिनका मुख्य तना कुछ हद तक लचीला हो। चयनित पौधों की इच्छित शैली के अनुसार काट-छाँट कर पूर्व निर्धारित आकार दिया जाता है तथा तारों की सहायता से तने और शाखाओं को बाँधकर मोड़ा जाता है। इसके साथ ही जड़ों की भी आवश्यकतानुसार छँटाई की जाती है। बोनसाई निर्माण का कार्य फरवरी अथवा जुलाई-अगस्त के महीनों में करना उपयुक्त रहता है, जिससे पौधों को वातावरण से पर्याप्त नमी मिलती रहती है।\n\n### पौधों की देखरेख\n\n#### काट-छाँट\n\nकाट-छाँट की प्रक्रिया सामान्यतः गर्मी प्रारंभ होने के साथ की जाती है, जबकि सदाबहार वृक्षों में यह कार्य सर्दी शुरू होने से कुछ समय पहले किया जाता है। ठंडी जलवायु के पौधों जैसे मालपिजिया, देवदार, केजुरिना, साइप्रस और मैलस में कटाई-छँटाई एवं गमला बदलने का कार्य नवंबर-दिसंबर में करना चाहिए।\n\nनए गमले के लिए मिट्टी, रेत और जैविक खाद को 1:1:1 के अनुपात में मिलाकर मृदा मिश्रण तैयार किया जाता है। गमले में जल निकास की उचित व्यवस्था अनिवार्य होती है। पौधे को पुराने गमले से मिट्टी सहित निकालकर अत्यधिक बड़ी हुई तथा मुख्य जड़ों की छँटाई की जाती है। कम आयु के पौधों में गहरी और अधिक आयु के पौधों में हल्की कटाई-छँटाई करनी चाहिए।\n\nगमले की तली में टूटे हुए गमले के टुकड़ों की पतली परत बिछाकर उसके ऊपर रेत या कोयले की परत डाली जाती है। इसके बाद मृदा मिश्रण भरकर पौधे का रोपण किया जाता है। रोपण के तुरंत बाद सिंचाई की जाती है और पौधे को निश्चित दिशा में स्थिर किया जाता है। स्थानांतरण के पश्चात पौधों को 2 दिनों तक छाया में रखना चाहिए।\n\n### पौधों को आकार देना\n\nकटाई-छँटाई के माध्यम से पौधों को वांछित आकार दिया जाता है। पतली और कोमल शाखाओं को एल्युमिनियम तारों की सहायता से निश्चित दिशा में मोड़ा जाता है। शाखाओं को नीचे की ओर झुकाने के लिए आवश्यकतानुसार भार भी लगाया जाता है। छँटाई मुख्यतः शीर्ष कलियों में की जाती है। प्रारंभिक अवस्था में पौधों को सुतली या तार से बाँधना आवश्यक होता है, परंतु गाँठ हल्की\n\nजनवरी-फरवरी, 2026 | फल फूल | 6",
+      "images": [
+        {
+          "id": "img-29.jpeg",
+          "top_left_x": 270,
+          "top_left_y": 82,
+          "bottom_right_x": 637,
+          "bottom_right_y": 429,
+          "image_base64": null,
+          "image_annotation": null
+        }
+      ],
+      "dimensions": {
+        "dpi": 87,
+        "height": 1018,
+        "width": 720
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 81,
+          "top_left_y": 81,
+          "bottom_right_x": 262,
+          "bottom_right_y": 212,
+          "content": "प्रभावित वृक्षों को दर्शाती है, जिससे उनमें झुकाव और गतिशीलता दिखाई देती है। इसमें पौधे भूमि की सतह से लगभग 90 डिग्री के कोण पर बढ़ते हैं और मुख्य तने से निकलने वाली शाखाओं को एक ही दिशा में विकसित होने दिया जाता है। इस शैली में एक से अधिक मुख्य तने भी हो सकते हैं। यह शैली प्रकृति की प्रबलता को दर्शाती है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 215,
+          "bottom_right_x": 154,
+          "bottom_right_y": 232,
+          "content": "### वृक्ष समूह शैली",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 232,
+          "bottom_right_x": 262,
+          "bottom_right_y": 330,
+          "content": "इस शैली में एक ही गमले में कई वृक्ष लगाए जाते हैं। सबसे बड़ा वृक्ष मध्य में तथा छोटे वृक्ष उसके चारों ओर लगाए जाते हैं, जिससे यह वन्य भूदृश्य जैसा प्रतीत होता है। यह शैली प्राकृतिक वन वातावरण से प्रेरित होती है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 333,
+          "bottom_right_x": 173,
+          "bottom_right_y": 351,
+          "content": "### सिनुअस राफ्ट शैली",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 352,
+          "bottom_right_x": 262,
+          "bottom_right_y": 433,
+          "content": "इस शैली में एक ही वृक्ष से भूमि की सतह के पास कई तनों की वृद्धि करवाई जाती है। यह ऐसा प्रतीत होता है जैसे कोई वृक्ष गिर गया हो और उससे कई शाखाएँ विकसित हो रही हों।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 437,
+          "bottom_right_x": 174,
+          "bottom_right_y": 453,
+          "content": "### खुली जड़ वाले वृक्ष",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 454,
+          "bottom_right_x": 262,
+          "bottom_right_y": 570,
+          "content": "इस शैली में वृक्ष की जड़ें गमले की सतह के ऊपर स्पष्ट रूप से दिखाई देती हैं, जिससे प्राकृतिक, सुंदर और आकर्षक रूप प्राप्त होता है। इस विधि में पौधा लगाते समय जड़ों को मिट्टी की सतह के ऊपर खुला रखा जाता है और उनके चारों ओर बालू भर दी जाती है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 98,
+          "top_left_y": 589,
+          "bottom_right_x": 245,
+          "bottom_right_y": 609,
+          "content": "### पोषण प्रबंधन एवं सिंचाई",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 88,
+          "top_left_y": 614,
+          "bottom_right_x": 255,
+          "bottom_right_y": 910,
+          "content": "बोनसाई पौधों को अधिक खाद और पानी की आवश्यकता नहीं होती, परंतु इनका संतुलित उपयोग अत्यंत आवश्यक है। मई-जून में प्रतिदिन एक बार तथा सर्दियों में एक या दो दिनों के अंतराल पर सिंचाई करनी चाहिए। सभी आवश्यक पोषक तत्व सीमित मात्रा में जैविक रूप में दिए जाने चाहिए। खाद देने के लिए मई-जून का समय उपयुक्त होता है, क्योंकि इस अवधि में शाखाएँ कठोर हो चुकी होती हैं। बोनसाई पौधे अत्यधिक ठंड या गर्मी सहन नहीं कर पाते, इसलिए उनसे संरक्षण आवश्यक है। गमले में नमी बनाए रखने के लिए माँस घास का प्रयोग किया जा सकता है। यथासंभव गमलों को खुले और ऊँचे स्थान पर रखें, जहाँ पर्याप्त धूप और जल की व्यवस्था हो।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 270,
+          "top_left_y": 82,
+          "bottom_right_x": 637,
+          "bottom_right_y": 429,
+          "content": "![img-29.jpeg](img-29.jpeg)",
+          "image_id": "img-29.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 406,
+          "top_left_y": 431,
+          "bottom_right_x": 524,
+          "bottom_right_y": 447,
+          "content": "बोनसाई की वृक्ष समूह शैली",
+          "confidence_scores": null,
+          "type": "caption"
+        },
+        {
+          "top_left_x": 268,
+          "top_left_y": 454,
+          "bottom_right_x": 386,
+          "bottom_right_y": 472,
+          "content": "### बोनसाई निर्माण की विधि",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 268,
+          "top_left_y": 473,
+          "bottom_right_x": 450,
+          "bottom_right_y": 736,
+          "content": "बोनसाई निर्माण के लिए बीज अथवा कलमी पौधों को छिछले गमलों में लगाया जाता है। कलमी पौधों से बोनसाई तैयार करने में अपेक्षाकृत कम समय लगता है। इसके लिए नर्सरी से 2 से 10 वर्ष आयु के कलमी पौधे लिए जा सकते हैं, जिनका मुख्य तना कुछ हद तक लचीला हो। चयनित पौधों की इच्छित शैली के अनुसार काट-छाँट कर पूर्व निर्धारित आकार दिया जाता है तथा तारों की सहायता से तने और शाखाओं को बाँधकर मोड़ा जाता है। इसके साथ ही जड़ों की भी आवश्यकतानुसार छँटाई की जाती है। बोनसाई निर्माण का कार्य फरवरी अथवा जुलाई-अगस्त के महीनों में करना उपयुक्त रहता है, जिससे पौधों को वातावरण से पर्याप्त नमी मिलती रहती है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 318,
+          "top_left_y": 739,
+          "bottom_right_x": 399,
+          "bottom_right_y": 755,
+          "content": "### पौधों की देखरेख",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 268,
+          "top_left_y": 759,
+          "bottom_right_x": 316,
+          "bottom_right_y": 774,
+          "content": "#### काट-छाँट",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 268,
+          "top_left_y": 776,
+          "bottom_right_x": 450,
+          "bottom_right_y": 907,
+          "content": "काट-छाँट की प्रक्रिया सामान्यतः गर्मी प्रारंभ होने के साथ की जाती है, जबकि सदाबहार वृक्षों में यह कार्य सर्दी शुरू होने से कुछ समय पहले किया जाता है। ठंडी जलवायु के पौधों जैसे मालपिजिया, देवदार, केजुरिना, साइप्रस और मैलस में कटाई-छँटाई एवं गमला बदलने का कार्य नवंबर-दिसंबर में करना चाहिए।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 454,
+          "bottom_right_x": 641,
+          "bottom_right_y": 603,
+          "content": "नए गमले के लिए मिट्टी, रेत और जैविक खाद को 1:1:1 के अनुपात में मिलाकर मृदा मिश्रण तैयार किया जाता है। गमले में जल निकास की उचित व्यवस्था अनिवार्य होती है। पौधे को पुराने गमले से मिट्टी सहित निकालकर अत्यधिक बड़ी हुई तथा मुख्य जड़ों की छँटाई की जाती है। कम आयु के पौधों में गहरी और अधिक आयु के पौधों में हल्की कटाई-छँटाई करनी चाहिए।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 604,
+          "bottom_right_x": 641,
+          "bottom_right_y": 736,
+          "content": "गमले की तली में टूटे हुए गमले के टुकड़ों की पतली परत बिछाकर उसके ऊपर रेत या कोयले की परत डाली जाती है। इसके बाद मृदा मिश्रण भरकर पौधे का रोपण किया जाता है। रोपण के तुरंत बाद सिंचाई की जाती है और पौधे को निश्चित दिशा में स्थिर किया जाता है। स्थानांतरण के पश्चात पौधों को 2 दिनों तक छाया में रखना चाहिए।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 743,
+          "bottom_right_x": 557,
+          "bottom_right_y": 760,
+          "content": "### पौधों को आकार देना",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 761,
+          "bottom_right_x": 641,
+          "bottom_right_y": 911,
+          "content": "कटाई-छँटाई के माध्यम से पौधों को वांछित आकार दिया जाता है। पतली और कोमल शाखाओं को एल्युमिनियम तारों की सहायता से निश्चित दिशा में मोड़ा जाता है। शाखाओं को नीचे की ओर झुकाने के लिए आवश्यकतानुसार भार भी लगाया जाता है। छँटाई मुख्यतः शीर्ष कलियों में की जाती है। प्रारंभिक अवस्था में पौधों को सुतली या तार से बाँधना आवश्यक होता है, परंतु गाँठ हल्की",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 249,
+          "top_left_y": 923,
+          "bottom_right_x": 450,
+          "bottom_right_y": 942,
+          "content": "जनवरी-फरवरी, 2026 | फल फूल | 6",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "markdown": "## सिफारिशें\n\n- बोनसाई बनाने से पूर्व बाग-बगीचों में वृक्षों की प्राकृतिक आकृति का अवलोकन करें। इससे बोनसाई को सही और संतुलित आकार देने में सहायता मिलती है।\n- बोनसाई पौधों को समय-समय पर उचित मात्रा में खाद्ययुक्त पानी और पर्याप्त धूप देते रहें, ताकि उनका विकास संतुलित रूप से नियंत्रित बना रहे।\n- बोनसाई पौधों का गमला प्रत्येक 2-3 वर्ष में बदलना चाहिए, जिससे जड़ों को पर्याप्त स्थान और पोषण मिल सके।\n- पौधों को वांछित आकार बनाए रखने के लिए नियमित अंतराल पर काट-छाँट करते रहना आवश्यक है।\n\nहोनी चाहिए, जिससे तने पर दाग न पड़ें।\n\n## गमला बदलना\n\nगमला बदलने की आवश्यकता पौधे की किस्म और आयु पर निर्भर करती है। शुष्क जलवायु में सामान्यतः 4-5 वर्ष बाद गमला बदलना लाभदायक होता है, जबकि तीव्र गति से बढ़ने वाले वृक्षों में प्रतिवर्ष गमला बदलना आवश्यक होता है। गमले का चयन पौधे के आकार और उसकी शैली के अनुरूप किया जाना चाहिए।\n\nबोनसाई पौधों को विभिन्न शैलियों के अनुरूप आकार देना एक रचनात्मक और चुनौतीपूर्ण प्रक्रिया है। वृक्ष के प्राकृतिक स्वरूप को ध्यान में रखते हुए शाखाओं की कटाई-छँटाई की जाती है। जो शाखाएँ अप्राकृतिक या असंतुलित प्रतीत होती हैं, उन्हें हटा देना चाहिए। पौधों को मोड़ने और वांछित आकार देने के लिए तारों का प्रयोग किया जाता है।\n\n![img-30.jpeg](img-30.jpeg)\n\nसजावटी पौधे उत्पादन का नया आयाम\n\n![img-31.jpeg](img-31.jpeg)\n\nअनुपम छटा बिखेरता बोनसाई\n\nबोनसाई वृक्ष बीज तथा कलमी पौधों दोनों से तैयार किए जा सकते हैं, लेकिन बीज से बोनसाई बनने में अधिक समय लगता है। इसलिए सामान्यतः 1-2 वर्ष आयु के कलमी पौधों का चयन किया जाता है, जिनका मुख्य तना लचीला हो। चयनित पौधे की हल्की कटाई-छँटाई कर एल्युमिनियम तार की सहायता से मुख्य तने को बाँधकर इच्छित आकार दिया जाता है।\n\nजब पौधा निर्धारित आकार ग्रहण कर ले, तब उसे सावधानीपूर्वक मिट्टी सहित निकालकर मुख्य जड़ों की छँटाई की जाती है और पुनः छिछले गमले में रोपित किया जाता है। गमले में पहले मिट्टी भरकर 2-3 इंच मोटी परत बनाई जाती है, इसके बाद पौधे को रखकर जड़ों के चारों ओर मिट्टी फैलाकर हल्के हाथ से दबाया जाता है। अंत में मिट्टी की सतह पर बजरी या कंकरी बिछाई जाती है, जिससे गमला साफ और आकर्षक दिखाई देता है।\n\n## आय के साधन\n\nबोनसाई वृक्ष सुंदरता, साहस, सद्भाव, शांति और धैर्य जैसे गुणों को व्यक्त करते हैं। ये प्रकृति और कला के मध्य एक आदर्श\n\nसंतुलन स्थापित करते हैं। वर्तमान समय में बोनसाई बनाने की कला केवल शौक तक सीमित न रहकर एक लाभकारी व्यवसाय के रूप में उभर चुकी है। अनेक युवा एवं उद्यमी इसे पूर्णतः व्यावसायिक गतिविधि के रूप में अपना रहे हैं।\n\nबोनसाई पौधों का मूल्य उनकी आयु, आकार, प्रजाति और कलात्मकता के अनुसार लगभग 500 रुपये से लेकर लाखों रुपये तक हो सकता है। बोनसाई उत्पादन का कार्य सीमित स्थान में भी किया जा सकता है, जिससे यह शहरी क्षेत्रों के लिए अत्यंत उपयुक्त व्यवसाय बन जाता है। बोनसाई विधि से तैयार पौधे शहरीकरण के परिवेश में हरियाली बढ़ाने का एक प्रभावी विकल्प भी हैं।\n\nयह व्यवसाय स्वरोजगार सृजन का सशक्त माध्यम है। बेरोजगार युवा और महिलाएँ बोनसाई निर्माण का प्रशिक्षण प्राप्त कर इन्हें तैयार कर सकती हैं तथा स्थानीय बाजारों या ऑनलाइन माध्यमों से बिक्री कर सकती हैं। वर्तमान में अनेक युवा और महिलाएँ इस व्यवसाय को अपनाकर अच्छी आय अर्जित कर रहे हैं।\n\nजनवरी-फरवरी, 2026 | फल फूल | 7",
+      "images": [
+        {
+          "id": "img-30.jpeg",
+          "top_left_x": 83,
+          "top_left_y": 722,
+          "bottom_right_x": 259,
+          "bottom_right_y": 901,
+          "image_base64": null,
+          "image_annotation": null
+        },
+        {
+          "id": "img-31.jpeg",
+          "top_left_x": 269,
+          "top_left_y": 81,
+          "bottom_right_x": 636,
+          "bottom_right_y": 501,
+          "image_base64": null,
+          "image_annotation": null
+        }
+      ],
+      "dimensions": {
+        "dpi": 87,
+        "height": 1018,
+        "width": 720
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 143,
+          "top_left_y": 87,
+          "bottom_right_x": 200,
+          "bottom_right_y": 106,
+          "content": "## सिफारिशें",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 89,
+          "top_left_y": 110,
+          "bottom_right_x": 255,
+          "bottom_right_y": 385,
+          "content": "- बोनसाई बनाने से पूर्व बाग-बगीचों में वृक्षों की प्राकृतिक आकृति का अवलोकन करें। इससे बोनसाई को सही और संतुलित आकार देने में सहायता मिलती है।\n- बोनसाई पौधों को समय-समय पर उचित मात्रा में खाद्ययुक्त पानी और पर्याप्त धूप देते रहें, ताकि उनका विकास संतुलित रूप से नियंत्रित बना रहे।\n- बोनसाई पौधों का गमला प्रत्येक 2-3 वर्ष में बदलना चाहिए, जिससे जड़ों को पर्याप्त स्थान और पोषण मिल सके।\n- पौधों को वांछित आकार बनाए रखने के लिए नियमित अंतराल पर काट-छाँट करते रहना आवश्यक है।",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 397,
+          "bottom_right_x": 252,
+          "bottom_right_y": 414,
+          "content": "होनी चाहिए, जिससे तने पर दाग न पड़ें।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 424,
+          "bottom_right_x": 148,
+          "bottom_right_y": 438,
+          "content": "## गमला बदलना",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 441,
+          "bottom_right_x": 262,
+          "bottom_right_y": 572,
+          "content": "गमला बदलने की आवश्यकता पौधे की किस्म और आयु पर निर्भर करती है। शुष्क जलवायु में सामान्यतः 4-5 वर्ष बाद गमला बदलना लाभदायक होता है, जबकि तीव्र गति से बढ़ने वाले वृक्षों में प्रतिवर्ष गमला बदलना आवश्यक होता है। गमले का चयन पौधे के आकार और उसकी शैली के अनुरूप किया जाना चाहिए।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 573,
+          "bottom_right_x": 262,
+          "bottom_right_y": 720,
+          "content": "बोनसाई पौधों को विभिन्न शैलियों के अनुरूप आकार देना एक रचनात्मक और चुनौतीपूर्ण प्रक्रिया है। वृक्ष के प्राकृतिक स्वरूप को ध्यान में रखते हुए शाखाओं की कटाई-छँटाई की जाती है। जो शाखाएँ अप्राकृतिक या असंतुलित प्रतीत होती हैं, उन्हें हटा देना चाहिए। पौधों को मोड़ने और वांछित आकार देने के लिए तारों का प्रयोग किया जाता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 83,
+          "top_left_y": 722,
+          "bottom_right_x": 259,
+          "bottom_right_y": 901,
+          "content": "![img-30.jpeg](img-30.jpeg)",
+          "image_id": "img-30.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 101,
+          "top_left_y": 900,
+          "bottom_right_x": 241,
+          "bottom_right_y": 914,
+          "content": "सजावटी पौधे उत्पादन का नया आयाम",
+          "confidence_scores": null,
+          "type": "caption"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 81,
+          "bottom_right_x": 636,
+          "bottom_right_y": 501,
+          "content": "![img-31.jpeg](img-31.jpeg)",
+          "image_id": "img-31.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 405,
+          "top_left_y": 502,
+          "bottom_right_x": 525,
+          "bottom_right_y": 518,
+          "content": "अनुपम छटा बिखेरता बोनसाई",
+          "confidence_scores": null,
+          "type": "caption"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 527,
+          "bottom_right_x": 450,
+          "bottom_right_y": 669,
+          "content": "बोनसाई वृक्ष बीज तथा कलमी पौधों दोनों से तैयार किए जा सकते हैं, लेकिन बीज से बोनसाई बनने में अधिक समय लगता है। इसलिए सामान्यतः 1-2 वर्ष आयु के कलमी पौधों का चयन किया जाता है, जिनका मुख्य तना लचीला हो। चयनित पौधे की हल्की कटाई-छँटाई कर एल्युमिनियम तार की सहायता से मुख्य तने को बाँधकर इच्छित आकार दिया जाता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 671,
+          "bottom_right_x": 450,
+          "bottom_right_y": 846,
+          "content": "जब पौधा निर्धारित आकार ग्रहण कर ले, तब उसे सावधानीपूर्वक मिट्टी सहित निकालकर मुख्य जड़ों की छँटाई की जाती है और पुनः छिछले गमले में रोपित किया जाता है। गमले में पहले मिट्टी भरकर 2-3 इंच मोटी परत बनाई जाती है, इसके बाद पौधे को रखकर जड़ों के चारों ओर मिट्टी फैलाकर हल्के हाथ से दबाया जाता है। अंत में मिट्टी की सतह पर बजरी या कंकरी बिछाई जाती है, जिससे गमला साफ और आकर्षक दिखाई देता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 848,
+          "bottom_right_x": 338,
+          "bottom_right_y": 864,
+          "content": "## आय के साधन",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 269,
+          "top_left_y": 865,
+          "bottom_right_x": 450,
+          "bottom_right_y": 913,
+          "content": "बोनसाई वृक्ष सुंदरता, साहस, सद्भाव, शांति और धैर्य जैसे गुणों को व्यक्त करते हैं। ये प्रकृति और कला के मध्य एक आदर्श",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 527,
+          "bottom_right_x": 641,
+          "bottom_right_y": 622,
+          "content": "संतुलन स्थापित करते हैं। वर्तमान समय में बोनसाई बनाने की कला केवल शौक तक सीमित न रहकर एक लाभकारी व्यवसाय के रूप में उभर चुकी है। अनेक युवा एवं उद्यमी इसे पूर्णतः व्यावसायिक गतिविधि के रूप में अपना रहे हैं।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 622,
+          "bottom_right_x": 641,
+          "bottom_right_y": 782,
+          "content": "बोनसाई पौधों का मूल्य उनकी आयु, आकार, प्रजाति और कलात्मकता के अनुसार लगभग 500 रुपये से लेकर लाखों रुपये तक हो सकता है। बोनसाई उत्पादन का कार्य सीमित स्थान में भी किया जा सकता है, जिससे यह शहरी क्षेत्रों के लिए अत्यंत उपयुक्त व्यवसाय बन जाता है। बोनसाई विधि से तैयार पौधे शहरीकरण के परिवेश में हरियाली बढ़ाने का एक प्रभावी विकल्प भी हैं।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 455,
+          "top_left_y": 784,
+          "bottom_right_x": 641,
+          "bottom_right_y": 914,
+          "content": "यह व्यवसाय स्वरोजगार सृजन का सशक्त माध्यम है। बेरोजगार युवा और महिलाएँ बोनसाई निर्माण का प्रशिक्षण प्राप्त कर इन्हें तैयार कर सकती हैं तथा स्थानीय बाजारों या ऑनलाइन माध्यमों से बिक्री कर सकती हैं। वर्तमान में अनेक युवा और महिलाएँ इस व्यवसाय को अपनाकर अच्छी आय अर्जित कर रहे हैं।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 249,
+          "top_left_y": 923,
+          "bottom_right_x": 450,
+          "bottom_right_y": 942,
+          "content": "जनवरी-फरवरी, 2026 | फल फूल | 7",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "markdown": "![img-32.jpeg](img-32.jpeg)\n\n## छत पर जैविक किचन गार्डन\n\nआर. के. सिंह, आकांक्षा सिंह, निधि प्रिया, बृज बिहारी शर्मा और अर्जुन लाल ओला\n\nरूफटॉप गार्डनिंग, जिसे टेरेस गार्डनिंग भी कहा जाता है, एक आधुनिक शहरी कृषि पद्धति है, जिसमें घरों की छतों पर विभिन्न प्रकार के पौधे उगाए जाते हैं। यह पद्धति विशेष रूप से शहरी क्षेत्रों में अत्यंत उपयोगी सिद्ध हो रही है, जहाँ कृषि योग्य भूमि की कमी एक बड़ी चुनौती है। टेरेस गार्डनिंग न केवल हरित वातावरण के निर्माण में सहायक है, बल्कि यह वायुमंडलीय तापमान को कम करने, वायु गुणवत्ता में सुधार करने तथा पर्यावरण संतुलन बनाए रखने में भी महत्वपूर्ण भूमिका निभाती है। रूफटॉप गार्डनिंग के माध्यम से घरेलू स्तर पर ताजे फल, सब्जियाँ, फूल एवं औषधीय पौधे उगाए जा सकते हैं, जिससे पौष्टिक एवं सुरक्षित आहार की उपलब्धता सुनिश्चित होती है। इसके साथ ही यह शहरी जीवन में प्राकृतिक सौंदर्य और हरियाली जोड़ती है, जिससे शहरों की दृश्यात्मक सुंदरता में वृद्धि होती है।\n\n**बागवानी** एक व्यावहारिक एवं लाभकारी गतिविधि है, जो व्यक्ति को प्रकृति से जोड़ते हुए स्वास्थ्य और पर्यावरण दोनों को लाभ पहुँचाती है। शहरी क्षेत्रों में सीमित स्थान की समस्या को देखते हुए टेरेस गार्डनिंग एक आदर्श समाधान के रूप में उभरकर सामने आई है।\n\nछतें प्राकृतिक वायुसंचार, पर्याप्त सूर्यप्रकाश एवं जल उपलब्धता के लिए अनुकूल होती हैं, जो पौधों की समुचित वृद्धि के लिए आवश्यक हैं। टेरेस गार्डनिंग घर के वातावरण को स्वस्थ और सुखद बनाती है तथा आंतरिक तापमान को कम कर ठंडक बनाए रखने में भी सहायक होती है।\n\n### रूफटॉप या टेरेस गार्डन\n\nघर की छत पर कंटेनरों, गमलों या ग्रो बैग में पौधे उगाने की पद्धति को टेरेस गार्डन या रूफटॉप गार्डन कहा जाता है। यह\n\nसब्जी विज्ञान विभाग, उद्यानिकी एवं वानिकी महाविद्यालय, रानी लक्ष्मीबाई केंद्रीय कृषि विश्वविद्यालय, झाँसी\n\n### ऊर्ध्वधर खेती\n\nछत पर स्थान की बचत के उद्देश्य से दीवारों अथवा ऊर्ध्वधर स्थान का उपयोग किया जा सकता है, जिससे छत की सौंदर्यता भी बढ़ती है। यदि छत पर दीवारें उपलब्ध हैं, तो ऊर्ध्वधर बागवानी अपनाना एक प्रभावी उपाय है। ऊर्ध्वधर बागवानी के अंतर्गत बेल और झाड़ी वाली सब्जियाँ, जैसे बीन्स, लौकी आदि उगाई जा सकती हैं। बेलदार पौधों को दीवारों से अच्छा सहारा मिलता है और इससे स्थान की अधिक बचत होती है। इस विधि में विशेष रूप से डिजाइन किए गए स्टैंड, पॉट होल्डर, हैंगर और हैंगिंग पॉट्स का उपयोग किया जा सकता है। झाड़ीदार पौधों के लिए दीवारों पर लटकने वाले गमलों अथवा रेलिंग का भी प्रयोग किया जा सकता है।\n\nशहरी क्षेत्रों में अपनाई जाने वाली एक प्रभावी एवं सतत कृषि पद्धति है, जिसके माध्यम से फूलों, सब्जियों तथा विभिन्न प्रकार के हरित पौधों का सफलतापूर्वक उत्पादन किया जा सकता है। टेरेस गार्डन की स्थापना के लिए छत की संरचना का मजबूत एवं जलरोधक होना आवश्यक है, ताकि जल रिसाव की समस्या उत्पन्न न हो। इसके साथ ही, उचित जल आपूर्ति एवं जल निकासी प्रणाली का प्रबंधन भी अनिवार्य है, जिससे पौधों को आवश्यक मात्रा में पानी उपलब्ध हो सके और वर्षा जल का निकास सुव्यवस्थित रूप से किया जा सके।\n\n### रूफटॉप गार्डन बनाने हेतु प्रबंधन जलरोधी परत का निर्माण\n\nटेरेस गार्डनिंग के लिए प्रभावी जलरोधन (वॉटरप्रूफिंग) अत्यंत आवश्यक है, ताकि भवन की संरचना को लीकेज एवं नमी से सुरक्षित रखा जा सके। गार्डन क्षेत्र में जल संचयन एवं रिसाव की समस्याओं से बचाव के लिए गमलों या कंटेनरों को ऊँचे, ठोस\n\nजनवरी-फरवरी, 2026 | फल फूल | 8",
+      "images": [
+        {
+          "id": "img-32.jpeg",
+          "top_left_x": 83,
+          "top_left_y": 79,
+          "bottom_right_x": 637,
+          "bottom_right_y": 360,
+          "image_base64": null,
+          "image_annotation": null
+        }
+      ],
+      "dimensions": {
+        "dpi": 87,
+        "height": 1018,
+        "width": 720
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 83,
+          "top_left_y": 79,
+          "bottom_right_x": 637,
+          "bottom_right_y": 360,
+          "content": "![img-32.jpeg](img-32.jpeg)",
+          "image_id": "img-32.jpeg",
+          "confidence_scores": null,
+          "type": "image"
+        },
+        {
+          "top_left_x": 213,
+          "top_left_y": 371,
+          "bottom_right_x": 505,
+          "bottom_right_y": 408,
+          "content": "## छत पर जैविक किचन गार्डन",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 149,
+          "top_left_y": 414,
+          "bottom_right_x": 570,
+          "bottom_right_y": 433,
+          "content": "आर. के. सिंह, आकांक्षा सिंह, निधि प्रिया, बृज बिहारी शर्मा और अर्जुन लाल ओला",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 88,
+          "top_left_y": 450,
+          "bottom_right_x": 634,
+          "bottom_right_y": 550,
+          "content": "रूफटॉप गार्डनिंग, जिसे टेरेस गार्डनिंग भी कहा जाता है, एक आधुनिक शहरी कृषि पद्धति है, जिसमें घरों की छतों पर विभिन्न प्रकार के पौधे उगाए जाते हैं। यह पद्धति विशेष रूप से शहरी क्षेत्रों में अत्यंत उपयोगी सिद्ध हो रही है, जहाँ कृषि योग्य भूमि की कमी एक बड़ी चुनौती है। टेरेस गार्डनिंग न केवल हरित वातावरण के निर्माण में सहायक है, बल्कि यह वायुमंडलीय तापमान को कम करने, वायु गुणवत्ता में सुधार करने तथा पर्यावरण संतुलन बनाए रखने में भी महत्वपूर्ण भूमिका निभाती है। रूफटॉप गार्डनिंग के माध्यम से घरेलू स्तर पर ताजे फल, सब्जियाँ, फूल एवं औषधीय पौधे उगाए जा सकते हैं, जिससे पौष्टिक एवं सुरक्षित आहार की उपलब्धता सुनिश्चित होती है। इसके साथ ही यह शहरी जीवन में प्राकृतिक सौंदर्य और हरियाली जोड़ती है, जिससे शहरों की दृश्यात्मक सुंदरता में वृद्धि होती है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 562,
+          "bottom_right_x": 262,
+          "bottom_right_y": 676,
+          "content": "**बागवानी** एक व्यावहारिक एवं लाभकारी गतिविधि है, जो व्यक्ति को प्रकृति से जोड़ते हुए स्वास्थ्य और पर्यावरण दोनों को लाभ पहुँचाती है। शहरी क्षेत्रों में सीमित स्थान की समस्या को देखते हुए टेरेस गार्डनिंग एक आदर्श समाधान के रूप में उभरकर सामने आई है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 678,
+          "bottom_right_x": 262,
+          "bottom_right_y": 792,
+          "content": "छतें प्राकृतिक वायुसंचार, पर्याप्त सूर्यप्रकाश एवं जल उपलब्धता के लिए अनुकूल होती हैं, जो पौधों की समुचित वृद्धि के लिए आवश्यक हैं। टेरेस गार्डनिंग घर के वातावरण को स्वस्थ और सुखद बनाती है तथा आंतरिक तापमान को कम कर ठंडक बनाए रखने में भी सहायक होती है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 795,
+          "bottom_right_x": 190,
+          "bottom_right_y": 812,
+          "content": "### रूफटॉप या टेरेस गार्डन",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 813,
+          "bottom_right_x": 262,
+          "bottom_right_y": 863,
+          "content": "घर की छत पर कंटेनरों, गमलों या ग्रो बैग में पौधे उगाने की पद्धति को टेरेस गार्डन या रूफटॉप गार्डन कहा जाता है। यह",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 81,
+          "top_left_y": 871,
+          "bottom_right_x": 262,
+          "bottom_right_y": 916,
+          "content": "सब्जी विज्ञान विभाग, उद्यानिकी एवं वानिकी महाविद्यालय, रानी लक्ष्मीबाई केंद्रीय कृषि विश्वविद्यालय, झाँसी",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 317,
+          "top_left_y": 570,
+          "bottom_right_x": 400,
+          "bottom_right_y": 589,
+          "content": "### ऊर्ध्वधर खेती",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 275,
+          "top_left_y": 597,
+          "bottom_right_x": 443,
+          "bottom_right_y": 908,
+          "content": "छत पर स्थान की बचत के उद्देश्य से दीवारों अथवा ऊर्ध्वधर स्थान का उपयोग किया जा सकता है, जिससे छत की सौंदर्यता भी बढ़ती है। यदि छत पर दीवारें उपलब्ध हैं, तो ऊर्ध्वधर बागवानी अपनाना एक प्रभावी उपाय है। ऊर्ध्वधर बागवानी के अंतर्गत बेल और झाड़ी वाली सब्जियाँ, जैसे बीन्स, लौकी आदि उगाई जा सकती हैं। बेलदार पौधों को दीवारों से अच्छा सहारा मिलता है और इससे स्थान की अधिक बचत होती है। इस विधि में विशेष रूप से डिजाइन किए गए स्टैंड, पॉट होल्डर, हैंगर और हैंगिंग पॉट्स का उपयोग किया जा सकता है। झाड़ीदार पौधों के लिए दीवारों पर लटकने वाले गमलों अथवा रेलिंग का भी प्रयोग किया जा सकता है।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 454,
+          "top_left_y": 562,
+          "bottom_right_x": 641,
+          "bottom_right_y": 773,
+          "content": "शहरी क्षेत्रों में अपनाई जाने वाली एक प्रभावी एवं सतत कृषि पद्धति है, जिसके माध्यम से फूलों, सब्जियों तथा विभिन्न प्रकार के हरित पौधों का सफलतापूर्वक उत्पादन किया जा सकता है। टेरेस गार्डन की स्थापना के लिए छत की संरचना का मजबूत एवं जलरोधक होना आवश्यक है, ताकि जल रिसाव की समस्या उत्पन्न न हो। इसके साथ ही, उचित जल आपूर्ति एवं जल निकासी प्रणाली का प्रबंधन भी अनिवार्य है, जिससे पौधों को आवश्यक मात्रा में पानी उपलब्ध हो सके और वर्षा जल का निकास सुव्यवस्थित रूप से किया जा सके।",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 454,
+          "top_left_y": 778,
+          "bottom_right_x": 605,
+          "bottom_right_y": 812,
+          "content": "### रूफटॉप गार्डन बनाने हेतु प्रबंधन जलरोधी परत का निर्माण",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 454,
+          "top_left_y": 813,
+          "bottom_right_x": 641,
+          "bottom_right_y": 912,
+          "content": "टेरेस गार्डनिंग के लिए प्रभावी जलरोधन (वॉटरप्रूफिंग) अत्यंत आवश्यक है, ताकि भवन की संरचना को लीकेज एवं नमी से सुरक्षित रखा जा सके। गार्डन क्षेत्र में जल संचयन एवं रिसाव की समस्याओं से बचाव के लिए गमलों या कंटेनरों को ऊँचे, ठोस",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 249,
+          "top_left_y": 923,
+          "bottom_right_x": 449,
+          "bottom_right_y": 942,
+          "content": "जनवरी-फरवरी, 2026 | फल फूल | 8",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    }
+  ],
+  "model": "mistral-ocr-latest",
+  "usage_info": {
+    "pages_processed": 10,
+    "doc_size_bytes": 2313998
+  },
+  "document_annotation": null
+}
