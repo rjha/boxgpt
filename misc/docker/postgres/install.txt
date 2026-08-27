@@ -1,0 +1,27 @@
+
+# inside rags01_db 
+CREATE USER xapi_app WITH PASSWORD 'softmaxx@23';
+CREATE DATABASE rags01_db WITH OWNER = xapi_app;
+\q
+
+Now connect to rags01_db as xapi_app and create objects. 
+$ psql -h 127.0.0.1 -U xapi_app -d rags01_db -p 5432
+
+
+
+# READ ONLY USER 
+CREATE USER xapi_worker WITH PASSWORD 'worker_secure_password';
+
+-- 2. Allow the worker to establish a connection to the database
+GRANT CONNECT ON DATABASE my_vector_db TO xapi_worker;
+
+-- 3. Open the public schema door and grant access to existing tables
+GRANT USAGE ON SCHEMA public TO xapi_worker;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO xapi_worker;
+GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO xapi_worker;
+
+-- 4. Secure future tables created by the active session or xapi_admin
+ALTER DEFAULT PRIVILEGES IN SCHEMA public 
+    GRANT SELECT ON TABLES TO xapi_worker;
+ALTER DEFAULT PRIVILEGES FOR ROLE xapi_admin IN SCHEMA public 
+    GRANT SELECT ON TABLES TO xapi_worker;
