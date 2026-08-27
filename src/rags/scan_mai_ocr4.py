@@ -1,12 +1,11 @@
 
 import os
 from pathlib import Path
-# from mistralai import Mistral
 from mistralai.client import Mistral
 
 # 1. Initialize API Client
 # Set MISTRAL_API_KEY in your environment or pass it directly
-client = Mistral(api_key="xxxxxxx")
+client = Mistral(api_key="lkerFMb8RjafroDfYDJG5oqapiBbnHnx")
 
 def ingest_pdf_with_mistral_ocr(pdf_path: str) -> str:
     print(f"Uploading {pdf_path} to Mistral API...")
@@ -17,6 +16,8 @@ def ingest_pdf_with_mistral_ocr(pdf_path: str) -> str:
             file={"file_name": os.path.basename(pdf_path), "content": f},
             purpose="ocr"
         )
+
+    print(f"file id is {uploaded_file.id}")
     
     # Obtain signed URL for OCR processing
     signed_url = client.files.get_signed_url(file_id=uploaded_file.id)
@@ -28,23 +29,16 @@ def ingest_pdf_with_mistral_ocr(pdf_path: str) -> str:
         document={
             "type": "document_url",
             "document_url": signed_url.url
-        }
+        },
+        include_blocks=True
     )
 
     print("OCR response received...")
-    # 3. Aggregate all page Markdown outputs into a single document string
-    full_markdown = []
-    for page in ocr_response.pages:
-        full_markdown.append(f"<!-- Page {page.index + 1} -->\n{page.markdown}")
-        
-    return "\n\n".join(full_markdown)
+    ocr_response_dump = ocr_response.model_dump_json(indent=2)
+    with open("ocr_response.json", "w", encoding="utf-8") as f:
+        f.write(ocr_response_dump)
+    print("OCR response saved")
 
 # Example Execution
-pdf_path = Path('~/Downloads/ICAR_MAG/Jan-Feb_2026.pdf').expanduser()
-markdown_doc = ingest_pdf_with_mistral_ocr(pdf_path)
-
-# Save extracted text locally for the chunking step
-with open("icar_mag.md", "w", encoding="utf-8") as out:
-    out.write(markdown_doc)
-
-print("Ingestion Complete! Output saved to icar_mag.md")
+pdf_path = Path('~/Downloads/Jan-Feb_2026_10.pdf').expanduser()
+ingest_pdf_with_mistral_ocr(pdf_path)
