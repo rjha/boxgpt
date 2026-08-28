@@ -5,7 +5,8 @@ from mistralai.client import Mistral
 
 # 1. Initialize API Client
 # Set MISTRAL_API_KEY in your environment or pass it directly
-client = Mistral(api_key="lkerFMb8RjafroDfYDJG5oqapiBbnHnx")
+# @todo read from config file 
+client = Mistral(api_key="xxxxxx")
 
 def ingest_pdf_with_mistral_ocr(pdf_path: str) -> str:
     print(f"Uploading {pdf_path} to Mistral API...")

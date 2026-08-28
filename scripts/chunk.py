@@ -6,6 +6,7 @@ from sentence_transformers import SentenceTransformer
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from psycopg2.extras import execute_values
 from pgvector.psycopg2 import register_vector
+from softmaxx.config import get_postgres_conn_string
 
 
 def chunk_content(
@@ -98,8 +99,7 @@ def get_chunk_embeddings(
 
 def store_in_database(
     chunks: List[Dict[str, Any]], 
-    doc_id: str,
-    db_config: Dict[str, Any]
+    doc_id: str
 ) -> None:
     """
     Batch inserts enriched chunks (metadata, text, and bge-m3 embeddings) 
@@ -110,8 +110,9 @@ def store_in_database(
         return
 
 
-    print(f"Connecting to PostgreSQL database: {db_config['dbname']}...")
-    conn = psycopg2.connect(**db_config)
+    print(f"Connecting to PostgreSQL database...")
+    db_conn_string = get_postgres_conn_string()
+    conn = psycopg2.connect(db_conn_string)
     
     try:
         # Register pgvector extension handler for psycopg2
@@ -165,15 +166,6 @@ def store_in_database(
 def main():
     generate_preview = False 
     model_path = "/home/rjha/code/models/bge-m3"
-    # DB configuration details
-    db_config = {
-        "dbname": "rags01_db",
-        "user": "xapi_app",
-        "password": "softmaxx@23",
-        "host": "localhost",
-        "port": 5432
-    }
-
     json_path = Path("ocr_content.json")
     if not json_path.exists():
         raise FileNotFoundError(f"Could not find {json_path}")
@@ -199,7 +191,7 @@ def main():
     
     # Step 3: Store directly into PostgreSQL
     print("Step 3: Storing vectors in PostgreSQL...")
-    store_in_database(enriched_chunks, doc_id="bonsai_doc", db_config=db_config)
+    store_in_database(enriched_chunks, doc_id="bonsai_doc")
 
     print("\nIngestion pipeline executed successfully!")
 

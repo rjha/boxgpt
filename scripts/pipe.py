@@ -1,15 +1,12 @@
-
+from softmaxx.rag.query import format_llm_prompt, process_user_query
+from softmaxx.rag.search import execute_hybrid_search, apply_mmr_filter
 
 
 def run_retrieval_pipeline(user_query: str) -> str:
     # 1. Query Processing
     query_emb = process_user_query(user_query)
-
-    # 2. Database Load
-    db_config = load_db_config()
-
     # 3. Hybrid Search with RRF (Top 20 candidates)
-    candidates = execute_hybrid_search_rrf(
+    candidates = execute_hybrid_search(
         query_str=user_query,
         query_embedding=query_emb,
         db_config=db_config,
