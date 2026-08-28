@@ -1,17 +1,18 @@
 import psycopg2
+import numpy as np
 from pgvector.psycopg2 import register_vector
 from typing import List, Dict, Any
-import numpy as np
+from softmaxx.config import get_postgres_conn_string
 
 
 def get_vector_candidates(
     query_embedding: list[float],
-    db_config: dict,
     limit: int = 20,
     doc_id: str = "mai_out"
 ) -> List[Dict[str, Any]]:
     """Retrieves top K candidates ordered by vector cosine distance."""
-    conn = psycopg2.connect(**db_config)
+    db_conn_string = get_postgres_conn_string()
+    conn = psycopg2.connect(db_conn_string)
     register_vector(conn)
     cursor = conn.cursor()
 
@@ -48,12 +49,13 @@ def get_vector_candidates(
 
 def get_lexical_candidates(
     query_str: str,
-    db_config: dict,
     limit: int = 20,
     doc_id: str = "mai_out"
 ) -> List[Dict[str, Any]]:
     """Retrieves top K candidates ordered by tsvector full-text match score."""
-    conn = psycopg2.connect(**db_config)
+
+    db_conn_string = get_postgres_conn_string()
+    conn = psycopg2.connect(db_conn_string)
     cursor = conn.cursor()
 
     sql_query = """
@@ -138,7 +140,6 @@ def compute_rrf_in_python(
 def execute_hybrid_search(
     query_str: str,
     query_embedding: list[float],
-    db_config: dict,
     k: int = 60,
     candidate_limit: int = 20
 ) -> List[Dict[str, Any]]:
@@ -147,8 +148,8 @@ def execute_hybrid_search(
     and running RRF fusion in Python.
     """
     # 1. Fetch top candidates from both search mechanisms in DB
-    vector_candidates = get_vector_candidates(query_embedding, db_config, limit=candidate_limit)
-    lexical_candidates = get_lexical_candidates(query_str, db_config, limit=candidate_limit)
+    vector_candidates = get_vector_candidates(query_embedding, limit=candidate_limit)
+    lexical_candidates = get_lexical_candidates(query_str, limit=candidate_limit)
 
     # 2. Perform RRF fusion in Python
     merged_candidates = compute_rrf_in_python(
@@ -180,7 +181,7 @@ def apply_mmr_filter(
     q_vec = np.array(query_embedding, dtype=np.float32)
     cand_vecs = [np.array(c["embedding"], dtype=np.float32) for c in candidates]
 
-    # Precalculate similarity to query for all candidates
+    # Precalculate similarity to query for all candidates db_config,
     query_sims = [cosine_similarity(q_vec, c_vec) for c_vec in cand_vecs]
 
     selected_indices = []
