@@ -1,0 +1,18 @@
+
+module import does not need __init.py__ any more 
+However you should be aware of how pylance works to ensure that 
+you can load modules the right way. 
+
+
+When you updated your absolute path to point to src, 
+Pylance did look inside it. However, it saw lib as a plain folder 
+without an __init__.py file. Because Pylance tracks the physical 
+workspace file tree from the root, it evaluated your code layout 
+exactly like this:Look at workspace root: boxgpt/
+
+See the physical sub-folder path: src/lib/softmaxx/rag/query.py
+Because Pylance calculates internal index priority by mapping 
+structures directly down from the open folder root, it prioritized 
+the real file system path (src.lib.softmaxx...) over your synthetic 
+extraPaths rule.To Pylance, your rule looked like an unnecessary 
+attempt to re-index a directory it could already see natively.

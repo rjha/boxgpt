@@ -1,0 +1,21 @@
+
+workspace 
+
+{
+    "folders": [
+        {
+            "name": "GITHUB ROOT",
+            "path": "."
+        },
+        {
+            "name": "BOXGPT",
+            "path": "./boxgpt"
+        }
+    ],
+    "settings": {
+        "files.exclude": {
+            "boxgpt": true
+        }
+
+    }
+}
