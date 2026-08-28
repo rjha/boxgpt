@@ -16,3 +16,10 @@ CREATE TABLE test_docs (
 CREATE INDEX ON test_docs 
 USING hnsw (embedding vector_cosine_ops) 
 WITH (m = 16, ef_construction = 64);
+
+
+-- GIN index for fast keyword/full-text matching
+CREATE INDEX IF NOT EXISTS idx_document_chunks_content_tsv 
+ON document_chunks 
+USING gin (to_tsvector('hindi', content));
+
