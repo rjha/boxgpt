@@ -1,14 +1,16 @@
 
 import os
+import logging 
 from pathlib import Path
 from mistralai.client import Mistral
+from softmaxx.config import AppConfig, get_logger_config
 
-# 1. Initialize API Client
-# Set MISTRAL_API_KEY in your environment or pass it directly
-# @todo read from config file 
-client = Mistral(api_key="xxxxxx")
+
+client = None
+logger = logging.getLogger("main." + __name__)
 
 def ingest_pdf_with_mistral_ocr(pdf_path: str) -> str:
+    global client 
     print(f"Uploading {pdf_path} to Mistral API...")
     
     # Upload the PDF file to get a temporary processing URL
@@ -18,12 +20,13 @@ def ingest_pdf_with_mistral_ocr(pdf_path: str) -> str:
             purpose="ocr"
         )
 
-    print(f"file id is {uploaded_file.id}")
+    doc_path = pdf_path.resolve()
+    print(f"doc_path: {doc_path}, uploaded_file_id: {uploaded_file.id}")
     
     # Obtain signed URL for OCR processing
-    signed_url = client.files.get_signed_url(file_id=uploaded_file.id)
-    
-    print(f"file uploaded, mistral signed URL is {signed_url}")
+    signed_url = client.files.get_signed_url(file_id=uploaded_file.id)   
+    print(f"doc_path: {doc_path}, ocr_signed_url: {signed_url}")
+
     # 2. Run Mistral OCR
     ocr_response = client.ocr.process(
         model="mistral-ocr-latest",
@@ -40,6 +43,22 @@ def ingest_pdf_with_mistral_ocr(pdf_path: str) -> str:
         f.write(ocr_response_dump)
     print("OCR response saved")
 
-# Example Execution
-pdf_path = Path('~/Downloads/Jan-Feb_2026_10.pdf').expanduser()
-ingest_pdf_with_mistral_ocr(pdf_path)
+def process_doc():
+    global client 
+    print("run scan OCR4 script...")
+
+    AppConfig.load()
+    log_config = get_logger_config("local")
+    AppConfig.init_logging(log_file=log_config.log_file)
+
+    api_keys = AppConfig.get("api_keys")
+    mistral_api_key = api_keys["mistral"]
+    client = Mistral(api_key=mistral_api_key)
+
+    # Example Execution
+    pdf_path = Path('~/Downloads/Jan-Feb_2026.pdf').expanduser()
+    ingest_pdf_with_mistral_ocr(pdf_path)
+
+
+if __name__ == "__main__":
+    process_doc()
