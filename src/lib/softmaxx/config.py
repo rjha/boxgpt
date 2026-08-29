@@ -2,12 +2,15 @@ import os
 import io
 import json
 import logging
+import urllib.parse
+
 from enum import Enum
 from pathlib import Path
 from functools import lru_cache
 from dataclasses import dataclass
 from logging.handlers import WatchedFileHandler
 from typing import Dict, Any, Optional
+
 
 # ==============================================================================
 # 1. TYPE DECLARATIONS & CONTAINERS (IMMUTABLE RECORDS)
@@ -28,6 +31,8 @@ class ConfigPathResult:
     audit_log: str
     error: Optional[str] = None
 
+
+
 @dataclass(frozen=True)
 class DatabaseConfig:
     db_user: str
@@ -35,6 +40,29 @@ class DatabaseConfig:
     db_host: str
     db_port: int
     db_name: str
+
+    def get_map(self) -> dict:
+        """
+        Returns a dictionary mapped directly to psycopg2 
+        keyword arguments.
+        """
+        return {
+            "user": self.db_user,
+            "password": self.db_password,
+            "host": self.db_host,
+            "port": self.db_port,
+            "dbname": self.db_name
+        }
+
+    def get_uri(self) -> str:
+        """
+        Returns a URL-encoded DB_URI connection string.
+        This is in case password has conflict chars
+        """
+        safe_password = urllib.parse.quote_plus(self.db_password)
+        return f"postgresql://{self.db_user}:{safe_password}@{self.db_host}:{self.db_port}/{self.db_name}"
+
+
 
 @dataclass(frozen=True)
 class LoggerConfig:
@@ -47,38 +75,38 @@ class LoggerConfig:
 
 def _get_config_path() -> ConfigPathResult:
     """
-    Locates the worker_config.json file using a prioritized multi-tier lookup 
-    hierarchy. (1) first check the BOA_CONFIG_PATH environment variable. 
-    if that is not available then $HOME/sw/.softmaxx/boa is checked next, followed by 
-    /usr/local/etc/softmaxx/boa and /etc/softmaxx/boa folders. 
-    Checks the environment variable first, then system fallback locations.
+    Locates the config.json file using a prioritized multi-tier 
+    lookup hierarchy. (1) first check the XBOA_CONFIG_PATH environment 
+    variable. if that is not available then (2) $HOME/.config/softmaxx/xboa 
+    is checked next, followed by READ-ONLY/etc/softmaxx/xboa folders. 
+    Checks the environment variable first, then system locations.
+    Follow XDG specs and use .config and .cache folders.
     """
     log_stream = io.StringIO()
-    target_filename = "boa_config.json"
+    target_filename = "config.json"
     
     try:
         # is environment variable set?
-        env_path_str = os.environ.get("BOA_CONFIG_PATH")
+        env_path_str = os.environ.get("XBOA_CONFIG_PATH")
         if env_path_str:
             env_path = Path(env_path_str).resolve()
-            log_stream.write("BOA_CONFIG_PATH=[{0}]\n".format(env_path))
+            log_stream.write("XBOA_CONFIG_PATH=[{0}]\n".format(env_path))
             
             if env_path.exists() and env_path.is_file():
-                log_stream.write("BOA_CONFIG_PATH is set and file exists.\n")
+                log_stream.write("XBOA_CONFIG_PATH is set and file exists.\n")
                 return ConfigPathResult(
                     ConfigPathCode.SUCCESS, 
                     env_path, 
                     log_stream.getvalue()
                 )
             else:
-                log_stream.write("BOA_CONFIG_PATH is not set or points to a bad location\n")
+                log_stream.write("XBOA_CONFIG_PATH is not set or points to a bad location\n")
                 
         log_stream.write("no config found via environment. checking system paths...\n")
         # search system paths for config file
         search_locations = [
-            Path.home() / "sw" / ".softmaxx/boa" / target_filename,
-            Path("/usr/local/etc/softmaxx/boa") / target_filename,
-            Path("/etc/softmaxx/boa") / target_filename
+            Path.home() / ".config" / "softmaxx/xboa" / target_filename,
+            Path("/etc/softmaxx/xboa") / target_filename
         ]
         
         for path in search_locations:
@@ -98,7 +126,7 @@ def _get_config_path() -> ConfigPathResult:
                 log_stream.write("permission denied!!\n")
         
         # no config file in system paths also!
-        log_stream.write("no worker_config.json found in system paths.\n")
+        log_stream.write("no config.json found in search paths.\n")
         return ConfigPathResult(
             ConfigPathCode.BAD_SYSTEM_PATH,
             None,
@@ -106,7 +134,7 @@ def _get_config_path() -> ConfigPathResult:
         )
 
     except Exception as exc:
-        log_stream.write("unknown error during config file lookup.\n")
+        log_stream.write("unknown error during config file search.\n")
         
         return ConfigPathResult(
             ConfigPathCode.ERR_UNHANDLED_EXCEPTION,
@@ -162,12 +190,12 @@ class AppConfig:
         configuration container by string key. Raises KeyError if missing.
         """
         if key not in AppConfig._container:
-            raise KeyError("fatal: configuration key '{0}' is missing.".format(key))
+            raise KeyError(f"fatal: No configuration key {key}, AppConfig.load() required")
         return AppConfig._container[key]
 
 
     @staticmethod
-    def init_logging(log_file: str, log_level: int) -> None:
+    def init_logging(log_file: str, log_level: int=20) -> None:
         """
         Reads logging configuration parameters from AppConfig and init 
         the root logger. Since we are using logrotate to rotate logs,
@@ -213,7 +241,13 @@ class AppConfig:
 
 
 
-def _get_database_config(db_config_key: str) -> DatabaseConfig:
+
+
+# ==============================================================================
+# 4. MODULE-LEVEL FUNCTIONS
+# ==============================================================================
+
+def get_database_config(db_config_key: str="default") -> DatabaseConfig:
     """
     Extracts a strongly-typed, immutable credential block corresponding 
     to the Database config key
@@ -230,25 +264,6 @@ def _get_database_config(db_config_key: str) -> DatabaseConfig:
         db_port=int(data["port"]),
         db_name=str(data["database"])
     )
-
-# ==============================================================================
-# 4. MODULE-LEVEL FUNCTIONS
-# ==============================================================================
-
-def get_postgres_conn_string(db_config_key: str="default") -> str:
-    logger = logging.getLogger("main." + __name__)
-    
-    db_config = _get_database_config(db_config_key)
-    DB_URI = "postgresql://{0}:{1}@{2}:{3}/{4}".format(
-        db_config.db_user,
-        db_config.db_password,
-        db_config.db_host,
-        db_config.db_port,
-        db_config.db_name
-    )
-
-    logger.info("database URI -> " + DB_URI)
-    return DB_URI
 
 
 @lru_cache(maxsize=1)
