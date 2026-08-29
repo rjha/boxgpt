@@ -1,13 +1,18 @@
 import json
 import psycopg2
+import logging
+
 from pathlib import Path
 from typing import List, Dict, Any
 from sentence_transformers import SentenceTransformer
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from psycopg2.extras import execute_values
 from pgvector.psycopg2 import register_vector
-from softmaxx.config import get_postgres_conn_string
 
+from softmaxx.config import get_database_config, DatabaseConfig
+from softmaxx.config import AppConfig, get_logger_config
+
+logger = logging.getLogger("main." + __name__)
 
 def chunk_content(
     json_path: Path, 
@@ -109,10 +114,10 @@ def store_in_database(
         print("No chunks provided to store.")
         return
 
-
     print(f"Connecting to PostgreSQL database...")
-    db_conn_string = get_postgres_conn_string()
-    conn = psycopg2.connect(db_conn_string)
+    db_config:DatabaseConfig = get_database_config()
+    print(f"Connecting to PostgreSQL {db_config}...")
+    conn = psycopg2.connect(**db_config.get_map())
     
     try:
         # Register pgvector extension handler for psycopg2
@@ -163,25 +168,30 @@ def store_in_database(
         cursor.close()
         conn.close()
 
-def main():
-    generate_preview = False 
-    model_path = "/home/rjha/code/models/bge-m3"
-    json_path = Path("ocr_content.json")
-    if not json_path.exists():
-        raise FileNotFoundError(f"Could not find {json_path}")
+def process():
+    local_config = {
+        "preview": False, 
+        "doc_id": "ICAR_MAG_JAN2026",
+        "model_path": "/home/rjha/code/models/bge-m3",
+        "content_file": "./doc01_ocr_content.json"
+    }
+    
+    ocr_content_path = Path(local_config["content_file"])
+    if not ocr_content_path.exists():
+        raise FileNotFoundError(f"Could not find {ocr_content_path}")
 
     # Step 1: Chunk content locally
     print("Step 1: Chunking structured OCR content...")
-    raw_chunks = chunk_content(json_path)
+    raw_chunks = chunk_content(ocr_content_path)
     print(f"Created {len(raw_chunks)} distinct chunks.")
 
     # Step 2: Generate BGE-M3 dense embeddings
     print("Step 2: Generating vector embeddings...")
-    enriched_chunks = get_chunk_embeddings(raw_chunks, model_path=model_path)
+    enriched_chunks = get_chunk_embeddings(raw_chunks, model_path=local_config["model_path"])
 
     # Optional: Save enriched chunks to inspect 
     # payload structure before DB insertion
-    if(generate_preview):
+    if local_config["preview"]:
         output_preview = Path("chunks_with_embeddings.json")
         with output_preview.open("w", encoding="utf-8") as f:
             json.dump(enriched_chunks, f, ensure_ascii=False, indent=2)
@@ -191,9 +201,16 @@ def main():
     
     # Step 3: Store directly into PostgreSQL
     print("Step 3: Storing vectors in PostgreSQL...")
-    store_in_database(enriched_chunks, doc_id="bonsai_doc")
-
+    store_in_database(enriched_chunks, doc_id=local_config["doc_id"])
     print("\nIngestion pipeline executed successfully!")
 
+
+def main():
+    AppConfig.load()
+    log_config = get_logger_config("local")
+    AppConfig.init_logging(log_file=log_config.log_file)
+    process()
+
+    
 if __name__ == "__main__":
     main()
