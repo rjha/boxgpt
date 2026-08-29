@@ -2,17 +2,34 @@ import psycopg2
 import numpy as np
 from pgvector.psycopg2 import register_vector
 from typing import List, Dict, Any
-from softmaxx.config import get_postgres_conn_string
+from softmaxx.config import get_database_config, DatabaseConfig
 
 
-def get_vector_candidates(
+def _cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
+    return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b)))
+
+def _normalize_embedding(raw_embedding: Any) -> list[float]:
+    """
+    Private helper to convert pgvector/ndarray/string representations
+    from PostgreSQL into a standardized Python list[float].
+    """
+    if hasattr(raw_embedding, "tolist"):
+        return [float(x) for x in raw_embedding.tolist()]
+    elif hasattr(raw_embedding, "to_numpy"):
+        return [float(x) for x in raw_embedding.to_numpy().tolist()]
+    elif isinstance(raw_embedding, str):
+        return [float(x) for x in raw_embedding.strip("[]").split(",")]
+    return [float(x) for x in list(raw_embedding)]
+
+
+def _get_vector_candidates(
     query_embedding: list[float],
-    limit: int = 20,
-    doc_id: str = "mai_out"
+    limit: int = 20
 ) -> List[Dict[str, Any]]:
     """Retrieves top K candidates ordered by vector cosine distance."""
-    db_conn_string = get_postgres_conn_string()
-    conn = psycopg2.connect(db_conn_string)
+
+    db_config:DatabaseConfig = get_database_config()
+    conn = psycopg2.connect(**db_config.get_map())
     register_vector(conn)
     cursor = conn.cursor()
 
@@ -21,41 +38,41 @@ def get_vector_candidates(
             id, section_title, page_start, page_end, content, embedding,
             1 - (embedding <=> %s::vector) AS vector_similarity
         FROM document_chunks
-        WHERE doc_id = %s
         ORDER BY embedding <=> %s::vector
         LIMIT %s;
     """
 
-    cursor.execute(sql_query, (query_embedding, doc_id, query_embedding, limit))
+    cursor.execute(sql_query, (query_embedding, query_embedding, limit))
     rows = cursor.fetchall()
     cursor.close()
     conn.close()
 
     results = []
     for rank, row in enumerate(rows, start=1):
+        clean_embedding = _normalize_embedding(row[5])
         results.append({
             "id": row[0],
             "section_title": row[1],
             "page_start": row[2],
             "page_end": row[3],
             "content": row[4],
-            "embedding": row[5],
-            "vector_similarity": row[6],
+            "embedding": clean_embedding,
+            "vector_similarity": float(row[6]),
             "vector_rank": rank  # 1-based rank
         })
 
     return results
 
 
-def get_lexical_candidates(
+def _get_lexical_candidates(
     query_str: str,
-    limit: int = 20,
-    doc_id: str = "mai_out"
+    limit: int = 20
 ) -> List[Dict[str, Any]]:
     """Retrieves top K candidates ordered by tsvector full-text match score."""
+    
+    db_config:DatabaseConfig = get_database_config()
+    conn = psycopg2.connect(**db_config.get_map())
 
-    db_conn_string = get_postgres_conn_string()
-    conn = psycopg2.connect(db_conn_string)
     cursor = conn.cursor()
 
     sql_query = """
@@ -63,34 +80,34 @@ def get_lexical_candidates(
             id, section_title, page_start, page_end, content, embedding,
             ts_rank_cd(to_tsvector('hindi', content), plainto_tsquery('hindi', %s)) AS lexical_score
         FROM document_chunks
-        WHERE doc_id = %s 
-          AND to_tsvector('hindi', content) @@ plainto_tsquery('hindi', %s)
+        WHERE  to_tsvector('hindi', content) @@ plainto_tsquery('hindi', %s)
         ORDER BY lexical_score DESC
         LIMIT %s;
     """
 
-    cursor.execute(sql_query, (query_str, doc_id, query_str, limit))
+    cursor.execute(sql_query, (query_str, query_str, limit))
     rows = cursor.fetchall()
     cursor.close()
     conn.close()
 
     results = []
     for rank, row in enumerate(rows, start=1):
+        clean_embedding = _normalize_embedding(row[5])
         results.append({
             "id": row[0],
             "section_title": row[1],
             "page_start": row[2],
             "page_end": row[3],
             "content": row[4],
-            "embedding": row[5],
-            "lexical_score": row[6],
+            "embedding": clean_embedding,
+            "lexical_score": float(row[6]),
             "lexical_rank": rank  # 1-based rank
         })
 
     return results
 
 
-def compute_rrf_in_python(
+def _compute_rrf_in_python(
     vector_results: List[Dict[str, Any]],
     lexical_results: List[Dict[str, Any]],
     k: int = 60,
@@ -102,14 +119,15 @@ def compute_rrf_in_python(
     Combines independent Vector and Lexical result sets using 
     Reciprocal Rank Fusion (RRF) in Python.
     """
-    combined_records: Dict[int, Dict[str, Any]] = {}
-    rrf_scores: Dict[int, float] = {}
+    combined_records: Dict[Any, Dict[str, Any]] = {}
+    rrf_scores: Dict[Any, float] = {}
 
     # 1. Process Vector Search Ranks
     for item in vector_results:
         item_id = item["id"]
         rank = item["vector_rank"]
-        combined_records[item_id] = item
+        # Make a shallow copy to prevent mutating raw input dicts
+        combined_records[item_id] = dict(item)
         rrf_scores[item_id] = rrf_scores.get(item_id, 0.0) + (vector_weight / (k + rank))
 
     # 2. Process Lexical Search Ranks
@@ -117,9 +135,13 @@ def compute_rrf_in_python(
         item_id = item["id"]
         rank = item["lexical_rank"]
         
-        # If not present from vector search, add metadata record
         if item_id not in combined_records:
-            combined_records[item_id] = item
+            combined_records[item_id] = dict(item)
+        else:
+            # Merge lexical metadata into existing vector record
+            combined_records[item_id]["lexical_rank"] = rank
+            if "lexical_score" in item:
+                combined_records[item_id]["lexical_score"] = item["lexical_score"]
             
         rrf_scores[item_id] = rrf_scores.get(item_id, 0.0) + (lexical_weight / (k + rank))
 
@@ -137,8 +159,16 @@ def compute_rrf_in_python(
     return sorted_candidates[:top_candidates_limit]
 
 
+
+
+# #####################################
+# PUBLIC METHODS 
+#
+#######################################
+
 def execute_hybrid_search(
     query_str: str,
+    query_config:dict[str, any],
     query_embedding: list[float],
     k: int = 60,
     candidate_limit: int = 20
@@ -148,11 +178,11 @@ def execute_hybrid_search(
     and running RRF fusion in Python.
     """
     # 1. Fetch top candidates from both search mechanisms in DB
-    vector_candidates = get_vector_candidates(query_embedding, limit=candidate_limit)
-    lexical_candidates = get_lexical_candidates(query_str, limit=candidate_limit)
+    vector_candidates = _get_vector_candidates(query_embedding, limit=candidate_limit)
+    lexical_candidates = _get_lexical_candidates(query_str, limit=candidate_limit)
 
     # 2. Perform RRF fusion in Python
-    merged_candidates = compute_rrf_in_python(
+    merged_candidates = _compute_rrf_in_python(
         vector_results=vector_candidates,
         lexical_results=lexical_candidates,
         k=k,
@@ -161,9 +191,6 @@ def execute_hybrid_search(
 
     return merged_candidates
 
-
-def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
-    return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b)))
 
 def apply_mmr_filter(
     candidates: List[Dict[str, Any]],
@@ -178,14 +205,19 @@ def apply_mmr_filter(
     if not candidates:
         return []
 
+    # Safe direct conversion since DAL guarantees list[float]
     q_vec = np.array(query_embedding, dtype=np.float32)
     cand_vecs = [np.array(c["embedding"], dtype=np.float32) for c in candidates]
 
-    # Precalculate similarity to query for all candidates db_config,
-    query_sims = [cosine_similarity(q_vec, c_vec) for c_vec in cand_vecs]
+    # Precalculate similarity to query for all candidates
+    query_sims = [_cosine_similarity(q_vec, c_vec) for c_vec in cand_vecs]
 
-    selected_indices = []
+    selected_indices: List[int] = []
     unselected_indices = list(range(len(candidates)))
+
+    # Cache for max similarity between unselected candidate and already selected set
+    # Maps candidate index -> max similarity to any selected candidate
+    max_sim_to_selected = {idx: 0.0 for idx in unselected_indices}
 
     while unselected_indices and len(selected_indices) < final_top_k:
         best_score = -float('inf')
@@ -193,24 +225,24 @@ def apply_mmr_filter(
 
         for idx in unselected_indices:
             sim_to_query = query_sims[idx]
-            
-            # Find maximum similarity to any already selected candidate
-            if not selected_indices:
-                max_sim_to_selected = 0.0
-            else:
-                max_sim_to_selected = max(
-                    cosine_similarity(cand_vecs[idx], cand_vecs[s_idx])
-                    for s_idx in selected_indices
-                )
+            sim_to_set = max_sim_to_selected[idx] if selected_indices else 0.0
 
-            # MMR Equation formula
-            mmr_score = (lambda_param * sim_to_query) - ((1 - lambda_param) * max_sim_to_selected)
+            # MMR Equation: λ * Sim(Query, Doc) - (1 - λ) * MaxSim(Doc, SelectedSet)
+            mmr_score = (lambda_param * sim_to_query) - ((1 - lambda_param) * sim_to_set)
 
             if mmr_score > best_score:
                 best_score = mmr_score
                 best_idx = idx
 
+        # Update tracking lists
         selected_indices.append(best_idx)
         unselected_indices.remove(best_idx)
+
+        # Update cached max similarity to selected set for remaining candidates
+        newly_selected_vec = cand_vecs[best_idx]
+        for idx in unselected_indices:
+            sim_to_new = _cosine_similarity(cand_vecs[idx], newly_selected_vec)
+            if sim_to_new > max_sim_to_selected[idx]:
+                max_sim_to_selected[idx] = sim_to_new
 
     return [candidates[i] for i in selected_indices]
