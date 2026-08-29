@@ -71,14 +71,15 @@ def process_ocr_dump(file_path: Path) -> List[Dict[str, Any]]:
 
 
 def do_processing():
-    file_path = Path("./out/mai_out.json")
-    if not file_path.exists() or not file_path.is_file():
-        raise FileNotFoundError(f"Missing file: {file_path}")
+    ocr_file = Path("./doc01_ocr_response.json")
+    content_file = Path("./doc01_ocr_content.json")
+    if not ocr_file.exists() or not ocr_file.is_file():
+        raise FileNotFoundError(f"Missing file: {ocr_file}")
     
-    structured_sections = process_ocr_dump(file_path)
+    structured_sections = process_ocr_dump(ocr_file)
     json_string = json.dumps(structured_sections, indent=4, ensure_ascii=False)
 
-    with open("ocr_content.json", "w", encoding="utf-8") as f:
+    with content_file.open("w", encoding="utf-8") as f:
         f.write(json_string)
         print("OCR content saved")
 
