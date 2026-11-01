@@ -1,0 +1,91 @@
+{
+  "document_identity": {
+    "title": "string",
+    "document_number": "string",
+    "document_type": "string",
+    "company_or_business": "string",
+    "issue_date": "string",
+    "revision": "string",
+    "prepared_by": "string",
+    "approved_by": "string",
+    "distribution_list": ["string"]
+  },
+
+  "maintenance_job": {
+    "job_name": "string",
+    "equipment": "string",
+    "applicable_assets": ["string"],
+    "purpose": "string",
+    "scope": ["string"],
+    "frequency": "string"
+  },
+
+  "resources": {
+    "manpower": ["string"],
+    "tools_and_tackles": ["string"],
+    "spares": ["string"],
+    "consumables": ["string"]
+  },
+
+  "safety_requirements": {
+    "hazards": ["string"],
+    "permits": ["string"],
+    "isolation_requirements": ["string"],
+    "ppe": ["string"],
+    "health_requirements": ["string"],
+    "environmental_requirements": ["string"],
+    "specific_standards": ["string"]
+  },
+
+  "maintenance_activities": [
+    {
+      "sequence": 1,
+      "activity": "string",
+      "description": "string",
+      "responsibility": ["string"],
+      "precautions": ["string"],
+      "hazards": ["string"],
+      "checks": ["string"]
+    }
+  ],
+
+  "pre_maintenance_checks": ["string"],
+  "shutdown_isolation_procedure": ["string"],
+
+  "abnormal_conditions": [
+    {
+      "condition": "string",
+      "corrective_action": "string"
+    }
+  ],
+
+  "emergency_procedure": "string",
+  "special_instructions": ["string"],
+
+  "troubleshooting": [
+    {
+      "issue": "string",
+      "possible_cause": "string",
+      "action": "string"
+    }
+  ],
+
+  "quality_and_completion": {
+    "tests": ["string"],
+    "post_maintenance_checks": ["string"],
+    "restoration": ["string"],
+    "replacement_criteria": [
+      {
+        "component_type": "string",
+        "threshold": "string"
+      }
+    ]
+  },
+
+  "references": ["string"],
+  
+  "review": {
+    "review_frequency": "string",
+    "site_specific_changes_allowed": "boolean"
+  }
+}
