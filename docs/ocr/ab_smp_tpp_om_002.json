@@ -1,0 +1,740 @@
+{
+  "pages": [
+    {
+      "index": 0,
+      "markdown": "|  ADITYA BIRLA UltraTech | Standard Maintenance Procedure (SMP)  |   |\n| --- | --- | --- |\n|  Title: Boiler Tube Thickness Mapping | Document Number: [SMP-TPP-O&M-002]  |   |\n|   |   |  Issue Date: 24-06 -2026  |\n\n|   | Name and Title | Date  |\n| --- | --- | --- |\n|  Written By: |  | 24-06 -2026  |\n|  Approved By: |  | 24-06 -2026  |\n\n# REVISION LOG\n\n|  REVISION NO: | REASON FOR CHANGE(S): | DATE:  |\n| --- | --- | --- |\n|  00 | New document | 24-06 -2026  |\n|  10 |  |   |\n|  20 |  |   |\n|  30 |  |   |\n|  40 |  |   |\n\nDistribution: OH&S Board Members, Unit Heads & Safety Website\n\n# 1.0 Purpose:\n\nTo measure and record the wall thickness of boiler tubes at predetermined locations using an Ultrasonic Thickness Gauge/D-meter, compare with previous readings, and identify wear trends for preventive maintenance and timely replacement in accordance with OEM and UltraTech guidelines.\n\n# 2.0 Scope:\n\nApplies to all boiler pressure parts including:\n\n- Furnace support tubes\n- Economizer stringer support tubes\n- Furnace wall tubes\n- Other water-cooled tubes\n- Superheater and reheater tubes\n- Steam-cooled tubes",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 123,
+          "top_left_y": 85,
+          "bottom_right_x": 713,
+          "bottom_right_y": 263,
+          "content": "|  ADITYA BIRLA UltraTech | Standard Maintenance Procedure (SMP)  |   |\n| --- | --- | --- |\n|  Title: Boiler Tube Thickness Mapping | Document Number: [SMP-TPP-O&M-002]  |   |\n|   |   |  Issue Date: 24-06 -2026  |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 119,
+          "top_left_y": 287,
+          "bottom_right_x": 716,
+          "bottom_right_y": 359,
+          "content": "|   | Name and Title | Date  |\n| --- | --- | --- |\n|  Written By: |  | 24-06 -2026  |\n|  Approved By: |  | 24-06 -2026  |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 344,
+          "top_left_y": 384,
+          "bottom_right_x": 445,
+          "bottom_right_y": 399,
+          "content": "# REVISION LOG",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 119,
+          "top_left_y": 430,
+          "bottom_right_x": 726,
+          "bottom_right_y": 577,
+          "content": "|  REVISION NO: | REASON FOR CHANGE(S): | DATE:  |\n| --- | --- | --- |\n|  00 | New document | 24-06 -2026  |\n|  10 |  |   |\n|  20 |  |   |\n|  30 |  |   |\n|  40 |  |   |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 176,
+          "top_left_y": 603,
+          "bottom_right_x": 611,
+          "bottom_right_y": 620,
+          "content": "Distribution: OH&S Board Members, Unit Heads & Safety Website",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 631,
+          "bottom_right_x": 198,
+          "bottom_right_y": 646,
+          "content": "# 1.0 Purpose:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 116,
+          "top_left_y": 649,
+          "bottom_right_x": 671,
+          "bottom_right_y": 718,
+          "content": "To measure and record the wall thickness of boiler tubes at predetermined locations using an Ultrasonic Thickness Gauge/D-meter, compare with previous readings, and identify wear trends for preventive maintenance and timely replacement in accordance with OEM and UltraTech guidelines.",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 730,
+          "bottom_right_x": 187,
+          "bottom_right_y": 744,
+          "content": "# 2.0 Scope:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 117,
+          "top_left_y": 748,
+          "bottom_right_x": 377,
+          "bottom_right_y": 764,
+          "content": "Applies to all boiler pressure parts including:",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 139,
+          "top_left_y": 775,
+          "bottom_right_x": 364,
+          "bottom_right_y": 927,
+          "content": "- Furnace support tubes\n- Economizer stringer support tubes\n- Furnace wall tubes\n- Other water-cooled tubes\n- Superheater and reheater tubes\n- Steam-cooled tubes",
+          "confidence_scores": null,
+          "type": "list"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "markdown": "## **2.1 Definition and abbreviations:**\n\n- SMP: Safe Maintenance Procedure\n- LOTOTO: Lock Out Tag Out Try Out\n- CCR: Central Control Room\n- PTW : Permit to Work\n\n## **3.0 Frequency :**\n\n- Minimum once per year during annual overhaul\n- During short shutdowns if required\n- After completion of repair work on boiler pressure parts\n- At request of statutory authority\n\n## **4.0 Tools & Equipment**\n\n- Ultrasonic Thickness Gauge / D-meter (calibrated)\n- Calibration block (per gauge manufacturer)\n- Marking tools (chalk/paint)\n- Access equipment (scaffolding, ladders)\n- PPE: helmet, safety shoes, gloves, eye protection, hearing protection\n- Documentation sheets or digital logging device\n\n## **5.0 Safety, Health & Environment Considerations – Boiler Tube Thickness Mapping SMP**\n\n### **1. General Safety Rules**\n\n- Only skilled personnel with appropriate Boiler Operation Engineer / First Class / Second Class certification and training in boiler maintenance and NDT (Ultrasonic Thickness Gauge) shall be deployed.\n- All personnel must be trained in lockout–tagout (LOTO) procedures for boiler systems before commencing work.\n- Ensure work permits (Hot Work / Confined Space / Height Work) are obtained as per site safety protocols.\n- Maintain clear communication with CCR (Central Control Room) and boiler supervisor during the entire activity.\n- Follow OEM recommendations and site-specific SOPs for tube inspection and thickness mapping.\n\n### **2. Health Considerations**\n\n- Risk of heat stress due to high ambient temperatures inside boiler during shutdown — ensure adequate hydration and rest breaks.",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 153,
+          "top_left_y": 89,
+          "bottom_right_x": 359,
+          "bottom_right_y": 104,
+          "content": "## **2.1 Definition and abbreviations:**",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 170,
+          "top_left_y": 110,
+          "bottom_right_x": 391,
+          "bottom_right_y": 177,
+          "content": "- SMP: Safe Maintenance Procedure\n- LOTOTO: Lock Out Tag Out Try Out\n- CCR: Central Control Room\n- PTW : Permit to Work",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 206,
+          "bottom_right_x": 215,
+          "bottom_right_y": 222,
+          "content": "## **3.0 Frequency :**",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 141,
+          "top_left_y": 233,
+          "bottom_right_x": 483,
+          "bottom_right_y": 331,
+          "content": "- Minimum once per year during annual overhaul\n- During short shutdowns if required\n- After completion of repair work on boiler pressure parts\n- At request of statutory authority",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 359,
+          "bottom_right_x": 260,
+          "bottom_right_y": 376,
+          "content": "## **4.0 Tools & Equipment**",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 141,
+          "top_left_y": 387,
+          "bottom_right_x": 560,
+          "bottom_right_y": 540,
+          "content": "- Ultrasonic Thickness Gauge / D-meter (calibrated)\n- Calibration block (per gauge manufacturer)\n- Marking tools (chalk/paint)\n- Access equipment (scaffolding, ladders)\n- PPE: helmet, safety shoes, gloves, eye protection, hearing protection\n- Documentation sheets or digital logging device",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 567,
+          "bottom_right_x": 645,
+          "bottom_right_y": 584,
+          "content": "## **5.0 Safety, Health & Environment Considerations – Boiler Tube Thickness Mapping SMP**",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 595,
+          "bottom_right_x": 264,
+          "bottom_right_y": 611,
+          "content": "### **1. General Safety Rules**",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 141,
+          "top_left_y": 621,
+          "bottom_right_x": 671,
+          "bottom_right_y": 853,
+          "content": "- Only skilled personnel with appropriate Boiler Operation Engineer / First Class / Second Class certification and training in boiler maintenance and NDT (Ultrasonic Thickness Gauge) shall be deployed.\n- All personnel must be trained in lockout–tagout (LOTO) procedures for boiler systems before commencing work.\n- Ensure work permits (Hot Work / Confined Space / Height Work) are obtained as per site safety protocols.\n- Maintain clear communication with CCR (Central Control Room) and boiler supervisor during the entire activity.\n- Follow OEM recommendations and site-specific SOPs for tube inspection and thickness mapping.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 871,
+          "bottom_right_x": 274,
+          "bottom_right_y": 887,
+          "content": "### **2. Health Considerations**",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 141,
+          "top_left_y": 898,
+          "bottom_right_x": 656,
+          "bottom_right_y": 932,
+          "content": "- Risk of heat stress due to high ambient temperatures inside boiler during shutdown — ensure adequate hydration and rest breaks.",
+          "confidence_scores": null,
+          "type": "list"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "markdown": "- Risk of burn injuries from residual hot surfaces — confirm boiler is fully cooled before entry.\n- Risk of respiratory irritation from fly ash, dust, and corrosion products — use appropriate respiratory protection.\n- Risk of noise exposure from nearby equipment — use hearing protection if required.\n- Ensure medical fitness of personnel for confined space entry and work at heights.\n\n### 3. Environment Considerations\n\n- Prevent fly ash and dust dispersal during inspection — use dust suppression methods (e.g., wetting surfaces).\n- Collect and dispose of removed scale, ash, and debris in designated containers as per environmental guidelines.\n- Avoid contamination of surrounding areas with oil, grease, or chemical residues from inspection tools.\n- Ensure portable ultrasonic thickness gauges and other equipment are handled to prevent accidental spillage of coupling gel into drains.\n- Maintain proper ventilation inside boiler to avoid accumulation of harmful gases.\n\n### 4. Specific Safety Standard Requirements\n\n- Confined Space Safety:\n- Gas testing for O₂, CO, CO₂, and other hazardous gases before entry.\n- Continuous monitoring during work.\n- Standby person outside with communication link.\n- Hot Work Safety (if any repair is done immediately after mapping):\n- Fire-resistant PPE, welding shields, and fire watch.\n- Fall Protection:\n- Use safety harnesses when working on elevated platforms or scaffolding inside boiler.\n\n#### Electrical Safety:\n\n- Ensure ultrasonic thickness gauge and other instruments are properly insulated and grounded.\n\n#### Tool Safety:\n\n- Inspect ultrasonic thickness gauge, D-meter, and calibration blocks before use.\n\n### 5. Hazards\n\n- Thermal Burns: Contact with residual hot surfaces or steam pockets.\n- Dust Inhalation: Fly ash, corrosion products, and scale particles.",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 140,
+          "top_left_y": 89,
+          "bottom_right_x": 655,
+          "bottom_right_y": 222,
+          "content": "- Risk of burn injuries from residual hot surfaces — confirm boiler is fully cooled before entry.\n- Risk of respiratory irritation from fly ash, dust, and corrosion products — use appropriate respiratory protection.\n- Risk of noise exposure from nearby equipment — use hearing protection if required.\n- Ensure medical fitness of personnel for confined space entry and work at heights.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 241,
+          "bottom_right_x": 310,
+          "bottom_right_y": 257,
+          "content": "### 3. Environment Considerations",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 140,
+          "top_left_y": 269,
+          "bottom_right_x": 660,
+          "bottom_right_y": 464,
+          "content": "- Prevent fly ash and dust dispersal during inspection — use dust suppression methods (e.g., wetting surfaces).\n- Collect and dispose of removed scale, ash, and debris in designated containers as per environmental guidelines.\n- Avoid contamination of surrounding areas with oil, grease, or chemical residues from inspection tools.\n- Ensure portable ultrasonic thickness gauges and other equipment are handled to prevent accidental spillage of coupling gel into drains.\n- Maintain proper ventilation inside boiler to avoid accumulation of harmful gases.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 482,
+          "bottom_right_x": 375,
+          "bottom_right_y": 499,
+          "content": "### 4. Specific Safety Standard Requirements",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 140,
+          "top_left_y": 513,
+          "bottom_right_x": 656,
+          "bottom_right_y": 717,
+          "content": "- Confined Space Safety:\n- Gas testing for O₂, CO, CO₂, and other hazardous gases before entry.\n- Continuous monitoring during work.\n- Standby person outside with communication link.\n- Hot Work Safety (if any repair is done immediately after mapping):\n- Fire-resistant PPE, welding shields, and fire watch.\n- Fall Protection:\n- Use safety harnesses when working on elevated platforms or scaffolding inside boiler.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 140,
+          "top_left_y": 728,
+          "bottom_right_x": 249,
+          "bottom_right_y": 744,
+          "content": "#### Electrical Safety:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 140,
+          "top_left_y": 755,
+          "bottom_right_x": 646,
+          "bottom_right_y": 790,
+          "content": "- Ensure ultrasonic thickness gauge and other instruments are properly insulated and grounded.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 140,
+          "top_left_y": 800,
+          "bottom_right_x": 215,
+          "bottom_right_y": 816,
+          "content": "#### Tool Safety:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 140,
+          "top_left_y": 827,
+          "bottom_right_x": 619,
+          "bottom_right_y": 844,
+          "content": "- Inspect ultrasonic thickness gauge, D-meter, and calibration blocks before use.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 854,
+          "bottom_right_x": 187,
+          "bottom_right_y": 870,
+          "content": "### 5. Hazards",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 140,
+          "top_left_y": 881,
+          "bottom_right_x": 561,
+          "bottom_right_y": 925,
+          "content": "- Thermal Burns: Contact with residual hot surfaces or steam pockets.\n- Dust Inhalation: Fly ash, corrosion products, and scale particles.",
+          "confidence_scores": null,
+          "type": "list"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "markdown": "- Confined Space Risks: Oxygen deficiency, toxic gas exposure.\n- Slips, Trips, and Falls: Uneven surfaces, ash deposits, and scaffolding.\n- Mechanical Injury: From handling heavy inspection tools or moving parts.\n- Electrical Shock: From faulty inspection equipment.\n- Eye Injury: From flying particles during cleaning of tube surfaces before measurement.\n\n# PPE Matrix for Boiler Tube Thickness Mapping\n\n|  Activity | Helmet | Safety Shoes | Goggles | Cotton Gloves | Heat-resistant Gloves | Respirator | Reflective Jacket | Safety Harness  |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  Entry into boiler | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓  |\n|  Tube cleaning & mapping | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓  |\n|  Work at height inside boiler | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓  |\n\n# Pre-Start Checklist\n\ni. Confirm boiler is isolated, depressurized, and cooled.\nii. Obtain LOTO confirmation from CCR.\niii. Conduct gas testing and ventilation setup.\niv. Verify PPE compliance for all team members.\nv. Calibrate ultrasonic thickness gauge and prepare inspection plan.\nvi. Brief team on emergency evacuation routes and communication protocol.\nvii. Confirm safe access to all measurement points\nviii. Follow confined space entry procedures.\n\n# 6.0 Procedure\n\n# 1. Preparation\n\n- Review previous thickness mapping records\n- Identify predetermined measurement locations, especially wear-prone areas (e.g., bends, ash diversion zones)\n- Arrange scaffolding or access platforms\n\n# 2. Calibration\n\n- Calibrate Ultrasonic Thickness Gauge using standard calibration block",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 139,
+          "top_left_y": 87,
+          "bottom_right_x": 658,
+          "bottom_right_y": 212,
+          "content": "- Confined Space Risks: Oxygen deficiency, toxic gas exposure.\n- Slips, Trips, and Falls: Uneven surfaces, ash deposits, and scaffolding.\n- Mechanical Injury: From handling heavy inspection tools or moving parts.\n- Electrical Shock: From faulty inspection equipment.\n- Eye Injury: From flying particles during cleaning of tube surfaces before measurement.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 240,
+          "bottom_right_x": 397,
+          "bottom_right_y": 257,
+          "content": "# PPE Matrix for Boiler Tube Thickness Mapping",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 266,
+          "bottom_right_x": 664,
+          "bottom_right_y": 509,
+          "content": "|  Activity | Helmet | Safety Shoes | Goggles | Cotton Gloves | Heat-resistant Gloves | Respirator | Reflective Jacket | Safety Harness  |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  Entry into boiler | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓  |\n|  Tube cleaning & mapping | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓  |\n|  Work at height inside boiler | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓  |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 526,
+          "bottom_right_x": 239,
+          "bottom_right_y": 542,
+          "content": "# Pre-Start Checklist",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 121,
+          "top_left_y": 555,
+          "bottom_right_x": 589,
+          "bottom_right_y": 694,
+          "content": "i. Confirm boiler is isolated, depressurized, and cooled.\nii. Obtain LOTO confirmation from CCR.\niii. Conduct gas testing and ventilation setup.\niv. Verify PPE compliance for all team members.\nv. Calibrate ultrasonic thickness gauge and prepare inspection plan.\nvi. Brief team on emergency evacuation routes and communication protocol.\nvii. Confirm safe access to all measurement points\nviii. Follow confined space entry procedures.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 713,
+          "bottom_right_x": 210,
+          "bottom_right_y": 728,
+          "content": "# 6.0 Procedure",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 139,
+          "top_left_y": 740,
+          "bottom_right_x": 238,
+          "bottom_right_y": 756,
+          "content": "# 1. Preparation",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 183,
+          "top_left_y": 769,
+          "bottom_right_x": 649,
+          "bottom_right_y": 856,
+          "content": "- Review previous thickness mapping records\n- Identify predetermined measurement locations, especially wear-prone areas (e.g., bends, ash diversion zones)\n- Arrange scaffolding or access platforms",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 139,
+          "top_left_y": 866,
+          "bottom_right_x": 235,
+          "bottom_right_y": 882,
+          "content": "# 2. Calibration",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 183,
+          "top_left_y": 895,
+          "bottom_right_x": 613,
+          "bottom_right_y": 910,
+          "content": "- Calibrate Ultrasonic Thickness Gauge using standard calibration block",
+          "confidence_scores": null,
+          "type": "list"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "markdown": "○ Verify accuracy before starting measurements\n\n# 3. Measurement\n\n○ Clean tube surface at measurement point to remove scale, rust, or debris\n○ Apply couplant gel to ensure proper ultrasonic contact\n○ Place probe perpendicular to tube surface and record reading\n○ Repeat measurement at each predetermined location\n○ Take at least 3 readings per location and record average\n\n# 4. Recording\n\n○ Document readings in thickness mapping log sheet\n○ Compare with previous overhaul readings\n○ Note percentage reduction from original specified wall thickness (t)\n\n# 5. Evaluation & Action\n\n○ Follow replacement/repair criteria:\n\n▪ Furnace support & economizer stringer tubes: Replace if <85% t\n▪ Furnace wall & other water-cooled tubes: Replace if <70% t\n▪ Superheater/reheater tubes: Replace if <85% t\n▪ Replace tubes below ASME minimum wall thickness or 0.090 inch due to risk of weld burn-through ³\n\n○ If reduction >20% due to fly ash erosion, replace worn-out portion.\n\n# 7.0 Documentation\n\n○ Update erosion trend charts\n○ File report in maintenance records\n○ Communicate findings to operations and maintenance planning team\n\n# 8.0 References\n\n• UltraTech Guidelines for Boiler Tube Leak Prevention\n• OEM maintenance manuals\n• ASME Boiler and Pressure Vessel Code\n\n# 9.0 Attachments\n\n• Thickness Mapping Log Sheet Template\n• Tube Replacement Criteria Table",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 182,
+          "top_left_y": 88,
+          "bottom_right_x": 472,
+          "bottom_right_y": 103,
+          "content": "○ Verify accuracy before starting measurements",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 139,
+          "top_left_y": 115,
+          "bottom_right_x": 250,
+          "bottom_right_y": 129,
+          "content": "# 3. Measurement",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 182,
+          "top_left_y": 143,
+          "bottom_right_x": 627,
+          "bottom_right_y": 267,
+          "content": "○ Clean tube surface at measurement point to remove scale, rust, or debris\n○ Apply couplant gel to ensure proper ultrasonic contact\n○ Place probe perpendicular to tube surface and record reading\n○ Repeat measurement at each predetermined location\n○ Take at least 3 readings per location and record average",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 139,
+          "top_left_y": 279,
+          "bottom_right_x": 229,
+          "bottom_right_y": 294,
+          "content": "# 4. Recording",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 182,
+          "top_left_y": 305,
+          "bottom_right_x": 593,
+          "bottom_right_y": 376,
+          "content": "○ Document readings in thickness mapping log sheet\n○ Compare with previous overhaul readings\n○ Note percentage reduction from original specified wall thickness (t)",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 139,
+          "top_left_y": 387,
+          "bottom_right_x": 283,
+          "bottom_right_y": 401,
+          "content": "# 5. Evaluation & Action",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 182,
+          "top_left_y": 416,
+          "bottom_right_x": 409,
+          "bottom_right_y": 431,
+          "content": "○ Follow replacement/repair criteria:",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 226,
+          "top_left_y": 442,
+          "bottom_right_x": 667,
+          "bottom_right_y": 558,
+          "content": "▪ Furnace support & economizer stringer tubes: Replace if <85% t\n▪ Furnace wall & other water-cooled tubes: Replace if <70% t\n▪ Superheater/reheater tubes: Replace if <85% t\n▪ Replace tubes below ASME minimum wall thickness or 0.090 inch due to risk of weld burn-through ³",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 182,
+          "top_left_y": 569,
+          "bottom_right_x": 587,
+          "bottom_right_y": 585,
+          "content": "○ If reduction >20% due to fly ash erosion, replace worn-out portion.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 116,
+          "top_left_y": 604,
+          "bottom_right_x": 242,
+          "bottom_right_y": 619,
+          "content": "# 7.0 Documentation",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 182,
+          "top_left_y": 632,
+          "bottom_right_x": 607,
+          "bottom_right_y": 702,
+          "content": "○ Update erosion trend charts\n○ File report in maintenance records\n○ Communicate findings to operations and maintenance planning team",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 116,
+          "top_left_y": 722,
+          "bottom_right_x": 211,
+          "bottom_right_y": 735,
+          "content": "# 8.0 References",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 139,
+          "top_left_y": 749,
+          "bottom_right_x": 462,
+          "bottom_right_y": 818,
+          "content": "• UltraTech Guidelines for Boiler Tube Leak Prevention\n• OEM maintenance manuals\n• ASME Boiler and Pressure Vessel Code",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 116,
+          "top_left_y": 839,
+          "bottom_right_x": 224,
+          "bottom_right_y": 853,
+          "content": "# 9.0 Attachments",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 139,
+          "top_left_y": 865,
+          "bottom_right_x": 390,
+          "bottom_right_y": 908,
+          "content": "• Thickness Mapping Log Sheet Template\n• Tube Replacement Criteria Table",
+          "confidence_scores": null,
+          "type": "list"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "markdown": "# Thickness Mapping Log Sheet Template Layout\n\nSheet Name: Boiler Tube Thickness Log\n\nColumn Headings\n\n|  A | B | C | D | E | F | G | H | I  |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  Sr. No. | Tube Location / ID | Tube Type | Original Specified Thickness (t) mm | Current Measured Thickness (mm) | % of Original Thickness | % Reduction from Original | Action Required | Remarks  |\n|  |   |   |   |   |   |   |   |   |\n|  |   |   |   |   |   |   |   |   |\n\nCalculation Method\n\n- % of Original Thickness = (Current Measured Thickness ÷ Original Specified Thickness) × 100\n- % Reduction from Original = 100 - (% of Original Thickness)\n\nReplacement Criteria (UltraTech Guidelines)\n\n|  Tube Type | Replace if below  |\n| --- | --- |\n|  Furnace support & economizer stringer support tubes | 85% of t  |\n|  Furnace wall & other water-cooled tubes | 70% of t  |\n|  Superheater, reheater & other steam-cooled tubes | 85% of t  |\n|  Any tube below ASME minimum wall thickness or 0.090 inch | Replace immediately  |\n\nSummary\n\n|  Total Tubes Checked | Tubes Requiring Replacement | Tubes Requiring Monitoring | Comments / Recommendations  |\n| --- | --- | --- | --- |\n|  |   |   |   |\n|  |   |   |   |\n\n# 9.0 Review\n\nThis procedure may be reviewed and modified if changes are required in the current work. Additionally, a final review must be conducted once a year from the date mentioned above, and a revision record must be maintained.",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 117,
+          "top_left_y": 88,
+          "bottom_right_x": 403,
+          "bottom_right_y": 103,
+          "content": "# Thickness Mapping Log Sheet Template Layout",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 117,
+          "top_left_y": 115,
+          "bottom_right_x": 352,
+          "bottom_right_y": 130,
+          "content": "Sheet Name: Boiler Tube Thickness Log",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 143,
+          "bottom_right_x": 231,
+          "bottom_right_y": 159,
+          "content": "Column Headings",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 119,
+          "top_left_y": 167,
+          "bottom_right_x": 670,
+          "bottom_right_y": 294,
+          "content": "|  A | B | C | D | E | F | G | H | I  |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  Sr. No. | Tube Location / ID | Tube Type | Original Specified Thickness (t) mm | Current Measured Thickness (mm) | % of Original Thickness | % Reduction from Original | Action Required | Remarks  |\n|  |   |   |   |   |   |   |   |   |\n|  |   |   |   |   |   |   |   |   |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 295,
+          "bottom_right_x": 242,
+          "bottom_right_y": 308,
+          "content": "Calculation Method",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 139,
+          "top_left_y": 321,
+          "bottom_right_x": 665,
+          "bottom_right_y": 382,
+          "content": "- % of Original Thickness = (Current Measured Thickness ÷ Original Specified Thickness) × 100\n- % Reduction from Original = 100 - (% of Original Thickness)",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 393,
+          "bottom_right_x": 389,
+          "bottom_right_y": 409,
+          "content": "Replacement Criteria (UltraTech Guidelines)",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 119,
+          "top_left_y": 418,
+          "bottom_right_x": 614,
+          "bottom_right_y": 513,
+          "content": "|  Tube Type | Replace if below  |\n| --- | --- |\n|  Furnace support & economizer stringer support tubes | 85% of t  |\n|  Furnace wall & other water-cooled tubes | 70% of t  |\n|  Superheater, reheater & other steam-cooled tubes | 85% of t  |\n|  Any tube below ASME minimum wall thickness or 0.090 inch | Replace immediately  |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 539,
+          "bottom_right_x": 181,
+          "bottom_right_y": 554,
+          "content": "Summary",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 119,
+          "top_left_y": 563,
+          "bottom_right_x": 670,
+          "bottom_right_y": 638,
+          "content": "|  Total Tubes Checked | Tubes Requiring Replacement | Tubes Requiring Monitoring | Comments / Recommendations  |\n| --- | --- | --- | --- |\n|  |   |   |   |\n|  |   |   |   |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 118,
+          "top_left_y": 665,
+          "bottom_right_x": 187,
+          "bottom_right_y": 678,
+          "content": "# 9.0 Review",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 138,
+          "top_left_y": 681,
+          "bottom_right_x": 670,
+          "bottom_right_y": 729,
+          "content": "This procedure may be reviewed and modified if changes are required in the current work. Additionally, a final review must be conducted once a year from the date mentioned above, and a revision record must be maintained.",
+          "confidence_scores": null,
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "model": "mistral-ocr-latest",
+  "usage_info": {
+    "pages_processed": 6,
+    "doc_size_bytes": 734068
+  },
+  "document_annotation": null
+}

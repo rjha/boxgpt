@@ -1,0 +1,820 @@
+{
+  "pages": [
+    {
+      "index": 0,
+      "markdown": "# Standard Maintenance Procedure (SMP)\n\n# Title: Maintenance of Compressor\n\nDocument Number:\n[SMP/TPP/O&M/014]\n\nIssue Date: 07.07.2026\n\n|   | Name and Title | Date  |\n| --- | --- | --- |\n|  Prepared By: | FLE and SH TPP Maint | 07-07-2026  |\n|  Approved By: | DH TPP |   |\n\n# REVISION LOG\n\n|  REVISION NO: | REASON FOR CHANGE(S): | DATE:  |\n| --- | --- | --- |\n|  00 | New Format | 25-03-2026  |\n|  10 | Revision No. 00 | 07-07-2026  |\n|  20 |  |   |\n|  30 |  |   |\n|  40 |  |   |\n\nDistribution: OH&S Board Members, Unit Heads & Safety Website\n\n# 1.0 Purpose:\n\nTo establish a standardized and safe maintenance procedure for Compressor maintenance, ensuring the protection of personnel, equipment reliability, and compliance with applicable safety standards.\n\n# 2.0 Scope:\n\nThis procedure applies to all maintenance activities involving Compressor maintenance, including inspection, servicing, and replacement tasks. It is intended for use by authorized Mechanical maintenance personnel across all operational areas where Screw Compressor are installed.\n\n# 2.1 Definition and abbreviations:\n\n- SMP: Safe Maintenance Procedure\n- LOTOTO: Lock Out Tag Out Try Out\n- CCR: Central Control Room ☐ PTW: Permit to Work\n\n# 3.0 Safety, Health & Environment Consideration",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 242,
+          "top_left_y": 101,
+          "bottom_right_x": 519,
+          "bottom_right_y": 121,
+          "content": "# Standard Maintenance Procedure (SMP)",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 76,
+          "top_left_y": 153,
+          "bottom_right_x": 397,
+          "bottom_right_y": 178,
+          "content": "# Title: Maintenance of Compressor",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 421,
+          "top_left_y": 151,
+          "bottom_right_x": 551,
+          "bottom_right_y": 185,
+          "content": "Document Number:\n[SMP/TPP/O&M/014]",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 421,
+          "top_left_y": 207,
+          "bottom_right_x": 553,
+          "bottom_right_y": 223,
+          "content": "Issue Date: 07.07.2026",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 295,
+          "bottom_right_x": 740,
+          "bottom_right_y": 381,
+          "content": "|   | Name and Title | Date  |\n| --- | --- | --- |\n|  Prepared By: | FLE and SH TPP Maint | 07-07-2026  |\n|  Approved By: | DH TPP |   |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 353,
+          "top_left_y": 434,
+          "bottom_right_x": 454,
+          "bottom_right_y": 451,
+          "content": "# REVISION LOG",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 466,
+          "bottom_right_x": 740,
+          "bottom_right_y": 622,
+          "content": "|  REVISION NO: | REASON FOR CHANGE(S): | DATE:  |\n| --- | --- | --- |\n|  00 | New Format | 25-03-2026  |\n|  10 | Revision No. 00 | 07-07-2026  |\n|  20 |  |   |\n|  30 |  |   |\n|  40 |  |   |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 208,
+          "top_left_y": 642,
+          "bottom_right_x": 582,
+          "bottom_right_y": 659,
+          "content": "Distribution: OH&S Board Members, Unit Heads & Safety Website",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 660,
+          "bottom_right_x": 124,
+          "bottom_right_y": 677,
+          "content": "# 1.0 Purpose:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 65,
+          "top_left_y": 695,
+          "bottom_right_x": 747,
+          "bottom_right_y": 729,
+          "content": "To establish a standardized and safe maintenance procedure for Compressor maintenance, ensuring the protection of personnel, equipment reliability, and compliance with applicable safety standards.",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 747,
+          "bottom_right_x": 107,
+          "bottom_right_y": 763,
+          "content": "# 2.0 Scope:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 65,
+          "top_left_y": 767,
+          "bottom_right_x": 747,
+          "bottom_right_y": 817,
+          "content": "This procedure applies to all maintenance activities involving Compressor maintenance, including inspection, servicing, and replacement tasks. It is intended for use by authorized Mechanical maintenance personnel across all operational areas where Screw Compressor are installed.",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 78,
+          "top_left_y": 821,
+          "bottom_right_x": 263,
+          "bottom_right_y": 837,
+          "content": "# 2.1 Definition and abbreviations:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 842,
+          "bottom_right_x": 413,
+          "bottom_right_y": 893,
+          "content": "- SMP: Safe Maintenance Procedure\n- LOTOTO: Lock Out Tag Out Try Out\n- CCR: Central Control Room ☐ PTW: Permit to Work",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 910,
+          "bottom_right_x": 334,
+          "bottom_right_y": 927,
+          "content": "# 3.0 Safety, Health & Environment Consideration",
+          "confidence_scores": null,
+          "type": "title"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "markdown": "### 3.1 General Safety Rules\n\n- Take general work permit with LOTOTO.\n- Ensure Presence of standby person\n- Only Authorized & Trained person to perform the job\n- Check and verify Isolations.\n- Use safe working platforms only\n- Provide mechanical LOTO at all energy sources. (Other than Electrical)\n- Ensure use tested safety harness\n- Ensure use Tested tools, tackles\n\n### 3.2 Health Considerations:\n\n- Ensure person working is Fit & not in fatigue.\n\n### 3.3 Environment Considerations:\n\n- Ensure proper illumination at working area.\n- Disposal of waste material like Marking cloth, Empty container of cleaner/CTC etc\n\n### 3.4 Specific Safety Standard requirement:\n\n- Job Plan\n- Permit to Work (PTW)\n- Material Lifting and lowering\n- Machine guarding\n- Lock Out Tag Out Try Out (LOTOTO)\n- Working at Height\n\n### 3.5 Hazards:\n\n- Dust, fall of material, slip of tools, Failure of lifting tool & tackles, Fall from Height, Fire\n\n### PPE-Matrix\n\n|  During tools, tackles & Material shifting | Safety Helmet | Safety Goggles | Safety shoes | hand gloves | Nose mask, Ear plug,  |\n| --- | --- | --- | --- | --- | --- |\n|  During maintenance | Safety Helmet | Safety Goggles | Safety shoes | Safety harness | hand gloves, Nose mask, Ear plug, Personal lock  |\n\n### 3.6 Environment Control:\n\n- Disposal of waste oil as per waste disposal procedure\n- Disposal of cotton waste etc at designated place\n\n### 3.8 Environmental Requirements:\n\n- Proper illumination\n- Properly ventilated maintenance space\n\n### 4.0 Quality consideration:\n\n- Tested tools, Instruments / kit to be used for measurement purpose\n\nDocument No: [SMP/TPP/O&M/001]\n\n(ABG Cement Business – Company Confidential Document)",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 87,
+          "top_left_y": 82,
+          "bottom_right_x": 234,
+          "bottom_right_y": 98,
+          "content": "### 3.1 General Safety Rules",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 105,
+          "bottom_right_x": 511,
+          "bottom_right_y": 244,
+          "content": "- Take general work permit with LOTOTO.\n- Ensure Presence of standby person\n- Only Authorized & Trained person to perform the job\n- Check and verify Isolations.\n- Use safe working platforms only\n- Provide mechanical LOTO at all energy sources. (Other than Electrical)\n- Ensure use tested safety harness\n- Ensure use Tested tools, tackles",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 87,
+          "top_left_y": 262,
+          "bottom_right_x": 247,
+          "bottom_right_y": 278,
+          "content": "### 3.2 Health Considerations:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 279,
+          "bottom_right_x": 371,
+          "bottom_right_y": 295,
+          "content": "- Ensure person working is Fit & not in fatigue.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 87,
+          "top_left_y": 313,
+          "bottom_right_x": 285,
+          "bottom_right_y": 329,
+          "content": "### 3.3 Environment Considerations:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 330,
+          "bottom_right_x": 573,
+          "bottom_right_y": 365,
+          "content": "- Ensure proper illumination at working area.\n- Disposal of waste material like Marking cloth, Empty container of cleaner/CTC etc",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 87,
+          "top_left_y": 382,
+          "bottom_right_x": 335,
+          "bottom_right_y": 398,
+          "content": "### 3.4 Specific Safety Standard requirement:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 399,
+          "bottom_right_x": 333,
+          "bottom_right_y": 503,
+          "content": "- Job Plan\n- Permit to Work (PTW)\n- Material Lifting and lowering\n- Machine guarding\n- Lock Out Tag Out Try Out (LOTOTO)\n- Working at Height",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 87,
+          "top_left_y": 521,
+          "bottom_right_x": 166,
+          "bottom_right_y": 537,
+          "content": "### 3.5 Hazards:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 538,
+          "bottom_right_x": 608,
+          "bottom_right_y": 555,
+          "content": "- Dust, fall of material, slip of tools, Failure of lifting tool & tackles, Fall from Height, Fire",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 48,
+          "top_left_y": 573,
+          "bottom_right_x": 123,
+          "bottom_right_y": 589,
+          "content": "### PPE-Matrix",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 49,
+          "top_left_y": 589,
+          "bottom_right_x": 693,
+          "bottom_right_y": 690,
+          "content": "|  During tools, tackles & Material shifting | Safety Helmet | Safety Goggles | Safety shoes | hand gloves | Nose mask, Ear plug,  |\n| --- | --- | --- | --- | --- | --- |\n|  During maintenance | Safety Helmet | Safety Goggles | Safety shoes | Safety harness | hand gloves, Nose mask, Ear plug, Personal lock  |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 87,
+          "top_left_y": 707,
+          "bottom_right_x": 244,
+          "bottom_right_y": 723,
+          "content": "### 3.6 Environment Control:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 724,
+          "bottom_right_x": 411,
+          "bottom_right_y": 759,
+          "content": "- Disposal of waste oil as per waste disposal procedure\n- Disposal of cotton waste etc at designated place",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 87,
+          "top_left_y": 776,
+          "bottom_right_x": 289,
+          "bottom_right_y": 793,
+          "content": "### 3.8 Environmental Requirements:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 793,
+          "bottom_right_x": 331,
+          "bottom_right_y": 827,
+          "content": "- Proper illumination\n- Properly ventilated maintenance space",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 89,
+          "top_left_y": 848,
+          "bottom_right_x": 245,
+          "bottom_right_y": 864,
+          "content": "### 4.0 Quality consideration:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 869,
+          "bottom_right_x": 481,
+          "bottom_right_y": 886,
+          "content": "- Tested tools, Instruments / kit to be used for measurement purpose",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 906,
+          "bottom_right_x": 264,
+          "bottom_right_y": 923,
+          "content": "Document No: [SMP/TPP/O&M/001]",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 196,
+          "top_left_y": 941,
+          "bottom_right_x": 534,
+          "bottom_right_y": 958,
+          "content": "(ABG Cement Business – Company Confidential Document)",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "markdown": "• Use tested and good condition spares parts\n\n# 5.0 Maintenance Control and Considerations\n\n• Plan maintenance as per OEM recommendation and condition\n• Maintain documents record about maintenance\n• Engage competent person on job\n• Ensure critical spares availability\n• Incorporate site-specific safety measures based on layout, equipment setup, and operational conditions.\n\n# 6.0 Maintenance Procedure\n\n# 6.1 Routine maintenance Procedure-Activities\n\n|  Sn | Activities (Sequence of Work) | Safety Precautions | Responsibility  |\n| --- | --- | --- | --- |\n|  1 | Shifting of spares, tools and tackles | • All tools and tackles are having TPI certificates • Trolley should be in good condition while shifting of tools & tackles • All lifting tools shall be visually inspected before commencing activity. • All lifting tools & tackles shall have identification tag and colour code. | FLE/Fitter  |\n|  2 | External Cleaning of Compressor & Dismantling of Machine Guard. | • Ensure LOTOTO of the compressor before start of work • Don't use local made tools for Compressor external cleaning. • Use of tool kit / tool bag. • Use of cotton and soft brush for Compressor External cleaning. • Take material lowering PTW for any lifting activity. • Use tested and colour coded lifting tools and tackles • area to be barricaded • Fire extinguisher is available near work spot | FLE/Fitter  |\n|  3 | Checking of Compressor and dismantling of components. | • Ensure LOTOTO of the compressor and apply LPBS before start of work. • Don't use any local made tools for Compressor maintenance activity. | FLE/Fitter  |\n\nDocument No: [SMP/TPP/O&M/001]\n\n(ABG Cement Business – Company Confidential Document)",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 95,
+          "top_left_y": 82,
+          "bottom_right_x": 353,
+          "bottom_right_y": 98,
+          "content": "• Use tested and good condition spares parts",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 73,
+          "top_left_y": 117,
+          "bottom_right_x": 339,
+          "bottom_right_y": 132,
+          "content": "# 5.0 Maintenance Control and Considerations",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 95,
+          "top_left_y": 133,
+          "bottom_right_x": 681,
+          "bottom_right_y": 229,
+          "content": "• Plan maintenance as per OEM recommendation and condition\n• Maintain documents record about maintenance\n• Engage competent person on job\n• Ensure critical spares availability\n• Incorporate site-specific safety measures based on layout, equipment setup, and operational conditions.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 78,
+          "top_left_y": 251,
+          "bottom_right_x": 249,
+          "bottom_right_y": 266,
+          "content": "# 6.0 Maintenance Procedure",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 78,
+          "top_left_y": 269,
+          "bottom_right_x": 349,
+          "bottom_right_y": 285,
+          "content": "# 6.1 Routine maintenance Procedure-Activities",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 51,
+          "top_left_y": 284,
+          "bottom_right_x": 731,
+          "bottom_right_y": 689,
+          "content": "|  Sn | Activities (Sequence of Work) | Safety Precautions | Responsibility  |\n| --- | --- | --- | --- |\n|  1 | Shifting of spares, tools and tackles | • All tools and tackles are having TPI certificates • Trolley should be in good condition while shifting of tools & tackles • All lifting tools shall be visually inspected before commencing activity. • All lifting tools & tackles shall have identification tag and colour code. | FLE/Fitter  |\n|  2 | External Cleaning of Compressor & Dismantling of Machine Guard. | • Ensure LOTOTO of the compressor before start of work • Don't use local made tools for Compressor external cleaning. • Use of tool kit / tool bag. • Use of cotton and soft brush for Compressor External cleaning. • Take material lowering PTW for any lifting activity. • Use tested and colour coded lifting tools and tackles • area to be barricaded • Fire extinguisher is available near work spot | FLE/Fitter  |\n|  3 | Checking of Compressor and dismantling of components. | • Ensure LOTOTO of the compressor and apply LPBS before start of work. • Don't use any local made tools for Compressor maintenance activity. | FLE/Fitter  |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 906,
+          "bottom_right_x": 264,
+          "bottom_right_y": 923,
+          "content": "Document No: [SMP/TPP/O&M/001]",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 196,
+          "top_left_y": 942,
+          "bottom_right_x": 534,
+          "bottom_right_y": 958,
+          "content": "(ABG Cement Business – Company Confidential Document)",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "markdown": "|   | Like-Valves, strainer, oil cooler, Air cooler, Oil Separator, Piston/Screw, pipe and fittings. | • Ensure isolation and mechanical LOTO at all energy sources other the Electrical. • Take material lowering lifting permit for any lifting activity. • All lifting tools shall be visually inspected before commencing activity. • All lifting tools & tackles shall have identification tag include color code. • Two manila rope should fix to the lifting material for balancing during lifting/lowering • Ensure no men below of lifting load. • Area is to be barricaded. • Use of correct and Standard spanners only |   |\n| --- | --- | --- | --- |\n|  4 | Lifting and lowering compressor components and motor | • Take PTW LOTOTO along with special permits • Ensure mechanical LOTO at Air out O/L and cooling water I/L & O/L isolation valve. • Use of correct spanners for Compressor components removal. • NO waste oil near compressor. • Use Trays to kept loose items of compressor | FLE/Fitter  |\n\nDocument No: [SMP/TPP/O&M/001]\n\n(ABG Cement Business – Company Confidential Document)",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 44,
+          "top_left_y": 80,
+          "bottom_right_x": 726,
+          "bottom_right_y": 406,
+          "content": "|   | Like-Valves, strainer, oil cooler, Air cooler, Oil Separator, Piston/Screw, pipe and fittings. | • Ensure isolation and mechanical LOTO at all energy sources other the Electrical. • Take material lowering lifting permit for any lifting activity. • All lifting tools shall be visually inspected before commencing activity. • All lifting tools & tackles shall have identification tag include color code. • Two manila rope should fix to the lifting material for balancing during lifting/lowering • Ensure no men below of lifting load. • Area is to be barricaded. • Use of correct and Standard spanners only |   |\n| --- | --- | --- | --- |\n|  4 | Lifting and lowering compressor components and motor | • Take PTW LOTOTO along with special permits • Ensure mechanical LOTO at Air out O/L and cooling water I/L & O/L isolation valve. • Use of correct spanners for Compressor components removal. • NO waste oil near compressor. • Use Trays to kept loose items of compressor | FLE/Fitter  |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 905,
+          "bottom_right_x": 264,
+          "bottom_right_y": 923,
+          "content": "Document No: [SMP/TPP/O&M/001]",
+          "confidence_scores": null,
+          "type": "header"
+        },
+        {
+          "top_left_x": 196,
+          "top_left_y": 942,
+          "bottom_right_x": 532,
+          "bottom_right_y": 960,
+          "content": "(ABG Cement Business – Company Confidential Document)",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "markdown": "|  5 | DE-coupling, removal of Screw/piston/air cooler/motor | - All lifting tools shall be visually inspected before commencing activity. - All lifting tools & tackles shall have identification tag include color code. - Two manila ropes should fix to the lifting material for balancing during lifting/lowering. - Ensure No men below of lifting load - Area is to be barricaded - Fire extinguisher is available near work spot - Ensure Chain pully block, wire ropes, belt slings and DE. Cycles etc., test certificate before start of activity - Rigging plan should be done and available at site while lifting more than 5MT - Lifting ropes, D cycles and chain blocks should be 1.5times more than lifting material - Ensure all lifting tools, tackles TPI certificate - Group discussion with FLE before start - of lifting - Don's use local made tools - Use of permanent / approved scaffolding / platform before start of activity - Use of full body harness - Full body harness must be tested and certified. - FBH must be fixed with rigid structure / lifeline only Ensure all workmen height phobia test before start of activity. - Use of tool kit / tool bag - Use of cotton and soft brush for fan blades cleaning - Take PTW, LOTO and height permit - Area to be barricaded - Fire extinguisher is available near work spot | FLE/Fitter  |\n| --- | --- | --- | --- |\n|  6 | Removal of Compressor oil | - Ensure LOTOTO of the compressor and apply LPBS before start of work. - Ensure Mechanical LOTO at all energy sources other than electrical energy. - Tool box talk to be done along with SWP before start of work. - Use of correct spanners to remove the Compressor oil drain plug. - Don't use site fabricated tools - Keep waste oil in 20 ltr can only. - Waste oil at ground must be cleaned properly. - Ensure Flammable material away from work area. - Area To be barricaded. - Fire extinguisher should be available near work area | FLE/Fitter  |\n\nDocument No: [SMP/TPP/O&M/001]\n\n(ABG Cement Business – Company Confidential Document)",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 44,
+          "top_left_y": 79,
+          "bottom_right_x": 723,
+          "bottom_right_y": 837,
+          "content": "|  5 | DE-coupling, removal of Screw/piston/air cooler/motor | - All lifting tools shall be visually inspected before commencing activity. - All lifting tools & tackles shall have identification tag include color code. - Two manila ropes should fix to the lifting material for balancing during lifting/lowering. - Ensure No men below of lifting load - Area is to be barricaded - Fire extinguisher is available near work spot - Ensure Chain pully block, wire ropes, belt slings and DE. Cycles etc., test certificate before start of activity - Rigging plan should be done and available at site while lifting more than 5MT - Lifting ropes, D cycles and chain blocks should be 1.5times more than lifting material - Ensure all lifting tools, tackles TPI certificate - Group discussion with FLE before start - of lifting - Don's use local made tools - Use of permanent / approved scaffolding / platform before start of activity - Use of full body harness - Full body harness must be tested and certified. - FBH must be fixed with rigid structure / lifeline only Ensure all workmen height phobia test before start of activity. - Use of tool kit / tool bag - Use of cotton and soft brush for fan blades cleaning - Take PTW, LOTO and height permit - Area to be barricaded - Fire extinguisher is available near work spot | FLE/Fitter  |\n| --- | --- | --- | --- |\n|  6 | Removal of Compressor oil | - Ensure LOTOTO of the compressor and apply LPBS before start of work. - Ensure Mechanical LOTO at all energy sources other than electrical energy. - Tool box talk to be done along with SWP before start of work. - Use of correct spanners to remove the Compressor oil drain plug. - Don't use site fabricated tools - Keep waste oil in 20 ltr can only. - Waste oil at ground must be cleaned properly. - Ensure Flammable material away from work area. - Area To be barricaded. - Fire extinguisher should be available near work area | FLE/Fitter  |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 905,
+          "bottom_right_x": 264,
+          "bottom_right_y": 923,
+          "content": "Document No: [SMP/TPP/O&M/001]",
+          "confidence_scores": null,
+          "type": "header"
+        },
+        {
+          "top_left_x": 196,
+          "top_left_y": 941,
+          "bottom_right_x": 534,
+          "bottom_right_y": 958,
+          "content": "(ABG Cement Business – Company Confidential Document)",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "markdown": "|  7 | Compressor strainer and breather, Air filter/oil filter/separator cleaning or replacement | - Ensure LOTOTO of the compressor and apply LPBS before start of work. - Ensure Mechanical LOTO of all energy sources other than electrical energy. - Tool box talk to be done along with SWP before start of work - Use of standard and correct size tools for strainer, breather, filter, separator service or replacement. - Don't use site fabricated tools - Ensure Flammable material away from work area. - Area To be barricaded. - Fire extinguisher should be available near work area | FLE/Fitter  |\n| --- | --- | --- | --- |\n|  8 | Inspection & removal of Coupling /Belt | - Take PTW and Ensure LOTOTO of the compressor and apply LPBS before start of work. - Ensure Mechanical LOTO at all energy sources other than electrical energy - Use of hand gloves while removal of coupling/belt. - Take popper care of hand/finger during removal of coupling/Belt - Don't use site fabricated tools - Area To be barricaded. - Fire extinguisher should be available near work area - Ensure Flammable material away from work area. | FLE/Fitter  |\n|  9 | Compressor oil Wiper ring /Oil seal replacement | - Use of correct spanners to remove the Compressor drain plug. - Use 5 ltr can for Compressor old oil draining. - Use Standard tools and hand gloves during replacement of oil wiper ring/oil seal. - Don't use site fabricated tools - Keep waste oil in 20 ltr can only. - Waste oil at ground must be cleaned properly. - Ensure Flammable material away from work area. - Area To be barricaded. - Fire extinguisher should be available near work area | FLE/Fitter  |\n|  10 | Compressor oil replacement /Oil Top up | - Take PTW and Ensure LOTOTO of the compressor and apply LPBS before start of work. - Ensure Mechanical LOTO at all energy sources other than electrical energy - Tool box talk to be done along with SWP before start of work - Use of standard tools only - Don't use site fabricated tools - Ensure Use of safety harness while GB oil removal - Keep waste oil in 20 ltr can only - Ensure Flammable material away from work area. - Area To be barricaded. - Fire extinguisher should be available near work area | FLE/Fitter  |\n\nDocument No: [SMP/TPP/O&M/001]\n\n(ABG Cement Business – Company Confidential Document)",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 44,
+          "top_left_y": 79,
+          "bottom_right_x": 723,
+          "bottom_right_y": 856,
+          "content": "|  7 | Compressor strainer and breather, Air filter/oil filter/separator cleaning or replacement | - Ensure LOTOTO of the compressor and apply LPBS before start of work. - Ensure Mechanical LOTO of all energy sources other than electrical energy. - Tool box talk to be done along with SWP before start of work - Use of standard and correct size tools for strainer, breather, filter, separator service or replacement. - Don't use site fabricated tools - Ensure Flammable material away from work area. - Area To be barricaded. - Fire extinguisher should be available near work area | FLE/Fitter  |\n| --- | --- | --- | --- |\n|  8 | Inspection & removal of Coupling /Belt | - Take PTW and Ensure LOTOTO of the compressor and apply LPBS before start of work. - Ensure Mechanical LOTO at all energy sources other than electrical energy - Use of hand gloves while removal of coupling/belt. - Take popper care of hand/finger during removal of coupling/Belt - Don't use site fabricated tools - Area To be barricaded. - Fire extinguisher should be available near work area - Ensure Flammable material away from work area. | FLE/Fitter  |\n|  9 | Compressor oil Wiper ring /Oil seal replacement | - Use of correct spanners to remove the Compressor drain plug. - Use 5 ltr can for Compressor old oil draining. - Use Standard tools and hand gloves during replacement of oil wiper ring/oil seal. - Don't use site fabricated tools - Keep waste oil in 20 ltr can only. - Waste oil at ground must be cleaned properly. - Ensure Flammable material away from work area. - Area To be barricaded. - Fire extinguisher should be available near work area | FLE/Fitter  |\n|  10 | Compressor oil replacement /Oil Top up | - Take PTW and Ensure LOTOTO of the compressor and apply LPBS before start of work. - Ensure Mechanical LOTO at all energy sources other than electrical energy - Tool box talk to be done along with SWP before start of work - Use of standard tools only - Don't use site fabricated tools - Ensure Use of safety harness while GB oil removal - Keep waste oil in 20 ltr can only - Ensure Flammable material away from work area. - Area To be barricaded. - Fire extinguisher should be available near work area | FLE/Fitter  |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 905,
+          "bottom_right_x": 264,
+          "bottom_right_y": 923,
+          "content": "Document No: [SMP/TPP/O&M/001]",
+          "confidence_scores": null,
+          "type": "header"
+        },
+        {
+          "top_left_x": 196,
+          "top_left_y": 941,
+          "bottom_right_x": 534,
+          "bottom_right_y": 958,
+          "content": "(ABG Cement Business – Company Confidential Document)",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "markdown": "|  11 | Fixing of Coupling hub /V belt | - Take PTW and Ensure LOTOTO of the compressor and apply LPBS before start of work. - Ensure Mechanical LOTO at all energy sources other than electrical energy - Tool box talk to be done along with SWP before start of work - Use of hand gloves while fixing of coupling. - Use of tested heater only. - Use of ELCB. - Take popper care of hand/finger during fixing of coupling/Belt. - Ensure Flammable material away from work area. - Area To be barricaded. - Fire extinguisher should be available near work area | FLE/Fitter  |\n| --- | --- | --- | --- |\n|  12 | Checking, correction of coupling Alignment and fixing of coupling | - While shifting of motor use jack bolts only - Ensure hand gloves while cutting and adjusting of SS shims - While base bolts removal and tightening use only wooden handle hammer only. - Use of nose plier for SS shims replacement - Use of shim cutter only for shim preparation | FLE/Fitter  |\n|  13 | Fixing of coupling and guard | - PTW and LOTOTO to be taken and available at working crew - Ensure Manual locking of Fan blades by fixing of nylon rope Use of tested pully only - Ensure locking of pulley with coupling before start of activity - Use of hand gloves while removal of coupling. - NO Flammable material away from work area. - Area To be barricaded. - Fire extinguisher should be available near work area - Use of lather apron, hand sleeves, leg sleeves and hand gloves - Area to barricaded - Lock the coupling hub with rope while removal | FLE/Fitter  |\n|  14 | Housekeeping, Cancellation of PTW & restoration of all supply sources | - Ensure housekeeping after completion of work - All waste/scrap material is to be dumped at scrap yard only - Ensure the area is clean and nothing is left over at site after completion of job. - Ensure all PTW and special permits close. - Follow Isolation SOP. | FLE/Fitter  |\n\n#### 6.2 Pre maintenance Checks:\n\n- Check all lifting tools, Portable tools before start of activity.\n\n#### 6.3 Shutdown Procedure (If applicable):\n\n- As per HT isolation SOP\n\n#### 6.4 Abnormal condition handling:\n\n- Don't enter the running fan cabin\n- Ensure proper isolation of LT motor by checking LOTOTO\n\nDocument No: [SMP/TPP/O&M/001]\n\n(ABG Cement Business – Company Confidential Document)",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 44,
+          "top_left_y": 79,
+          "bottom_right_x": 723,
+          "bottom_right_y": 719,
+          "content": "|  11 | Fixing of Coupling hub /V belt | - Take PTW and Ensure LOTOTO of the compressor and apply LPBS before start of work. - Ensure Mechanical LOTO at all energy sources other than electrical energy - Tool box talk to be done along with SWP before start of work - Use of hand gloves while fixing of coupling. - Use of tested heater only. - Use of ELCB. - Take popper care of hand/finger during fixing of coupling/Belt. - Ensure Flammable material away from work area. - Area To be barricaded. - Fire extinguisher should be available near work area | FLE/Fitter  |\n| --- | --- | --- | --- |\n|  12 | Checking, correction of coupling Alignment and fixing of coupling | - While shifting of motor use jack bolts only - Ensure hand gloves while cutting and adjusting of SS shims - While base bolts removal and tightening use only wooden handle hammer only. - Use of nose plier for SS shims replacement - Use of shim cutter only for shim preparation | FLE/Fitter  |\n|  13 | Fixing of coupling and guard | - PTW and LOTOTO to be taken and available at working crew - Ensure Manual locking of Fan blades by fixing of nylon rope Use of tested pully only - Ensure locking of pulley with coupling before start of activity - Use of hand gloves while removal of coupling. - NO Flammable material away from work area. - Area To be barricaded. - Fire extinguisher should be available near work area - Use of lather apron, hand sleeves, leg sleeves and hand gloves - Area to barricaded - Lock the coupling hub with rope while removal | FLE/Fitter  |\n|  14 | Housekeeping, Cancellation of PTW & restoration of all supply sources | - Ensure housekeeping after completion of work - All waste/scrap material is to be dumped at scrap yard only - Ensure the area is clean and nothing is left over at site after completion of job. - Ensure all PTW and special permits close. - Follow Isolation SOP. | FLE/Fitter  |",
+          "confidence_scores": null,
+          "type": "table",
+          "table_id": null
+        },
+        {
+          "top_left_x": 78,
+          "top_left_y": 736,
+          "bottom_right_x": 241,
+          "bottom_right_y": 752,
+          "content": "#### 6.2 Pre maintenance Checks:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 101,
+          "top_left_y": 754,
+          "bottom_right_x": 454,
+          "bottom_right_y": 771,
+          "content": "- Check all lifting tools, Portable tools before start of activity.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 78,
+          "top_left_y": 790,
+          "bottom_right_x": 302,
+          "bottom_right_y": 805,
+          "content": "#### 6.3 Shutdown Procedure (If applicable):",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 101,
+          "top_left_y": 807,
+          "bottom_right_x": 265,
+          "bottom_right_y": 823,
+          "content": "- As per HT isolation SOP",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 78,
+          "top_left_y": 841,
+          "bottom_right_x": 268,
+          "bottom_right_y": 857,
+          "content": "#### 6.4 Abnormal condition handling:",
+          "confidence_scores": null,
+          "type": "title"
+        },
+        {
+          "top_left_x": 101,
+          "top_left_y": 859,
+          "bottom_right_x": 451,
+          "bottom_right_y": 893,
+          "content": "- Don't enter the running fan cabin\n- Ensure proper isolation of LT motor by checking LOTOTO",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 906,
+          "bottom_right_x": 264,
+          "bottom_right_y": 922,
+          "content": "Document No: [SMP/TPP/O&M/001]",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 196,
+          "top_left_y": 941,
+          "bottom_right_x": 534,
+          "bottom_right_y": 958,
+          "content": "(ABG Cement Business – Company Confidential Document)",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "markdown": "6.5 Emergency maintenance procedure:\n\n- Emergency maintenance to be done in consultation with concern OEM & approval of DH Safety, FH – TPP & UH\n\n6.6 Special maintenance instructions:\n\n- Special maintenance to be done in consultation with concern OEM\n\n7.0 Troubleshooting:\n\n8.0 Cross-references:\n\n- Concern HIRA document\n- OEM Manual\n\n9.0 Review:\n\n- This procedure may be reviewed annually and modified if changes are required in the current work, or during the annual review as per the date mentioned above, and a revision record must be maintained.\n\n10.0 Specify if any Site-specific changes required:\n\n- NA\n\nDocument No: [SMP/TPP/O&M/001]\n\n(ABG Cement Business – Company Confidential Document)",
+      "images": [],
+      "dimensions": {
+        "dpi": 93,
+        "height": 1023,
+        "width": 791
+      },
+      "tables": [],
+      "hyperlinks": [],
+      "header": null,
+      "footer": null,
+      "confidence_scores": null,
+      "blocks": [
+        {
+          "top_left_x": 78,
+          "top_left_y": 101,
+          "bottom_right_x": 299,
+          "bottom_right_y": 118,
+          "content": "6.5 Emergency maintenance procedure:",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 101,
+          "top_left_y": 118,
+          "bottom_right_x": 734,
+          "bottom_right_y": 151,
+          "content": "- Emergency maintenance to be done in consultation with concern OEM & approval of DH Safety, FH – TPP & UH",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 78,
+          "top_left_y": 170,
+          "bottom_right_x": 286,
+          "bottom_right_y": 186,
+          "content": "6.6 Special maintenance instructions:",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 187,
+          "bottom_right_x": 485,
+          "bottom_right_y": 204,
+          "content": "- Special maintenance to be done in consultation with concern OEM",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 222,
+          "bottom_right_x": 162,
+          "bottom_right_y": 239,
+          "content": "7.0 Troubleshooting:",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 257,
+          "bottom_right_x": 164,
+          "bottom_right_y": 272,
+          "content": "8.0 Cross-references:",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 273,
+          "bottom_right_x": 261,
+          "bottom_right_y": 306,
+          "content": "- Concern HIRA document\n- OEM Manual",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 325,
+          "bottom_right_x": 114,
+          "bottom_right_y": 341,
+          "content": "9.0 Review:",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 342,
+          "bottom_right_x": 754,
+          "bottom_right_y": 376,
+          "content": "- This procedure may be reviewed annually and modified if changes are required in the current work, or during the annual review as per the date mentioned above, and a revision record must be maintained.",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 393,
+          "bottom_right_x": 323,
+          "bottom_right_y": 411,
+          "content": "10.0 Specify if any Site-specific changes required:",
+          "confidence_scores": null,
+          "type": "text"
+        },
+        {
+          "top_left_x": 94,
+          "top_left_y": 430,
+          "bottom_right_x": 142,
+          "bottom_right_y": 445,
+          "content": "- NA",
+          "confidence_scores": null,
+          "type": "list"
+        },
+        {
+          "top_left_x": 44,
+          "top_left_y": 905,
+          "bottom_right_x": 264,
+          "bottom_right_y": 923,
+          "content": "Document No: [SMP/TPP/O&M/001]",
+          "confidence_scores": null,
+          "type": "footer"
+        },
+        {
+          "top_left_x": 195,
+          "top_left_y": 940,
+          "bottom_right_x": 534,
+          "bottom_right_y": 960,
+          "content": "(ABG Cement Business – Company Confidential Document)",
+          "confidence_scores": null,
+          "type": "footer"
+        }
+      ]
+    }
+  ],
+  "model": "mistral-ocr-latest",
+  "usage_info": {
+    "pages_processed": 8,
+    "doc_size_bytes": 400191
+  },
+  "document_annotation": null
+}
