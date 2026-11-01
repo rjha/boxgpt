@@ -29,11 +29,17 @@ def _is_ppe_table(table_content: str) -> bool:
 def _parse_ppe_table(table_content: str) -> List[Dict[str, Any]]:
     """Parses a verified PPE table into structured rows."""
     lines = [line.strip() for line in table_content.strip().split("\n") if line.strip()]
+    if len(lines) < 3:
+        return []
+    
     headers = [h.strip() for h in lines[0].split("|")[1:-1]]
+    if not headers:
+        return []
     
     ppe_mappings = []
     ppe_headers = headers[1:]
 
+    # Skipping index 0 (headers) and index 1 (markdown separator like |---|---|)
     for line in lines[2:]:
         cells = [c.strip() for c in line.split("|")[1:-1]]
         if len(cells) < len(headers):
@@ -43,7 +49,8 @@ def _parse_ppe_table(table_content: str) -> List[Dict[str, Any]]:
         required_ppes = []
         
         for header_name, cell_value in zip(ppe_headers, cells[1:]):
-            if cell_value in ["√", "✓", "x", "X"] or cell_value.lower() in ["yes", "true"]:
+            val_str = str(cell_value).lower()
+            if cell_value in ["√", "✓", "x", "X"] or val_str in ["yes", "true"]:
                 required_ppes.append(header_name)
                 
         if activity_name:
@@ -80,7 +87,7 @@ def preprocess_ocr_json(ocr_data: Dict[Any, Any]) -> Dict[str, Any]:
             b_type = block.get("type", "")
             content = block.get("content", "").strip()
 
-            # specials cases skip processing 
+            # skip empty content or images 
             if not content or b_type == "image":
                 continue 
             
