@@ -1,0 +1,9 @@
+
+Please extract the maintenance metadata, safety rules, procedures, 
+and troubleshooting data from the preprocessed document payload below. 
+
+You MUST format your output strictly as a JSON object adhering to this schema:
+{{SCHEMA}}
+
+Input Data:
+{{PAYLOAD}}
