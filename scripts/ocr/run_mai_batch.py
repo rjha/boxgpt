@@ -31,12 +31,12 @@ def main():
     # get all SMP documents and write to script/temp/ocr folder
     SRC_DIR = Path('/Users/rjha/Desktop/x-projects/AB-docs/SMP').expanduser()
     ROOT_DIR = Path('/Users/rjha/code/github/boxgpt/scripts/temp').expanduser()
-    OCR_DIR = ROOT_DIR / "ocr"
+    TARGET_DIR = ROOT_DIR / "ocr"
     mistral_config: MistralStubConfig = MistralStubConfig(
         dial_mistral=False,
         network_delay=5.0)
     
-    ocr_stub.process_batch(SRC_DIR, OCR_DIR, mistral_config)
+    ocr_stub.process_batch(SRC_DIR, TARGET_DIR, mistral_config)
     
 
 if __name__ == "__main__":
