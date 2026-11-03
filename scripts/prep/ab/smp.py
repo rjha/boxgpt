@@ -1,7 +1,5 @@
-import json
 import re
-from pathlib import Path
-from typing import Dict, Any, List, Set
+from typing import Dict, Any, List
 
 
 def _extract_page_zero_metadata(b_type: str, content: str) -> str:
@@ -62,15 +60,15 @@ def _parse_ppe_table(table_content: str) -> List[Dict[str, Any]]:
     return ppe_mappings
 
 
-def preprocess_ocr_json(ocr_data: Dict[Any, Any]) -> Dict[str, Any]:
+def process_doc(ocr_data: Dict[Any, Any]) -> str:
     pages = ocr_data.get("pages", [])
     if not pages:
-        return {
-            "metadata_hints": {}, 
-            "ppe_matrices": [], 
-            "unique_ppe_list": [], 
-            "clean_text": ""
-        }
+        return (
+            "# DOCUMENT METADATA\n- **Header Summary:** N/A\n\n"
+            "# DOCUMENT CONTENT\n"
+            "# PPE MATRICES\nNone detected\n\n"
+            "# UNIQUE PPE LIST\nNone\n\n"
+        )
 
     header_items = []
     extracted_ppe_matrices = []
@@ -118,32 +116,33 @@ def preprocess_ocr_json(ocr_data: Dict[Any, Any]) -> Dict[str, Any]:
             page_text = "\n".join(page_content_lines)
             cleaned_page_texts.append(f"--- Page {page_index + 1} ---\n{page_text}")
 
+    # Format Metadata Section
+    header_summary = " | ".join(header_items) if header_items else "N/A"
+    metadata_markdown = f"# DOCUMENT METADATA\n- **Header Summary:** {header_summary}"
+
+    # Format PPE Matrices Section
+    if extracted_ppe_matrices:
+        ppe_lines = []
+        for row in extracted_ppe_matrices:
+            row_str = ", ".join(f"**{k}**: {v}" for k, v in row.items())
+            ppe_lines.append(f"- {row_str}")
+        ppe_markdown = "# PPE MATRICES\n" + "\n".join(ppe_lines)
+    else:
+        ppe_markdown = "# PPE MATRICES\n- None detected"
+
+    # Format Unique PPE List Section
+    unique_ppe_list = sorted(list(unique_ppe_set))
+    unique_ppe_str = ", ".join(unique_ppe_list) if unique_ppe_list else "None"
+    unique_ppe_markdown = f"# UNIQUE PPE LIST\n{unique_ppe_str}"
+
+    # Format Clean Document Content Section
     full_clean_document = "\n\n".join(cleaned_page_texts)
+    content_markdown = f"# DOCUMENT CONTENT\n\n{full_clean_document}"
 
-    # Build final metadata dict with header_summary guaranteed to be present
-    extracted_metadata = {
-        "header_summary": " | ".join(header_items) if header_items else ""
-    }
-
-    return {
-        "metadata_hints": extracted_metadata,
-        "ppe_matrices": extracted_ppe_matrices,
-        "unique_ppe_list": sorted(list(unique_ppe_set)),
-        "clean_text": full_clean_document
-    }
-
-
-
-if __name__ == "__main__":
-    ocr_output_path = Path('~/code/github/boxgpt/docs/ocr/ab_smp_tpp_om_014.json').expanduser()
-    with open(ocr_output_path, "r", encoding="utf-8") as f:
-        ocr_json = json.load(f)
-
-    result = preprocess_ocr_json(ocr_json)
-    print(result["clean_text"])
-    
-    # print(result["metadata_hints"])
-    # print(json.dumps(result["ppe_matrices"], indent=2))
-    # print(json.dumps(result["unique_ppe_list"], indent=2))
-        
-    
+    # Combine all sections into a single cohesive markdown document string
+    return "\n\n---\n\n".join([
+        metadata_markdown,
+        content_markdown,
+        ppe_markdown,
+        unique_ppe_markdown
+    ])
