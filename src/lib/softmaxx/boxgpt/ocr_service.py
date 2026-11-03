@@ -1,23 +1,49 @@
 import logging 
+import re
+import time 
 from pathlib import Path
 from mistralai.client import Mistral
+from dataclasses import dataclass
+from typing import Optional
 
+
+@dataclass(frozen=True)
+class MistralStubConfig:
+    network_delay: float = 1.0
+    include_blocks: bool = True
+    log_level: int = 1
+
+
+def _get_canonical_snake_name(file_stem: str) -> str:
+    """
+    Converts a file stem to strict snake_case:
+    - Converts to lowercase
+    - Replaces spaces and special characters with underscores
+    - Collapses multiple underscores into a single one
+    """
+    # 1. Convert name to lowercase
+    # 2. Replace NOT [letter, number, _] with underscore
+    # 3. Strip leading/trailing underscores
+    cleaned = file_stem.lower()
+    snake = re.sub(r'[^a-z0-9_]+', '_', cleaned)
+    return snake.strip('_')
 
 
 class MistralStub:
     def __init__(self, api_key: str):
         """Initializes the Mistral client with the provided API key."""
         self.client = Mistral(api_key=api_key)
-        
-    def process(self, source_path: Path, target_path: Path, include_blocks=True) -> None:
+    
+    def process(
+        self, 
+        source_path: Path, 
+        target_path: Path, 
+        config: Optional[MistralStubConfig] = None
+    ) -> None:
+
         logger = logging.getLogger("main." + __name__)
+        api_config = config or MistralStubConfig()  
 
-        if not source_path:
-            raise ValueError("source path is required")
-
-        if not target_path:
-            raise ValueError("target path is required")
-        
         resolved_path = source_path.expanduser().resolve()
         logger.info(f"Uploading {resolved_path.name} to Mistral API...")
         
@@ -41,9 +67,9 @@ class MistralStub:
                 "type": "document_url",
                 "document_url": signed_url.url
             },
-            include_blocks=include_blocks
+            include_blocks=api_config.include_blocks
         )
-
+        
         logger.info("OCR response received...")
         ocr_response_dump = ocr_response.model_dump_json(indent=2)
         
@@ -55,3 +81,38 @@ class MistralStub:
         logger.info(f"OCR response saved to {target_path}")
 
 
+
+    def process_batch(
+        self,
+        source_dir: Path, 
+        target_dir: Path, 
+        config: Optional[MistralStubConfig] = None
+    ):
+
+        logger = logging.getLogger("main." + __name__)
+        # input check: source_dir and target_dir
+        if not (source_dir.exists() and source_dir.is_dir()):
+            raise ValueError("source directory not found")
+
+        if not (target_dir.exists() and target_dir.is_dir()):
+            raise ValueError("target directory not found")
+
+        api_config = config or MistralStubConfig() 
+        # gather all source files from source_dir
+        pdf_files = sorted(list(source_dir.rglob("*.pdf")))
+        
+        for pdf_file in pdf_files:
+            print(f"source pdf_file is {pdf_file}")
+            ocr_target_name = _get_canonical_snake_name(pdf_file.stem)
+            ocr_target_path = target_dir / f"{ocr_target_name}.json"
+            print(f"ocr target path is {ocr_target_path}")
+
+            # skip if already processed
+            if ocr_target_path.exists():
+                logger.info(f"Skipping processed OCR file: {ocr_target_path.name}")
+                continue
+            
+            # send to mistral API 
+            self.process(pdf_file, ocr_target_path, api_config)
+            logger.info(f"sleeping for {api_config.network_delay} seconds...")
+            time.sleep(api_config.network_delay)
