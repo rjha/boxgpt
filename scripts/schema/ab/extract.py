@@ -9,8 +9,7 @@ from softmaxx.config import AppConfig, get_logger_config
 logger = logging.getLogger("main." + __name__)
 
 
-
-@dataclass
+@dataclass(frozen=True)
 class QueryPayload:
     smp_text_path: Path
     smp_schema_path: Path
