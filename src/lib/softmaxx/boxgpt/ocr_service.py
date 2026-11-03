@@ -12,6 +12,7 @@ class MistralStubConfig:
     network_delay: float = 1.0
     include_blocks: bool = True
     log_level: int = 1
+    dial_mistral: bool = True
 
 
 def _get_canonical_snake_name(file_stem: str) -> str:
@@ -109,10 +110,12 @@ class MistralStub:
 
             # skip if already processed
             if ocr_target_path.exists():
-                logger.info(f"Skipping processed OCR file: {ocr_target_path.name}")
+                logger.info(f"skipping processed OCR file: {ocr_target_path.name}")
                 continue
             
             # send to mistral API 
-            self.process(pdf_file, ocr_target_path, api_config)
-            logger.info(f"sleeping for {api_config.network_delay} seconds...")
+            if api_config.dial_mistral:
+                self.process(pdf_file, ocr_target_path, api_config)
+            
+            logger.info(f"sleeping for {api_config.network_delay} seconds...\n")
             time.sleep(api_config.network_delay)
