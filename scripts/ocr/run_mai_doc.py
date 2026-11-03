@@ -20,7 +20,7 @@ def main():
     SRC_DIR = Path('/Users/rjha/Desktop/x-projects/AB-docs/SMP/TPP').expanduser()
     SCRIPT_TEMP_DIR = Path('/Users/rjha/code/github/boxgpt/scripts/temp').expanduser()
     source_path = SRC_DIR /  "SMP TPP O&M 016 Maintenance of SWAS Panel.pdf"
-    target_path = SCRIPT_TEMP_DIR / "ocr_response.json"
+    target_path = SCRIPT_TEMP_DIR / "ocr" / "mai_ocr_response.json"
     ocr_stub.process(source_path=source_path, target_path=target_path)
     
 
