@@ -11,7 +11,7 @@ logger = logging.getLogger("main." + __name__)
 
 @dataclass(frozen=True)
 class QueryPayload:
-    smp_text_path: Path
+    smp_doc_path: Path
     smp_schema_path: Path
     user_content_path: Path
     system_prompt_path: Path
@@ -25,22 +25,10 @@ class QueryPayload:
         return self._read_text_file(self.system_prompt_path)
 
     def get_user_content(self) -> str:
-        document_text = self._read_text_file(self.smp_text_path)
+        doc_content = self._read_text_file(self.smp_doc_path)
         smp_schema = self._read_text_file(self.smp_schema_path)
         user_content_template = self._read_text_file(self.user_content_path)
-
-        # This will be part of the smp_text 
-        sample_metadata = {"header_summary": "Title: Battery bank | Doc: SMP/E&I/005"}
-        sample_ppe = [{"activity": "Battery terminal cleaning", "required_ppe": ["Helmet", "Goggles"]}]
-        
-        llm_payload = {
-            "metadata_hints": sample_metadata,
-            "ppe_matrices": sample_ppe,
-            "document_text": document_text
-        }
-
-        final_payload = json.dumps(llm_payload, indent=2)
-        return user_content_template.replace("{{SCHEMA}}", smp_schema).replace("{{PAYLOAD}}", final_payload)
+        return user_content_template.replace("{{SCHEMA}}", smp_schema).replace("{{PAYLOAD}}", doc_content)
     
 
 
@@ -64,7 +52,7 @@ def main():
         
         payload:QueryPayload = QueryPayload(
             smp_schema_path=smp_schema_path,
-            smp_text_path=smp_text_path,
+            smp_doc_path=smp_text_path,
             user_content_path=user_content_path,
             system_prompt_path=system_prompt_path)
         
