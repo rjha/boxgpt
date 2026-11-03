@@ -1,6 +1,6 @@
 import json 
 from pathlib import Path
-from prep.ab.smp import process_doc
+from pp.ab.smp import process_doc
 
 # Add "/Users/rjha/code/github/boxgpt/scripts" to PYTHONPATH 
 # Before running this script on the terminal. That is needed 
