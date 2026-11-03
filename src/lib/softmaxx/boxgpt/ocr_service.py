@@ -62,7 +62,7 @@ class MistralStub:
         logger.info(f"doc_path: {resolved_path}, ocr_signed_url: {signed_url.url}")
 
         # Run Mistral OCR
-        ocr_response = self.client.ocr.process(
+        api_response_obj = self.client.ocr.process(
             model="mistral-ocr-latest",
             document={
                 "type": "document_url",
@@ -71,15 +71,13 @@ class MistralStub:
             include_blocks=api_config.include_blocks
         )
         
-        logger.info("OCR response received...")
-        ocr_response_dump = ocr_response.model_dump_json(indent=2)
-        
-        # Ensure output directory exists and save response
-        target_path.parent.mkdir(parents=True, exist_ok=True)
+        logger.info("OCR api response received...")
+        ocr_content = api_response_obj.model_dump_json(indent=2)
+
         with open(target_path, "w", encoding="utf-8") as f:
-            f.write(ocr_response_dump)
+            f.write(ocr_content)
             
-        logger.info(f"OCR response saved to {target_path}")
+        logger.info(f"OCR api response saved to {target_path}")
 
 
 
