@@ -8,9 +8,9 @@ import pp.ab.smp as ab_smp
 
 if __name__ == "__main__":
     # @IMP: check OCR_DIR and FILE
-    SRC_DIR = Path('~/code/github/boxgpt/scripts/temp').expanduser()
-    TARGET_DIR = Path('~/code/github/boxgpt/scripts/temp').expanduser()
-    OCR_FILE = "mai_ocr_response.json"
+    SRC_DIR = Path('~/code/github/boxgpt/scripts/x.out').expanduser()
+    TARGET_DIR = Path('~/code/github/boxgpt/scripts/x.out').expanduser()
+    OCR_FILE = "mai_ocr.json"
     DOC_CATEGORY = "SOP"
 
     # No changes below this

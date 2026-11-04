@@ -2,7 +2,7 @@ import signal
 import sys
 import time
 from pathlib import Path
-from softmaxx.config import AppConfig
+from softmaxx.config import AppConfig, get_logger_config
 from softmaxx.boxgpt.ocr_service import MistralStub, MistralStubConfig 
 
 
@@ -21,7 +21,7 @@ def main():
 
     time.sleep(2)
     AppConfig.load()
-    log_config = AppConfig.get_logger_config("local")
+    log_config = get_logger_config("local")
     AppConfig.init_logging(log_file=log_config.log_file)
 
     api_keys = AppConfig.get("api_keys")
@@ -31,8 +31,8 @@ def main():
     ocr_stub = MistralStub(api_key=mistral_api_key)
     
     # @IMP: check source folder and 
-    SRC_DIR = Path('~/Desktop/x-projects/AB-docs/SOP').expanduser()
-    ROOT_DIR = Path('~/code/github/boxgpt/scripts/temp').expanduser()
+    SRC_DIR = Path('~/backup/ab-docs/sop').expanduser()
+    ROOT_DIR = Path('~/code/github/boxgpt/scripts/x.out').expanduser()
     TARGET_DIR = ROOT_DIR / "ocr"
 
     # @IMP: when dial_mistral=False, the batch processing will not 
