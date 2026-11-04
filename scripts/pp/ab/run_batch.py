@@ -5,7 +5,7 @@ import logging
 import json
 from pathlib import Path
 from softmaxx.config import AppConfig, get_logger_config
-from pp.ab.smp import process_doc
+import pp.ab.smp as ab_smp
 
 
 def signal_handler(sig, frame):
@@ -39,7 +39,7 @@ def process_batch(source_dir: Path, target_dir: Path):
         with open(ocr_file, "r", encoding="utf-8") as f:
             ocr_content = json.load(f)
         
-        pp_content = process_doc(ocr_data=ocr_content)
+        pp_content = ab_smp.process_doc(ocr_data=ocr_content)
         with open(target_path, "w", encoding="utf-8") as f:
             f.write(pp_content)
             
@@ -58,6 +58,7 @@ def main():
     log_config = get_logger_config("local")
     AppConfig.init_logging(log_file=log_config.log_file)
 
+    # @IMP: check SRC and TARGET_DIR
     ROOT_DIR = Path('/Users/rjha/code/github/boxgpt/scripts/temp').expanduser()
     SRC_DIR = ROOT_DIR / "ocr"
     TARGET_DIR = ROOT_DIR / "pp"

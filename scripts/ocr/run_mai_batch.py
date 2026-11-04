@@ -11,13 +11,21 @@ def signal_handler(sig, frame):
     print("\n[!] aborting on keyboard press...")
     sys.exit(130)
 
+def is_dir_empty(path):
+    dir_path = Path(path)
+    # next() returns None if iterdir() is empty
+    return next(dir_path.iterdir(), None) is None
+
 
 def main():
    
-    print("run ocr/mai_batch.py script...")
-    print(" ########### Press CTRL+C to abort ##########")
-    time.sleep(4)
 
+    print(" ##################################### ")
+    print(" @@@  OCR BATCH SCRIPT             @@@ ")
+    print(" @@@  Press CTRL+C to abort        @@@ ")
+    print(" ##################################### ")
+
+    time.sleep(2)
     AppConfig.load()
     log_config = get_logger_config("local")
     AppConfig.init_logging(log_file=log_config.log_file)
@@ -28,10 +36,14 @@ def main():
     # Instantiate the class with the API key
     ocr_stub = MistralStub(api_key=mistral_api_key)
     
-    # get all SMP documents and write to script/temp/ocr folder
-    SRC_DIR = Path('/Users/rjha/Desktop/x-projects/AB-docs/SMP').expanduser()
+    # @IMP: check source folder and 
+    SRC_DIR = Path('/Users/rjha/Desktop/x-projects/AB-docs/SOP').expanduser()
     ROOT_DIR = Path('/Users/rjha/code/github/boxgpt/scripts/temp').expanduser()
     TARGET_DIR = ROOT_DIR / "ocr"
+
+    # Target DIR should be empty for batch Jobs 
+    # if not is_dir_empty(TARGET_DIR):
+    #    raise ValueError(f"Abort: Target directory {TARGET_DIR} is not empty!!")
 
     # @IMP: when dial_mistral=False, the batch processing will not 
     # call mistral API at all. dial_mistral can be used for testing 
