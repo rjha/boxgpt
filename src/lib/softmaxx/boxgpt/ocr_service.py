@@ -101,10 +101,10 @@ class MistralStub:
         pdf_files = sorted(list(source_dir.rglob("*.pdf")))
         
         for pdf_file in pdf_files:
-            print(f"source pdf_file is {pdf_file}")
+            logger.info(f"source pdf_file is {pdf_file}")
             ocr_target_name = _get_canonical_snake_name(pdf_file.stem)
             ocr_target_path = target_dir / f"{ocr_target_name}.json"
-            print(f"ocr target path is {ocr_target_path}")
+            logger.info(f"OCR target path is {ocr_target_path}")
 
             # skip if already processed
             if ocr_target_path.exists():
