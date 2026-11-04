@@ -32,8 +32,12 @@ def main():
     SRC_DIR = Path('/Users/rjha/Desktop/x-projects/AB-docs/SMP').expanduser()
     ROOT_DIR = Path('/Users/rjha/code/github/boxgpt/scripts/temp').expanduser()
     TARGET_DIR = ROOT_DIR / "ocr"
+
+    # @IMP: when dial_mistral=False, the batch processing will not 
+    # call mistral API at all. dial_mistral can be used for testing 
+    # the directory walkthrough without calling API.
     mistral_config: MistralStubConfig = MistralStubConfig(
-        dial_mistral=False,
+        dial_mistral=True,
         network_delay=5.0)
     
     ocr_stub.process_batch(SRC_DIR, TARGET_DIR, mistral_config)
