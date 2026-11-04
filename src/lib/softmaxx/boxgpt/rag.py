@@ -1,8 +1,9 @@
-import json
+import re
 import logging
 from pathlib import Path
 from typing import List, Dict, Any
 import psycopg2
+import numpy as np
 from sentence_transformers import SentenceTransformer
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from psycopg2.extras import execute_values
@@ -165,6 +166,50 @@ def _compute_rrf_in_python(
 
 
 
+def _parse_markdown_to_sections(markdown_text: str) -> List[Dict[str, Any]]:
+    """
+    Parses a cleaned markdown document into sections based on headers (#, ##, ###)
+    and tracks approximate page numbers from '--- Page X ---' markers.
+    """
+    sections = []
+    current_title = "Introduction"
+    current_page = 1
+    current_content_lines = []
+
+    lines = markdown_text.splitlines()
+    for line in lines:
+        # Track page numbers if present in markdown
+        page_match = re.match(r"^---\s+Page\s+(\d+)\s+---", line.strip(), re.IGNORECASE)
+        if page_match:
+            current_page = int(page_match.group(1))
+            continue
+
+        # Detect markdown headers
+        header_match = re.match(r"^(#{1,4})\s+(.+)", line.strip())
+        if header_match:
+            # If we already accumulated content for the previous section, save it
+            if current_content_lines:
+                sections.append({
+                    "section_title": current_title,
+                    "page_range": [current_page, current_page],
+                    "content": "\n".join(current_content_lines).strip()
+                })
+                current_content_lines = []
+            
+            current_title = header_match.group(2).strip()
+            continue
+
+        current_content_lines.append(line)
+
+    # Append the final section
+    if current_content_lines:
+        sections.append({
+            "section_title": current_title,
+            "page_range": [current_page, current_page],
+            "content": "\n".join(current_content_lines).strip()
+        })
+
+    return sections
 
 
 # #####################################
@@ -174,21 +219,19 @@ def _compute_rrf_in_python(
 
 # Create Vector embeddings
 
-def chunk_content(
+
+def chunk_markdown_content(
     doc_path: Path, 
     max_chunk_chars: int = 1500, 
     chunk_overlap: int = 150
 ) -> List[Dict[str, Any]]:
     """
-    Reads structured section JSON and produces a list of chunk dictionaries
-    with section context prepended to the embedding text.
+    Reads a cleaned markdown file, parses it into sections, and produces 
+    a list of chunk dictionaries with English section context prepended.
     """
+    markdown_text = doc_path.read_text(encoding="utf-8")
+    sections = _parse_markdown_to_sections(markdown_text)
 
-    with doc_path.open("r", encoding="utf-8") as f:
-        sections = json.load(f)
-
-    # Recursive splitter for sections exceeding max_chunk_chars
-    # @todo pass extra stop signs
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=max_chunk_chars,
         chunk_overlap=chunk_overlap,
@@ -205,31 +248,29 @@ def chunk_content(
         if not raw_content:
             continue
 
-        # If section is small enough, keep as a single chunk
         if len(raw_content) <= max_chunk_chars:
             section_chunks = [raw_content]
         else:
-            # Recursively split large sections into sub-chunks
             section_chunks = text_splitter.split_text(raw_content)
 
         for idx, chunk_text in enumerate(section_chunks):
-            # Context Prepending: Crucial for vector search quality
-            embedding_text = f"[भाग {section_title}]\n\n{chunk_text}"
+            # Updated to English prefix for BGE-M3 compatibility
+            embedding_text = f"[Section: {section_title}]\n\n{chunk_text}"
 
             chunks.append({
                 "section_title": section_title,
                 "page_start": page_range[0],
                 "page_end": page_range[1],
                 "chunk_index": idx,
-                "content": chunk_text,                # Original text (for UI display)
-                "embedding_text": embedding_text,     # Contextualized text (for BGE-M3)
-                "embedding": []                       # To be populated by get_chunk_embeddings
+                "content": chunk_text,
+                "embedding_text": embedding_text,
+                "embedding": []  # To be populated in Step 2
             })
 
     return chunks
 
 
-def get_embeddings(
+def add_embeddings(
     chunks: List[Dict[str, Any]], 
     model_path: str, 
     batch_size: int = 16
