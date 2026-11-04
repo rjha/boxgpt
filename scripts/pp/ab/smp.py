@@ -2,10 +2,10 @@ import re
 from typing import Dict, Any, List
 
 
-def _extract_page_zero_metadata(b_type: str, content: str) -> str:
+def _extract_page_zero_metadata(doc_category:str, b_type: str, content: str) -> str:
     """Helper function that returns metadata content if criteria are met, else an empty string."""
     if b_type in ["title", "header", "text", "table"] and content:
-        if "Document" in content or "Title" in content or "SMP" in content:
+        if "Document" in content or "Title" in content or doc_category in content:
             return content
     return ""
 
@@ -60,7 +60,7 @@ def _parse_ppe_table(table_content: str) -> List[Dict[str, Any]]:
     return ppe_mappings
 
 
-def process_doc(ocr_data: Dict[Any, Any]) -> str:
+def process_doc(doc_category:str, ocr_data: Dict[Any, Any]) -> str:
     pages = ocr_data.get("pages", [])
     if not pages:
         return (
@@ -97,7 +97,7 @@ def process_doc(ocr_data: Dict[Any, Any]) -> str:
 
             # Capture metadata on Page 0 cleanly into a list
             if page_index == 0:
-                meta_piece = _extract_page_zero_metadata(b_type, content)
+                meta_piece = _extract_page_zero_metadata(doc_category, b_type, content)
                 if meta_piece:
                     header_items.append(meta_piece)
 
