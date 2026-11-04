@@ -4,7 +4,7 @@ import time
 import logging 
 import json
 from pathlib import Path
-from softmaxx.config import AppConfig, get_logger_config
+from softmaxx.config import AppConfig
 import pp.ab.smp as ab_smp
 
 
@@ -55,7 +55,7 @@ def main():
     time.sleep(1)
 
     AppConfig.load()
-    log_config = get_logger_config("local")
+    log_config = AppConfig.get_logger_config("local")
     AppConfig.init_logging(log_file=log_config.log_file)
 
     # @IMP: check SRC and TARGET_DIR
