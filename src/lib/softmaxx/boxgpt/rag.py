@@ -1,8 +1,8 @@
 import json
-import psycopg2
 import logging
 from pathlib import Path
 from typing import List, Dict, Any
+import psycopg2
 from sentence_transformers import SentenceTransformer
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from psycopg2.extras import execute_values
@@ -184,7 +184,6 @@ def chunk_content(
     with section context prepended to the embedding text.
     """
 
-    logger = logging.getLogger("main." + __name__)
     with doc_path.open("r", encoding="utf-8") as f:
         sections = json.load(f)
 
@@ -232,7 +231,7 @@ def chunk_content(
 
 def get_embeddings(
     chunks: List[Dict[str, Any]], 
-    model_path: str = "./models/bge-m3", 
+    model_path: str, 
     batch_size: int = 16
 ) -> List[Dict[str, Any]]:
     """
@@ -266,7 +265,7 @@ def get_embeddings(
 
 
 
-def store_in_database(
+def store_embedding(
     chunks: List[Dict[str, Any]], 
     doc_id: str
 ) -> None:
