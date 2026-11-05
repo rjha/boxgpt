@@ -7,7 +7,8 @@ CREATE EXTENSION IF NOT EXISTS vector;
 -- Table to keep track of source documents
 CREATE TABLE IF NOT EXISTS doc_source (
     id SERIAL PRIMARY KEY,
-    doc_name VARCHAR(255) UNIQUE NOT NULL,
+    doc_slug VARCHAR(255) NOT NULL UNIQUE,
+    doc_name VARCHAR(255)  NOT NULL,
     doc_meta JSONB,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );

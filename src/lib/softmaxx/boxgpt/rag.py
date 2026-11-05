@@ -277,7 +277,7 @@ def chunk_markdown_content(
 
 def add_embeddings(
     chunks: List[Dict[str, Any]], 
-    model_path: str, 
+    model: SentenceTransformer, 
     batch_size: int = 16
 ) -> List[Dict[str, Any]]:
     """
@@ -288,9 +288,6 @@ def add_embeddings(
         return []
 
     logger = logging.getLogger("main." + __name__)
-    logger.info(f"Loading transformer model from: {model_path}...")
-    model = SentenceTransformer(model_path)
-
     # Extract all prepended texts into a flat list for batching
     texts_to_encode = [chunk["embedding_text"] for chunk in chunks]
 
@@ -312,6 +309,7 @@ def add_embeddings(
 
 
 def store_doc_chunks(
+    document_slug: str,
     document_name: str, 
     document_metadata: Dict[Any, Any], 
     chunks: List[Dict[str, Any]], 
@@ -329,13 +327,13 @@ def store_doc_chunks(
             # Insert or get source document ID
             cur.execute(
                 """
-                INSERT INTO doc_source (doc_name, doc_meta)
-                VALUES (%s, %s)
-                ON CONFLICT (doc_name) 
+                INSERT INTO doc_source (doc_slug, doc_name, doc_meta)
+                VALUES (%s, %s, %s)
+                ON CONFLICT (doc_slug) 
                 DO UPDATE SET doc_meta = EXCLUDED.doc_meta
                 RETURNING id;
                 """,
-                (document_name, psycopg.types.json.Json(document_metadata))
+                (document_slug, document_name, psycopg.types.json.Json(document_metadata))
             )
 
             doc_id = cur.fetchone()[0]
@@ -370,10 +368,12 @@ def store_doc_chunks(
             logger.info(f"stored {len(chunk_records)} chunks for '{document_name}' in pg_vector.")
 
 
-def process_user_query(raw_query: str, query_config:dict[str, any]) -> list[float]:
+def process_user_query(
+    raw_query: str, 
+    query_config:dict[str, any],
+    model: SentenceTransformer
+) -> list[float]:
     """Encodes user query into vector space without modifying query text."""
-    model_path = query_config["model_path"]
-    model = SentenceTransformer(model_path)
     # Output is a normalized vector
     query_embedding = model.encode(raw_query, normalize_embeddings=True).tolist()
     return query_embedding
