@@ -329,10 +329,10 @@ def store_doc_chunks(
             # Insert or get source document ID
             cur.execute(
                 """
-                INSERT INTO doc_source (doc_name, doc_metadata)
+                INSERT INTO doc_source (doc_name, doc_meta)
                 VALUES (%s, %s)
                 ON CONFLICT (doc_name) 
-                DO UPDATE SET doc_metadata = EXCLUDED.doc_metadata
+                DO UPDATE SET doc_meta = EXCLUDED.doc_meta
                 RETURNING id;
                 """,
                 (document_name, psycopg.types.json.Json(document_metadata))
