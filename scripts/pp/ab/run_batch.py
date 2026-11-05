@@ -5,7 +5,7 @@ import logging
 import json
 from pathlib import Path
 import softmaxx.config as s_config
-import pp.ab.smp as ab_smp
+import scripts.pp.ab.smp as ab_smp
 
 
 def signal_handler(sig, frame):
