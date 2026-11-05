@@ -1,0 +1,7 @@
+Here is the relevant technical context retrieved from plant SOP documents:
+
+=== RETRIEVED CONTEXT ===
+{context}
+=========================
+
+User Query: {user_query}
