@@ -4,7 +4,7 @@
 # in a docker container. The idea is that connect as a postgres or 
 # system user and create a user and make him owner of the database. 
 
-CREATE USER xapi_app WITH PASSWORD 'softmaxx@23';
+CREATE USER xapi_app WITH PASSWORD 'xxxxx';
 CREATE DATABASE rags01_db WITH OWNER = xapi_app;
 \q
 
@@ -15,6 +15,8 @@ CREATE DATABASE rags01_db WITH OWNER = xapi_app;
 
 Now connect to rags01_db as xapi_app and create objects. 
 $ psql -h 127.0.0.1 -U xapi_app -d rags01_db -p 5432
+
+$psql -h 127.0.0.1 -U xapi_admin -p 5432
 
 # Run the schema scripts
 
@@ -41,3 +43,25 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public
     GRANT SELECT ON TABLES TO xapi_worker;
 ALTER DEFAULT PRIVILEGES FOR ROLE xapi_admin IN SCHEMA public 
     GRANT SELECT ON TABLES TO xapi_worker;
+
+
+# RESET superuser password for docker postgres
+
+1. find docker container name 
+docker ps
+2. copy pg_hba.conf file to local area  
+docker cp postgres-vector:/var/lib/postgresql/data/pg_hba.conf ./pg_hba.conf
+3. edit to change scram-sha-256 to trust and copy back 
+vim pg_hba.conf
+docker cp ./pg_hba.conf postgres-vector:/var/lib/postgresql/data/pg_hba.conf
+4. restart docker container 
+docker restart postgres-vector
+5. login using superuser and reset the password 
+docker exec -it postgres-vector psql -U xapi_admin -d postgres
+=>  ALTER USER xapi_admin WITH PASSWORD 'your_new_secure_password';
+6. change trust to scram-sha-256 again and copy back 
+vim pg_hba.conf
+docker cp ./pg_hba.conf postgres-vector:/var/lib/postgresql/data/pg_hba.conf
+docker restart postgres-vector
+7. verify 
+psql -h 127.0.0.1 -U xapi_admin -d rags01_db -p 5432
