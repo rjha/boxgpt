@@ -3,8 +3,9 @@ import sys
 import time
 import logging 
 from pathlib import Path
+from sentence_transformers import SentenceTransformer
 import softmaxx.config as s_config
-import chunk.common as chunker 
+import scripts.chunk.common as chunker 
 
 
 def signal_handler(sig, frame):
@@ -12,7 +13,7 @@ def signal_handler(sig, frame):
     sys.exit(130)
 
 
-def process_batch(source_dir: Path, target_dir: Path, model_path:str):
+def process_batch(source_dir: Path, target_dir: Path, model:SentenceTransformer):
     logger = logging.getLogger("main." + __name__)
     # input check: source_dir and target_dir
     if not (source_dir.exists() and source_dir.is_dir()):
@@ -23,19 +24,26 @@ def process_batch(source_dir: Path, target_dir: Path, model_path:str):
 
     
     # gather all source files from source_dir
-    md_files = sorted(list(source_dir.rglob("*.json")))
+    # @IMP: check extension
+    md_files = sorted(list(source_dir.rglob("*.md")))
     
     for md_file in md_files:
-        print(f"markdown content file: {md_file}")
+        logger.info(f"process markdown file: {md_file}")
 
         # Target is where chunk+embeddings will be saved
-        doc_name = md_file.stem 
-        target_path = target_dir / f"{doc_name}_chunk.json"
-        print(f"source doc: {doc_name}, target_path {target_path}")
+        doc_slug = md_file.stem 
+        doc_name = chunker.transform_slug(doc_slug=doc_slug)
+        logger.info(f"doc slug:{doc_slug}, name: {doc_name}")
+        target_path = target_dir / f"{doc_slug}_chunk.json"
+        # skip if already processed
+        if target_path.exists():
+            logger.info(f"skipping chunked file: {target_path.name}")
+            continue
 
         raw_chunks = chunker.get_chunks(md_file)
-        enriched_chunks = chunker.add_embedding(raw_chunks=raw_chunks, model_path=model_path)
+        enriched_chunks = chunker.add_embedding(raw_chunks=raw_chunks, model=model)
         chunker.save_to_file(chunks=enriched_chunks, target_path=target_path)
+        logger.info(f"chunks saved to file -> {target_path}")
 
         # Run database operation using chunk+embeddings file 
         db_config:s_config.DatabaseConfig = s_config.get_database_config()
@@ -43,15 +51,19 @@ def process_batch(source_dir: Path, target_dir: Path, model_path:str):
         chunker.save_to_pgvector(
             db_string=db_string,
             chunk_file_path=target_path, 
-            doc_info={
+             doc_info={
+                "slug": doc_slug,
                 "name": doc_name,
                 "meta": {
-                    "source_file": doc_name,
+                    "source_file": md_file.name,
                     "pipeline": "bge-m3-rag",
                 }
             }
         )
         
+        logger.info(f"chunks saved to pg_vector")
+        # give CPU a breather!
+        time.sleep(4)
 
 
                 
@@ -74,7 +86,8 @@ def main():
     TARGET_DIR = Path('~/code/github/boxgpt/scripts/x.out/chunks').expanduser()
 
     # run the batch
-    process_batch(source_dir=SRC_DIR, target_dir=TARGET_DIR, model_path=MODEL_PATH)
+    model_instance = SentenceTransformer(MODEL_PATH)
+    process_batch(source_dir=SRC_DIR, target_dir=TARGET_DIR, model=model_instance)
 
 
 
