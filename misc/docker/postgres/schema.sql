@@ -1,25 +1,42 @@
 -- Enable the vector extension
 
+-- Enable the pgvector extension 
+CREATE EXTENSION IF NOT EXISTS vector;
 
--- Create table to store Hindi metadata & embeddings
-CREATE TABLE test_docs (
+
+-- Table to keep track of source documents
+CREATE TABLE IF NOT EXISTS doc_source (
     id SERIAL PRIMARY KEY,
-    document_id VARCHAR(100),
-    section_title TEXT,
-    content TEXT,
-    metadata JSONB,
-    -- BAAI/bge-m3 output dimension is 1024
-    embedding vector(1024)
+    doc_name VARCHAR(255) UNIQUE NOT NULL,
+    doc_meta JSONB,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create an HNSW index for fast Cosine Similarity search
-CREATE INDEX ON test_docs 
-USING hnsw (embedding vector_cosine_ops) 
+-- Table for storing chunks and 1024-dim BGE-M3 embeddings
+CREATE TABLE IF NOT EXISTS doc_chunks (
+    id SERIAL PRIMARY KEY,
+    doc_id INT REFERENCES doc_source(id) ON DELETE CASCADE,
+    section_title VARCHAR(255),
+    page_start INT,
+    page_end INT,
+    chunk_index INT,
+    content TEXT NOT NULL,                -- Original text for UI display
+    embedding_text TEXT NOT NULL,         -- Contextualized text used for embedding
+    embedding VECTOR(1024)                -- BGE-M3 vector dimension
+);
+
+-- Create an HNSW index for fast vector similarity 
+-- search using cosine distance vector operator (<=>)
+CREATE INDEX IF NOT EXISTS idx_hnsw_doc_chunks 
+ON doc_chunks 
+USING hnsw (embedding vector_cosine_ops)
 WITH (m = 16, ef_construction = 64);
 
+-- full-text search index (gin (to_tsvector(...)))
+-- to implement hybrid search, combining keyword/lexical 
+-- search with vector similarity search
 
--- GIN index for fast keyword/full-text matching
-CREATE INDEX IF NOT EXISTS idx_document_chunks_content_tsv 
-ON document_chunks 
-USING gin (to_tsvector('hindi', content));
+CREATE INDEX IF NOT EXISTS idx_tsv_doc_chunks 
+ON doc_chunks 
+USING gin (to_tsvector('english', content));
 

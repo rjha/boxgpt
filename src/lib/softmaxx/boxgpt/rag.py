@@ -1,14 +1,25 @@
 import re
 import logging
 from pathlib import Path
+from dataclasses import dataclass
 from typing import List, Dict, Any
-import psycopg2
+# postgres 
+import psycopg
+from pgvector.psycopg import register_vector
+# embeddings 
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from psycopg2.extras import execute_values
-from pgvector.psycopg2 import register_vector
-from softmaxx.config import get_database_config, DatabaseConfig
+
+
+
+@dataclass(frozen=True)
+class RRFTuningConfig:
+    k: int = 60
+    vector_weight: float = 1.0
+    lexical_weight: float = 1.0
+    top_candidates_limit: int = 20
+
 
 
 def _cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
@@ -28,30 +39,29 @@ def _normalize_embedding(raw_embedding: Any) -> list[float]:
     return [float(x) for x in list(raw_embedding)]
 
 
+ 
+
 def _get_vector_candidates(
     query_embedding: list[float],
+    conn_string: str,
     limit: int = 20
 ) -> List[Dict[str, Any]]:
     """Retrieves top K candidates ordered by vector cosine distance."""
-
-    db_config:DatabaseConfig = get_database_config()
-    conn = psycopg2.connect(**db_config.get_map())
-    register_vector(conn)
-    cursor = conn.cursor()
 
     sql_query = """
         SELECT 
             id, section_title, page_start, page_end, content, embedding,
             1 - (embedding <=> %s::vector) AS vector_similarity
-        FROM document_chunks
+        FROM doc_chunks
         ORDER BY embedding <=> %s::vector
         LIMIT %s;
     """
 
-    cursor.execute(sql_query, (query_embedding, query_embedding, limit))
-    rows = cursor.fetchall()
-    cursor.close()
-    conn.close()
+    with psycopg.connect(conn_string) as conn:
+        register_vector(conn)
+        with conn.cursor() as cursor:
+            cursor.execute(sql_query, (query_embedding, query_embedding, limit))
+            rows = cursor.fetchall()
 
     results = []
     for rank, row in enumerate(rows, start=1):
@@ -72,58 +82,56 @@ def _get_vector_candidates(
 
 def _get_lexical_candidates(
     query_str: str,
+    conn_string: str,
     limit: int = 20
 ) -> List[Dict[str, Any]]:
     """Retrieves top K candidates ordered by tsvector full-text match score."""
-    
-    db_config:DatabaseConfig = get_database_config()
-    conn = psycopg2.connect(**db_config.get_map())
-
-    cursor = conn.cursor()
 
     sql_query = """
         SELECT 
-            id, section_title, page_start, page_end, content, embedding,
-            ts_rank_cd(to_tsvector('hindi', content), plainto_tsquery('hindi', %s)) AS lexical_score
-        FROM document_chunks
-        WHERE  to_tsvector('hindi', content) @@ plainto_tsquery('hindi', %s)
+            id, doc_id, section_title, page_start, page_end, content, embedding,
+            ts_rank_cd(to_tsvector('english', content), websearch_to_tsquery('english', %s)) AS lexical_score
+        FROM doc_chunks
+        WHERE to_tsvector('english', content) @@ websearch_to_tsquery('english', %s)
         ORDER BY lexical_score DESC
         LIMIT %s;
     """
 
-    cursor.execute(sql_query, (query_str, query_str, limit))
-    rows = cursor.fetchall()
-    cursor.close()
-    conn.close()
+    with psycopg.connect(conn_string) as conn:
+        register_vector(conn)
+        with conn.cursor() as cursor:
+            cursor.execute(sql_query, (query_str, query_str, limit))
+            rows = cursor.fetchall()
 
     results = []
     for rank, row in enumerate(rows, start=1):
-        clean_embedding = _normalize_embedding(row[5])
+        clean_embedding = _normalize_embedding(row[6])
         results.append({
             "id": row[0],
-            "section_title": row[1],
-            "page_start": row[2],
-            "page_end": row[3],
-            "content": row[4],
+            "doc_id": row[1],
+            "section_title": row[2],
+            "page_start": row[3],
+            "page_end": row[4],
+            "content": row[5],
             "embedding": clean_embedding,
-            "lexical_score": float(row[6]),
+            "lexical_score": float(row[7]),
             "lexical_rank": rank  # 1-based rank
         })
 
     return results
 
 
-def _compute_rrf_in_python(
+
+
+def _compute_rrf(
     vector_results: List[Dict[str, Any]],
     lexical_results: List[Dict[str, Any]],
-    k: int = 60,
-    vector_weight: float = 1.0,
-    lexical_weight: float = 1.0,
-    top_candidates_limit: int = 20
+    top_candidates_limit: int = 20,
+    config: RRFTuningConfig = RRFTuningConfig()
 ) -> List[Dict[str, Any]]:
     """
     Combines independent Vector and Lexical result sets using 
-    Reciprocal Rank Fusion (RRF) in Python.
+    Reciprocal Rank Fusion (RRF)
     """
     combined_records: Dict[Any, Dict[str, Any]] = {}
     rrf_scores: Dict[Any, float] = {}
@@ -132,9 +140,9 @@ def _compute_rrf_in_python(
     for item in vector_results:
         item_id = item["id"]
         rank = item["vector_rank"]
-        # Make a shallow copy to prevent mutating raw input dicts
+        # Make a shallow copy to prevent mutating input dicts
         combined_records[item_id] = dict(item)
-        rrf_scores[item_id] = rrf_scores.get(item_id, 0.0) + (vector_weight / (k + rank))
+        rrf_scores[item_id] = rrf_scores.get(item_id, 0.0) + (config.vector_weight / (config.k + rank))
 
     # 2. Process Lexical Search Ranks
     for item in lexical_results:
@@ -149,7 +157,7 @@ def _compute_rrf_in_python(
             if "lexical_score" in item:
                 combined_records[item_id]["lexical_score"] = item["lexical_score"]
             
-        rrf_scores[item_id] = rrf_scores.get(item_id, 0.0) + (lexical_weight / (k + rank))
+        rrf_scores[item_id] = rrf_scores.get(item_id, 0.0) + (config.lexical_weight / (config.k + rank))
 
     # 3. Attach final RRF score to items
     for item_id, score in rrf_scores.items():
@@ -162,8 +170,7 @@ def _compute_rrf_in_python(
         reverse=True
     )
 
-    return sorted_candidates[:top_candidates_limit]
-
+    return sorted_candidates[:config.top_candidates_limit]
 
 
 def _parse_markdown_to_sections(markdown_text: str) -> List[Dict[str, Any]]:
@@ -218,8 +225,6 @@ def _parse_markdown_to_sections(markdown_text: str) -> List[Dict[str, Any]]:
 #######################################
 
 # Create Vector embeddings
-
-
 def chunk_markdown_content(
     doc_path: Path, 
     max_chunk_chars: int = 1500, 
@@ -306,74 +311,63 @@ def add_embeddings(
 
 
 
-def store_embedding(
+def store_doc_chunks(
+    document_name: str, 
+    document_metadata: Dict[Any, Any], 
     chunks: List[Dict[str, Any]], 
-    doc_id: str
-) -> None:
+    conn_string: str
+):
     """
-    Batch inserts enriched chunks (metadata, text, and bge-m3 embeddings) 
-    into PostgreSQL with pgvector.
+    Inserts a source document and its associated chunks with BGE-M3 vectors 
+    into a PostgreSQL database using pgvector.
     """
-
-    logger = logging.getLogger("main." + __name__)
-
-    if not chunks:
-        logger.info("No chunks provided to store.")
-        return
-
-    logger.info(f"Connecting to PostgreSQL database...")
-    db_config:DatabaseConfig = get_database_config()
-    logger.info(f"Connecting to PostgreSQL {db_config}...")
-    conn = psycopg2.connect(**db_config.get_map())
     
-    try:
-        # Register pgvector extension handler for psycopg2
-        register_vector(conn)
-        cursor = conn.cursor()
+    logger = logging.getLogger("main." + __name__)
+    with psycopg.connect(conn_string) as conn:
+        register_vector(conn)  # vector adapter for psycopg v3
+        with conn.cursor() as cur:
+            # Insert or get source document ID
+            cur.execute(
+                """
+                INSERT INTO doc_source (doc_name, doc_metadata)
+                VALUES (%s, %s)
+                ON CONFLICT (doc_name) 
+                DO UPDATE SET doc_metadata = EXCLUDED.doc_metadata
+                RETURNING id;
+                """,
+                (document_name, psycopg.types.json.Json(document_metadata))
+            )
 
-        # Prepare tuple records matching table schema
-        insert_records = []
-        for chunk in chunks:
-            insert_records.append((
-                doc_id,
-                chunk["section_title"],
-                chunk["page_start"],
-                chunk["page_end"],
-                chunk["chunk_index"],
-                chunk["content"],
-                chunk["embedding_text"],
-                chunk["embedding"]  # pgvector converts Python list[float] to vector automatically
-            ))
+            doc_id = cur.fetchone()[0]
+            # Clear existing chunks for this document if re-processing
+            cur.execute("DELETE FROM doc_chunks WHERE doc_id = %s;", (doc_id,))
 
-        sql_query = """
-            INSERT INTO document_chunks (
-                doc_id,
-                section_title,
-                page_start,
-                page_end,
-                chunk_index,
-                content,
-                embedding_text,
-                embedding
-            ) VALUES %s;
-        """
+            # Prepare batch insert data for chunks
+            chunk_records = []
+            for chunk in chunks:
+                chunk_records.append((
+                    doc_id,
+                    chunk.get("section_title"),
+                    chunk.get("page_start"),
+                    chunk.get("page_end"),
+                    chunk.get("chunk_index"),
+                    chunk.get("content"),
+                    chunk.get("embedding_text"),
+                    chunk.get("embedding")  # psycopg will do lists => VECTOR
+                ))
 
-        logger.info(f"Batch inserting {len(insert_records)} chunks into PostgreSQL...")
-        
-        # Execute batch insertion efficiently
-        execute_values(cursor, sql_query, insert_records)
-        
-        # Commit transaction
-        conn.commit()
-        logger.info(f"Successfully stored {len(insert_records)} chunks in database!")
-
-    except Exception as e:
-        conn.rollback()
-        logger.info(f"Error inserting chunks into database: {e}")
-        raise e
-    finally:
-        cursor.close()
-        conn.close()
+            # Perform batch insertion
+            cur.executemany(
+                """
+                INSERT INTO doc_chunks (
+                    doc_id, section_title, page_start, page_end, 
+                    chunk_index, content, embedding_text, embedding
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
+                """,
+                chunk_records
+            )
+            conn.commit()
+            logger.info(f"stored {len(chunk_records)} chunks for '{document_name}' in pg_vector.")
 
 
 def process_user_query(raw_query: str, query_config:dict[str, any]) -> list[float]:
@@ -385,29 +379,27 @@ def process_user_query(raw_query: str, query_config:dict[str, any]) -> list[floa
     return query_embedding
 
 
-# search functions 
-
 def execute_hybrid_search(
     query_str: str,
-    query_config:dict[str, any],
     query_embedding: list[float],
-    k: int = 60,
-    candidate_limit: int = 20
+    conn_string: str,
+    candidate_limit: int = 20,
+    rrf_config: RRFTuningConfig = RRFTuningConfig()
 ) -> List[Dict[str, Any]]:
     """
     Orchestrates fetching vector + keyword candidates from DB 
     and running RRF fusion in Python.
     """
-    # 1. Fetch top candidates from both search mechanisms in DB
-    vector_candidates = _get_vector_candidates(query_embedding, limit=candidate_limit)
-    lexical_candidates = _get_lexical_candidates(query_str, limit=candidate_limit)
+    # 1. Fetch top candidates from both search mechanisms in DB passing conn_string
+    vector_candidates = _get_vector_candidates(query_embedding, conn_string=conn_string, limit=candidate_limit)
+    lexical_candidates = _get_lexical_candidates(query_str, conn_string=conn_string, limit=candidate_limit)
 
-    # 2. Perform RRF fusion in Python
-    merged_candidates = _compute_rrf_in_python(
+    # 2. Perform RRF fusion using RRF fusion config
+    merged_candidates = _compute_rrf(
         vector_results=vector_candidates,
         lexical_results=lexical_candidates,
-        k=k,
-        top_candidates_limit=candidate_limit
+        top_candidates_limit=candidate_limit,
+        config=rrf_config
     )
 
     return merged_candidates
