@@ -8,7 +8,7 @@ from typing import Optional
 
 
 @dataclass(frozen=True)
-class MistralStubConfig:
+class MistralClientConfig:
     network_delay: float = 1.0
     include_blocks: bool = True
     log_level: int = 1
@@ -30,7 +30,7 @@ def _get_canonical_snake_name(file_stem: str) -> str:
     return snake.strip('_')
 
 
-class MistralStub:
+class MistralClient:
     def __init__(self, api_key: str):
         """Initializes the Mistral client with the provided API key."""
         self.client = Mistral(api_key=api_key)
@@ -39,11 +39,11 @@ class MistralStub:
         self, 
         source_path: Path, 
         target_path: Path, 
-        config: Optional[MistralStubConfig] = None
+        config: Optional[MistralClientConfig] = None
     ) -> None:
 
         logger = logging.getLogger("main." + __name__)
-        api_config = config or MistralStubConfig()  
+        api_config = config or MistralClientConfig()  
 
         resolved_path = source_path.expanduser().resolve()
         logger.info(f"Uploading {resolved_path.name} to Mistral API...")
@@ -85,7 +85,7 @@ class MistralStub:
         self,
         source_dir: Path, 
         target_dir: Path, 
-        config: Optional[MistralStubConfig] = None
+        config: Optional[MistralClientConfig] = None
     ):
 
         logger = logging.getLogger("main." + __name__)
@@ -96,7 +96,7 @@ class MistralStub:
         if not (target_dir.exists() and target_dir.is_dir()):
             raise ValueError("target directory not found")
 
-        api_config = config or MistralStubConfig() 
+        api_config = config or MistralClientConfig() 
         # gather all source files from source_dir
         pdf_files = sorted(list(source_dir.rglob("*.pdf")))
         

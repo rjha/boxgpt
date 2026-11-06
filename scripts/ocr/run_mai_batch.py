@@ -3,7 +3,7 @@ import sys
 import time
 from pathlib import Path
 from softmaxx.config import AppConfig, get_logger_config
-from softmaxx.boxgpt.ocr_service import MistralStub, MistralStubConfig 
+from softmaxx.boxgpt.client.ocr import MistralClient, MistralClientConfig 
 
 
 def signal_handler(sig, frame):
@@ -28,7 +28,7 @@ def main():
     mistral_api_key = api_keys["MISTRAL"]
 
     # Instantiate the class with the API key
-    ocr_stub = MistralStub(api_key=mistral_api_key)
+    ocr_client = MistralClient(api_key=mistral_api_key)
     
     # @IMP: check source folder and 
     SRC_DIR = Path('~/backup/ab-docs/sop').expanduser()
@@ -38,11 +38,11 @@ def main():
     # @IMP: when dial_mistral=False, the batch processing will not 
     # call mistral API at all. dial_mistral can be used for testing 
     # the directory walkthrough without calling API.
-    mistral_config: MistralStubConfig = MistralStubConfig(
+    mistral_config: MistralClientConfig = MistralClientConfig(
         dial_mistral=True,
         network_delay=5.0)
     
-    ocr_stub.process_batch(SRC_DIR, TARGET_DIR, mistral_config)
+    ocr_client.process_batch(SRC_DIR, TARGET_DIR, mistral_config)
     
 
 if __name__ == "__main__":
