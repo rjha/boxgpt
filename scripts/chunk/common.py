@@ -1,5 +1,4 @@
 import json
-from pathlib import Path
 from sentence_transformers import SentenceTransformer
 import softmaxx.boxgpt.rag as box_rag 
 
