@@ -5,24 +5,10 @@ import softmaxx.config as s_config
 import softmaxx.boxgpt.rag as box_rag
 
 
-def main():
-    s_config.AppConfig.load()
-    log_config = s_config.get_logger_config("local")
-    s_config.AppConfig.init_logging(log_file=log_config.log_file)
-    logger = logging.getLogger("main." + __name__)
-
-    MODEL_PATH = "/home/rjha/code/models/bge-m3"
-    model_instance = SentenceTransformer(MODEL_PATH)
-    print(f" loaded model from {MODEL_PATH}")
-    
-    user_query = "How can I fix a Boiler tube?"
-    query_embedding = model_instance.encode(user_query, normalize_embeddings=True).tolist()
+def get_mmr_chunks(db_string, model, user_query):
+    query_embedding = model.encode(user_query, normalize_embeddings=True).tolist()
     print("query embedding geneated")
-
     #  Hybrid Search with RRF (Top 20 candidates)
-    db_config:s_config.DatabaseConfig = s_config.get_database_config()
-    db_string = db_config.get_uri() 
-
     candidates = box_rag.execute_hybrid_search(
         query_str=user_query,
         query_embedding=query_embedding,
@@ -40,21 +26,20 @@ def main():
     )
     
     print("MMR filter applied!")
+    return mmr_chunks 
 
-    # format LLM prompt using user_query and mmr_chunks
-    print("MMR filter applied!")
 
-    # 5. Format LLM prompt using externalized files and MMR chunks
-    PROMPT_DIR = Path("prompts")
-    
-    # Read system prompt and user template from files
-    system_prompt = (PROMPT_DIR / "system_rag.txt").read_text(encoding="utf-8").strip()
-    user_template = (PROMPT_DIR / "user_rag_template.txt").read_text(encoding="utf-8")
+def get_llm_message(
+    system_prompt, 
+    user_template, 
+    user_query, 
+    chunks
+):
 
     # Build structured context string from MMR chunks
     context_builder = []
-    for i, chunk in enumerate(mmr_chunks, start=1):
-        source = chunk.get("source_name", "Unknown Document")
+    for i, chunk in enumerate(chunks, start=1):
+        source = chunk.get("doc_name", "No Document")
         section = chunk.get("section_title", "General")
         content = chunk.get("content", "").strip()
         
@@ -70,12 +55,49 @@ def main():
         user_query=user_query
     )
 
-    # Final payload ready to pass to your LLM client (e.g., OpenAI, Ollama, etc.)
-    logger.info("LLM prompts successfully formatted.")
-    print("\n--- SYSTEM PROMPT ---")
-    print(system_prompt)
-    print("\n--- FORMATTED USER PROMPT ---")
-    print(formatted_user_prompt)
+    return  [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": formatted_user_prompt}
+    ]
+
+
+
+def main():
+    s_config.AppConfig.load()
+    log_config = s_config.get_logger_config("local")
+    s_config.AppConfig.init_logging(log_file=log_config.log_file)
+    logger = logging.getLogger("main." + __name__)
+
+    MODEL_PATH = "/home/rjha/code/models/bge-m3"
+    model_instance = SentenceTransformer(MODEL_PATH)
+    print(f" loaded model from {MODEL_PATH}")
+
+    # @IMP: user query 
+    user_query = "How can I fix a Boiler tube?"
+    db_config:s_config.DatabaseConfig = s_config.get_database_config()
+    db_string = db_config.get_uri() 
+    mmr_chunks = get_mmr_chunks(
+        db_string=db_string, 
+        model=model_instance, 
+        user_query=user_query
+    )
+
+    # 5. Format LLM prompt using prompts and MMR chunks
+    PROMPT_DIR = Path("~/code/github/boxgpt/scripts/search/prompts").expanduser()
+    # Read system prompt and user template from files
+    system_prompt = (PROMPT_DIR / "system_rag.txt").read_text(encoding="utf-8").strip()
+    user_template = (PROMPT_DIR / "user_rag_template.txt").read_text(encoding="utf-8")
+
+    
+    llm_messages = get_llm_message(
+        system_prompt=system_prompt, 
+        user_template=user_template, 
+        user_query=user_query,
+        chunks=mmr_chunks)
+
+    print(llm_messages)
+
+
     
 if __name__ == "__main__":
     main()
