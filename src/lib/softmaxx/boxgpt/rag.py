@@ -49,12 +49,23 @@ def _get_vector_candidates(
     """Retrieves top K candidates ordered by vector cosine distance."""
 
     sql_query = """
-        SELECT 
-            id, section_title, page_start, page_end, content, embedding,
-            1 - (embedding <=> %s::vector) AS vector_similarity
-        FROM doc_chunks
-        ORDER BY embedding <=> %s::vector
-        LIMIT %s;
+    SELECT 
+        c.id,
+        c.doc_id,
+        c.section_title,
+        c.page_start,
+        c.page_end,
+        c.chunk_index,
+        s.doc_name,
+        s.doc_slug,
+        s.doc_meta,
+        c.content,
+        c.embedding,
+        (1 - (c.embedding <=> %s::vector)) AS vector_score
+    FROM doc_chunks c
+    JOIN doc_source s ON c.doc_id = s.id
+    ORDER BY c.embedding <=> %s::vector
+    LIMIT %s;       
     """
 
     with psycopg.connect(conn_string) as conn:
@@ -63,21 +74,32 @@ def _get_vector_candidates(
             cursor.execute(sql_query, (query_embedding, query_embedding, limit))
             rows = cursor.fetchall()
 
-    results = []
+    # starting with rank=0 will blow up RRF function 
+    # Hence we assign rank=1 to the first candiate in list 
+    # RRF formula has 1 / (k + rank)
+    candidates = []
     for rank, row in enumerate(rows, start=1):
-        clean_embedding = _normalize_embedding(row[5])
-        results.append({
+        raw_embedding = row[10]
+        vector_similarity = float(row[11])
+        clean_embedding = _normalize_embedding(raw_embedding)
+
+        candidates.append({
             "id": row[0],
-            "section_title": row[1],
-            "page_start": row[2],
-            "page_end": row[3],
-            "content": row[4],
+            "doc_id" : row[1],
+            "section_title": row[2],
+            "page_start": row[3],
+            "page_end": row[4],
+            "chunk_index": row[5],
+            "doc_name": row[6],
+            "doc_slug": row[7],
+            "doc_meta": row[8],
+            "content": row[9],
             "embedding": clean_embedding,
-            "vector_similarity": float(row[6]),
-            "vector_rank": rank  # 1-based rank
+            "vector_similarity": vector_similarity,
+            "vector_rank": rank
         })
 
-    return results
+    return candidates
 
 
 def _get_lexical_candidates(
@@ -88,39 +110,55 @@ def _get_lexical_candidates(
     """Retrieves top K candidates ordered by tsvector full-text match score."""
 
     sql_query = """
-        SELECT 
-            id, doc_id, section_title, page_start, page_end, content, embedding,
-            ts_rank_cd(to_tsvector('english', content), websearch_to_tsquery('english', %s)) AS lexical_score
-        FROM doc_chunks
-        WHERE to_tsvector('english', content) @@ websearch_to_tsquery('english', %s)
-        ORDER BY lexical_score DESC
-        LIMIT %s;
+    SELECT 
+        c.id,
+        c.doc_id,
+        c.section_title,
+        c.page_start,
+        c.page_end,
+        c.chunk_index,
+        s.doc_name,
+        s.doc_slug,
+        s.doc_meta,
+        c.content,
+        c.embedding,
+        ts_rank_cd(to_tsvector('english', c.content), websearch_to_tsquery('english', %s)) AS lexical_score
+    FROM doc_chunks c
+    JOIN doc_source s ON c.doc_id = s.id
+    WHERE to_tsvector('english', c.content) @@ websearch_to_tsquery('english', %s)
+    ORDER BY lexical_score DESC
+    LIMIT %s;
     """
-
+    
     with psycopg.connect(conn_string) as conn:
         register_vector(conn)
         with conn.cursor() as cursor:
             cursor.execute(sql_query, (query_str, query_str, limit))
             rows = cursor.fetchall()
 
-    results = []
+    candidates = []
     for rank, row in enumerate(rows, start=1):
-        clean_embedding = _normalize_embedding(row[6])
-        results.append({
+        raw_embedding = row[10]
+        clean_embedding = _normalize_embedding(raw_embedding)
+        lexical_score = float(row[11])
+        
+        candidates.append({
             "id": row[0],
-            "doc_id": row[1],
+            "doc_id" : row[1],
             "section_title": row[2],
             "page_start": row[3],
             "page_end": row[4],
-            "content": row[5],
+            "chunk_index": row[5],
+            "doc_name": row[6],
+            "doc_slug": row[7],
+            "doc_meta": row[8],
+            "content": row[9],
             "embedding": clean_embedding,
-            "lexical_score": float(row[7]),
-            "lexical_rank": rank  # 1-based rank
+            "lexical_score": lexical_score,
+            "lexical_rank": rank   
         })
 
-    return results
-
-
+    return candidates
 
 
 def _compute_rrf(
@@ -136,7 +174,7 @@ def _compute_rrf(
     combined_records: Dict[Any, Dict[str, Any]] = {}
     rrf_scores: Dict[Any, float] = {}
 
-    # 1. Process Vector Search Ranks
+    # Process Vector Search Ranks
     for item in vector_results:
         item_id = item["id"]
         rank = item["vector_rank"]
@@ -144,7 +182,7 @@ def _compute_rrf(
         combined_records[item_id] = dict(item)
         rrf_scores[item_id] = rrf_scores.get(item_id, 0.0) + (config.vector_weight / (config.k + rank))
 
-    # 2. Process Lexical Search Ranks
+    # Process Lexical Search Ranks
     for item in lexical_results:
         item_id = item["id"]
         rank = item["lexical_rank"]
@@ -159,11 +197,11 @@ def _compute_rrf(
             
         rrf_scores[item_id] = rrf_scores.get(item_id, 0.0) + (config.lexical_weight / (config.k + rank))
 
-    # 3. Attach final RRF score to items
+    # Attach final RRF score to items
     for item_id, score in rrf_scores.items():
         combined_records[item_id]["rrf_score"] = score
 
-    # 4. Sort candidates by RRF score descending
+    # Sort candidates by RRF score descending
     sorted_candidates = sorted(
         combined_records.values(),
         key=lambda x: x["rrf_score"],
@@ -367,16 +405,6 @@ def store_doc_chunks(
             conn.commit()
             logger.info(f"stored {len(chunk_records)} chunks for '{document_name}' in pg_vector.")
 
-
-def process_user_query(
-    raw_query: str, 
-    query_config:dict[str, any],
-    model: SentenceTransformer
-) -> list[float]:
-    """Encodes user query into vector space without modifying query text."""
-    # Output is a normalized vector
-    query_embedding = model.encode(raw_query, normalize_embeddings=True).tolist()
-    return query_embedding
 
 
 def execute_hybrid_search(
