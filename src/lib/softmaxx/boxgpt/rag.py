@@ -257,6 +257,89 @@ def _parse_markdown_to_sections(markdown_text: str) -> List[Dict[str, Any]]:
     return sections
 
 
+def _execute_hybrid_search(
+    query_str: str,
+    query_embedding: list[float],
+    conn_string: str,
+    candidate_limit: int = 20,
+    rrf_config: RRFTuningConfig = RRFTuningConfig()
+) -> List[Dict[str, Any]]:
+    """
+    Orchestrates fetching vector + keyword candidates from DB 
+    and running RRF fusion in Python.
+    """
+    # 1. Fetch top candidates from both search mechanisms in DB passing conn_string
+    vector_candidates = _get_vector_candidates(query_embedding, conn_string=conn_string, limit=candidate_limit)
+    lexical_candidates = _get_lexical_candidates(query_str, conn_string=conn_string, limit=candidate_limit)
+
+    # 2. Perform RRF fusion using RRF fusion config
+    merged_candidates = _compute_rrf(
+        vector_results=vector_candidates,
+        lexical_results=lexical_candidates,
+        top_candidates_limit=candidate_limit,
+        config=rrf_config
+    )
+
+    return merged_candidates
+
+
+
+def _apply_mmr_filter(
+    candidates: List[Dict[str, Any]],
+    query_embedding: list[float],
+    final_top_k: int = 4,
+    lambda_param: float = 0.7
+) -> List[Dict[str, Any]]:
+    """
+    Applies Maximal Marginal Relevance (MMR) to balance query relevance 
+    and result diversity among candidate vectors.
+    """
+    if not candidates:
+        return []
+
+    # Safe direct conversion since DAL guarantees list[float]
+    q_vec = np.array(query_embedding, dtype=np.float32)
+    cand_vecs = [np.array(c["embedding"], dtype=np.float32) for c in candidates]
+
+    # Precalculate similarity to query for all candidates
+    query_sims = [_cosine_similarity(q_vec, c_vec) for c_vec in cand_vecs]
+
+    selected_indices: List[int] = []
+    unselected_indices = list(range(len(candidates)))
+
+    # Cache for max similarity between unselected candidate and already selected set
+    # Maps candidate index -> max similarity to any selected candidate
+    max_sim_to_selected = {idx: 0.0 for idx in unselected_indices}
+
+    while unselected_indices and len(selected_indices) < final_top_k:
+        best_score = -float('inf')
+        best_idx = -1
+
+        for idx in unselected_indices:
+            sim_to_query = query_sims[idx]
+            sim_to_set = max_sim_to_selected[idx] if selected_indices else 0.0
+
+            # MMR Equation: λ * Sim(Query, Doc) - (1 - λ) * MaxSim(Doc, SelectedSet)
+            mmr_score = (lambda_param * sim_to_query) - ((1 - lambda_param) * sim_to_set)
+
+            if mmr_score > best_score:
+                best_score = mmr_score
+                best_idx = idx
+
+        # Update tracking lists
+        selected_indices.append(best_idx)
+        unselected_indices.remove(best_idx)
+
+        # Update cached max similarity to selected set for remaining candidates
+        newly_selected_vec = cand_vecs[best_idx]
+        for idx in unselected_indices:
+            sim_to_new = _cosine_similarity(cand_vecs[idx], newly_selected_vec)
+            if sim_to_new > max_sim_to_selected[idx]:
+                max_sim_to_selected[idx] = sim_to_new
+
+    return [candidates[i] for i in selected_indices]
+
+
 # #####################################
 # PUBLIC METHODS 
 #
@@ -407,84 +490,32 @@ def store_doc_chunks(
 
 
 
-def execute_hybrid_search(
-    query_str: str,
-    query_embedding: list[float],
-    conn_string: str,
-    candidate_limit: int = 20,
-    rrf_config: RRFTuningConfig = RRFTuningConfig()
-) -> List[Dict[str, Any]]:
-    """
-    Orchestrates fetching vector + keyword candidates from DB 
-    and running RRF fusion in Python.
-    """
-    # 1. Fetch top candidates from both search mechanisms in DB passing conn_string
-    vector_candidates = _get_vector_candidates(query_embedding, conn_string=conn_string, limit=candidate_limit)
-    lexical_candidates = _get_lexical_candidates(query_str, conn_string=conn_string, limit=candidate_limit)
+def search_doc_chunks(
+        db_string:str, 
+        model:SentenceTransformer, 
+        user_query:str
+    ):
 
-    # 2. Perform RRF fusion using RRF fusion config
-    merged_candidates = _compute_rrf(
-        vector_results=vector_candidates,
-        lexical_results=lexical_candidates,
-        top_candidates_limit=candidate_limit,
-        config=rrf_config
+    logger = logging.getLogger("main." + __name__)
+    query_embedding = model.encode(user_query, normalize_embeddings=True).tolist()
+    
+    #  Hybrid Search with RRF (Top 20 candidates)
+    candidates = _execute_hybrid_search(
+        query_str=user_query,
+        query_embedding=query_embedding,
+        conn_string=db_string,
+        candidate_limit=20
     )
 
-    return merged_candidates
 
+    # 4. Diversity Filter via MMR (Select 4 diverse chunks)
+    mmr_chunks = _apply_mmr_filter(
+        candidates=candidates,
+        query_embedding=query_embedding,
+        final_top_k=4,
+        lambda_param=0.7
+    )
+    
+    return mmr_chunks 
 
-def apply_mmr_filter(
-    candidates: List[Dict[str, Any]],
-    query_embedding: list[float],
-    final_top_k: int = 4,
-    lambda_param: float = 0.7
-) -> List[Dict[str, Any]]:
-    """
-    Applies Maximal Marginal Relevance (MMR) to balance query relevance 
-    and result diversity among candidate vectors.
-    """
-    if not candidates:
-        return []
-
-    # Safe direct conversion since DAL guarantees list[float]
-    q_vec = np.array(query_embedding, dtype=np.float32)
-    cand_vecs = [np.array(c["embedding"], dtype=np.float32) for c in candidates]
-
-    # Precalculate similarity to query for all candidates
-    query_sims = [_cosine_similarity(q_vec, c_vec) for c_vec in cand_vecs]
-
-    selected_indices: List[int] = []
-    unselected_indices = list(range(len(candidates)))
-
-    # Cache for max similarity between unselected candidate and already selected set
-    # Maps candidate index -> max similarity to any selected candidate
-    max_sim_to_selected = {idx: 0.0 for idx in unselected_indices}
-
-    while unselected_indices and len(selected_indices) < final_top_k:
-        best_score = -float('inf')
-        best_idx = -1
-
-        for idx in unselected_indices:
-            sim_to_query = query_sims[idx]
-            sim_to_set = max_sim_to_selected[idx] if selected_indices else 0.0
-
-            # MMR Equation: λ * Sim(Query, Doc) - (1 - λ) * MaxSim(Doc, SelectedSet)
-            mmr_score = (lambda_param * sim_to_query) - ((1 - lambda_param) * sim_to_set)
-
-            if mmr_score > best_score:
-                best_score = mmr_score
-                best_idx = idx
-
-        # Update tracking lists
-        selected_indices.append(best_idx)
-        unselected_indices.remove(best_idx)
-
-        # Update cached max similarity to selected set for remaining candidates
-        newly_selected_vec = cand_vecs[best_idx]
-        for idx in unselected_indices:
-            sim_to_new = _cosine_similarity(cand_vecs[idx], newly_selected_vec)
-            if sim_to_new > max_sim_to_selected[idx]:
-                max_sim_to_selected[idx] = sim_to_new
-
-    return [candidates[i] for i in selected_indices]
 
