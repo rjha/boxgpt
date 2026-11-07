@@ -211,6 +211,7 @@ def _compute_rrf(
     return sorted_candidates[:config.top_candidates_limit]
 
 
+# @todo remove - use boxgpt.parse module 
 def _parse_markdown_to_sections(markdown_text: str) -> List[Dict[str, Any]]:
     """
     Parses a cleaned markdown document into sections based on headers (#, ##, ###)
