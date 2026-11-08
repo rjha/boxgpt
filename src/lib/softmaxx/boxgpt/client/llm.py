@@ -1,20 +1,18 @@
 from openai import OpenAI
-from softmaxx.config import AppConfig
-
 
 
 class DigitalOceanClient:
-    def __init__(self, model_name: str):
+    def __init__(self, api_key:str):
         """Initializes the OpenAI client."""
-        api_keys = AppConfig.get("api_keys")
-        sonnet_api_key = api_keys[model_name]
-        self.model_name = model_name
+        if not api_key:
+            raise ValueError("api key is required")
+            
         self.client = OpenAI(base_url="https://inference.do-ai.run/v1/", 
-                        api_key=sonnet_api_key, 
+                        api_key=api_key, 
                         timeout=60.0
                     )
-        
-    def send_message(self, llm_messages):
+    
+    def sonnet_55_chat(self, llm_messages:list[dict[str, str]]):
         response = self.client.chat.completions.create(
             model="anthropic-claude-sonnet-5.5",
             messages=llm_messages,
@@ -25,4 +23,12 @@ class DigitalOceanClient:
         answer = response.choices[0].message.content
         return answer
 
+    
+    def bgem3_embeddings(self, doc_chunks:list[str]):
+        response = self.client.embeddings.create(
+            model="bge-m3",
+            input=doc_chunks,
+            encoding_format="float",
+        )
         
+        return response
