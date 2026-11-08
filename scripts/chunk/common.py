@@ -21,7 +21,7 @@ def get_chunks(source_path):
 
     # Chunk content locally
     print("Chunking processed content...")
-    raw_chunks = box_rag.chunk_markdown_content(source_path)
+    raw_chunks = box_rag.chunk_markdown_file(source_path)
     print(f"Created {len(raw_chunks)} distinct chunks.")
     return raw_chunks
 
