@@ -4,8 +4,9 @@ import time
 import logging 
 import json
 from pathlib import Path
-import softmaxx.config as s_config
+from softmaxx.config import AppConfig, get_logger_config
 import scripts.pp.ab.smp as ab_smp
+from scripts.constants import XOUT_DIR, DOC_DIR
 
 
 def signal_handler(sig, frame):
@@ -57,15 +58,10 @@ def main():
     
     time.sleep(1)
 
-    s_config.AppConfig.load()
-    log_config = s_config.get_logger_config("local")
-    s_config.AppConfig.init_logging(log_file=log_config.log_file)
-
-    # @IMP: check SRC and TARGET_DIR
-    ROOT_DIR = Path('~/code/github/boxgpt/scripts/x.out').expanduser()
-    SRC_DIR = ROOT_DIR / "ocr"
-    TARGET_DIR = ROOT_DIR / "pp"
-    process_batch(SRC_DIR, TARGET_DIR)
+    AppConfig.load()
+    log_config = get_logger_config("local")
+    AppConfig.init_logging(log_file=log_config.log_file)
+    process_batch(XOUT_DIR / "ocr", XOUT_DIR / "pp")
 
 
 

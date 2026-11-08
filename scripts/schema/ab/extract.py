@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from openai import OpenAI
 from softmaxx.config import AppConfig, get_logger_config
+from scripts.constants import XOUT_DIR, DOC_DIR
 
 
 logger = logging.getLogger("main." + __name__)
@@ -37,15 +38,12 @@ def main():
     log_config = get_logger_config("local")
     AppConfig.init_logging(log_file=log_config.log_file, log_level=log_config.log_level)
     logger.info(f"xboa sdk config loaded...")
-
-    OCR_DIR = Path('~/code/github/boxgpt/docs/ocr').expanduser()
-    SCHEMA_DIR = Path('~/code/github/boxgpt/scripts/schema/ab').expanduser()
     
     # variables needed to create the prompt 
-    smp_text_path = OCR_DIR / 'ab_smp_tpp_om_014.json' 
-    smp_schema_path = SCHEMA_DIR / 'smp-schema.json' 
-    user_content_path = SCHEMA_DIR / 'user_prompt.txt'
-    system_prompt_path = SCHEMA_DIR / 'system_prompt.txt'
+    smp_text_path = DOC_DIR / "smp" / "tpp" / 'ab_smp_tpp_om_014.json' 
+    smp_schema_path = XOUT_DIR / "schema" / "ab" / 'smp-schema.json' 
+    user_content_path = XOUT_DIR / "schema" / "ab" / 'user_prompt.txt'
+    system_prompt_path = XOUT_DIR / "schema" / "ab" / 'system_prompt.txt'
 
 
     try:

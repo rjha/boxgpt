@@ -1,8 +1,8 @@
 import logging
-from pathlib import Path
-
 import softmaxx.boxgpt.rag as box_rag 
 from softmaxx.boxgpt.client.llm import DigitalOceanClient 
+from scripts.constants import XOUT_DIR, DOC_DIR
+
 
 from softmaxx.config import (
     AppConfig, 
@@ -30,11 +30,9 @@ def main():
     logger = logging.getLogger("main." + __name__)
     
     # @IMP: verify source, target and model paths
-    BUILD_DIR = Path('~/code/github/boxgpt/scripts/x.out').expanduser()
-    BACKUP_DIR = Path('/home/rjha/backup/ab-out/smp/pp')
     FILE_NAME = "smpe_i018_maintenance_procedure_for_lt_breakers.md"
-    SRC_PATH = BACKUP_DIR / FILE_NAME
-    TARGET_PATH = BUILD_DIR / "chunk" / "ab_pp_chunk.json"
+    SRC_PATH = DOC_DIR / "smp" /" pp" / FILE_NAME
+    TARGET_PATH = XOUT_DIR / "chunk" / "ab_pp_chunk.json"
     
     # Local text encoder 
     # LOCAL_BGEM3_PATH = "/home/rjha/code/models/bge-m3"

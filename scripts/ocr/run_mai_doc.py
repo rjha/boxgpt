@@ -1,7 +1,6 @@
-from pathlib import Path
 from softmaxx.config import AppConfig, get_logger_config
 from softmaxx.boxgpt.client.ocr import MistralClient 
-
+from scripts.constants import XOUT_DIR, DOC_DIR
 
 def main():
    
@@ -14,16 +13,9 @@ def main():
     mistral_api_key = api_keys["MISTRAL"]
     ocr_client = MistralClient(api_key=mistral_api_key)
     
-    # @IMP: change source directory and file name
-    SRC_DIR = Path('~/backup/ab-docs/sop').expanduser()
-    SRC_FILE = "sample01.pdf"
-
-    # verify target folder 
-    TARGET_DIR = Path('~/code/github/boxgpt/scripts/x.out').expanduser()
-
     # No changes below this
-    source_path = SRC_DIR /  SRC_FILE
-    target_path = TARGET_DIR / "mai_ocr.json"
+    source_path = DOC_DIR / "sop"/ "sample01.pdf"
+    target_path = XOUT_DIR / "ocr" / "mai_ocr.json"
     ocr_client.process(source_path=source_path, target_path=target_path)
     
 

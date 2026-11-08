@@ -1,5 +1,5 @@
 import re
-from typing import Dict, Any, List
+from typing import Any
 
 
 def _extract_page_zero_metadata(doc_category:str, b_type: str, content: str) -> str:
@@ -24,7 +24,7 @@ def _is_ppe_table(table_content: str) -> bool:
     return any(kw in header_str for kw in ppe_keywords)
 
 
-def _parse_ppe_table(table_content: str) -> List[Dict[str, Any]]:
+def _parse_ppe_table(table_content: str) -> list[dict[str, Any]]:
     """Parses a verified PPE table into structured rows."""
     lines = [line.strip() for line in table_content.strip().split("\n") if line.strip()]
     if len(lines) < 3:
@@ -60,7 +60,7 @@ def _parse_ppe_table(table_content: str) -> List[Dict[str, Any]]:
     return ppe_mappings
 
 
-def process_doc(doc_category:str, ocr_data: Dict[Any, Any]) -> str:
+def process_doc(doc_category:str, ocr_data: dict[Any, Any]) -> str:
     pages = ocr_data.get("pages", [])
     if not pages:
         return (
@@ -73,7 +73,7 @@ def process_doc(doc_category:str, ocr_data: Dict[Any, Any]) -> str:
     header_items = []
     extracted_ppe_matrices = []
     unique_ppe_set = set()
-    cleaned_page_texts: List[str] = []
+    cleaned_page_texts: list[str] = []
 
     for page in pages:
         page_index = page.get("index", 0)

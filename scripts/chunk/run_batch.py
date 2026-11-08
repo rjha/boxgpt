@@ -5,6 +5,7 @@ import logging
 from pathlib import Path
 import softmaxx.boxgpt.rag as box_rag 
 from softmaxx.boxgpt.client.llm import DigitalOceanClient 
+from scripts.constants import XOUT_DIR, DOC_DIR
 
 from softmaxx.config import (
     AppConfig, 
@@ -99,9 +100,9 @@ def main():
     AppConfig.init_logging(log_file=log_config.log_file)
 
     # @IMP: check SRC and TARGET_DIR
-    SRC_DIR = Path('~/backup/ab-out/smp/pp').expanduser()
-    TARGET_DIR = Path('~/code/github/boxgpt/scripts/x.out/chunks').expanduser()
-
+    SRC_DIR = DOC_DIR / "smp" / "pp"
+    TARGET_DIR = XOUT_DIR / "chunks"
+    
     # Local text encoder 
     # LOCAL_BGEM3_PATH = "/home/rjha/code/models/bge-m3"
     # text_encoder = LocalBGEM3Encoder(model_path=LOCAL_BGEM3_PATH)
