@@ -41,6 +41,8 @@ class LocalBGEM3Encoder:
             return np.empty((0, self.EMBEDDING_DIM), dtype=np.float32)
 
         # Normalizing simplifies cosine distance calculations
+        # local models response do not need sorting as they return 
+        # the embeddings using the exact input sequence
         embeddings = self.model_instance.encode(
             texts, 
             batch_size=self._config.batch_size, 
