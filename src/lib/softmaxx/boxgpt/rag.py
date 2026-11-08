@@ -363,11 +363,17 @@ def add_embeddings(
 ) -> list[dict[str, Any]]:
     """
     Encodes chunk texts in batches using TextEncoder instance 
+    and attaches vector embeddings to each chunk dictionary.
     """
     if not chunks:
         return []
 
     logger = logging.getLogger("main." + __name__)
+    batch_size = text_encoder.config.batch_size
+    if batch_size <= 0:
+        raise ValueError(f"batch_size must be positive, got {batch_size}")
+
+
     # Extract all prepended texts into a flat list for batching
     texts_to_encode = [chunk["embedding_text"] for chunk in chunks]
     logger.info(
@@ -375,15 +381,15 @@ def add_embeddings(
         f"(Batch size: {text_encoder.config.batch_size})..."
     )
 
-    
-    embeddings = text_encoder.encode(texts_to_encode)
-    # Text Encoder returns NumPy arrays. We convert numpy arrays 
-    # to Python float lists and attach back to payload dictionaries
-    for chunk, emb in zip(chunks, embeddings):
-        chunk["embedding"] = emb.tolist()
+    for start in range(0, len(chunks), batch_size):
+        chunk_batch = chunks[start : start + batch_size]
+        texts_batch = [chunk["embedding_text"] for chunk in chunk_batch]
+
+        embeddings_batch = text_encoder.encode(texts_batch)
+        for chunk, emb in zip(chunk_batch, embeddings_batch):
+            chunk["embedding"] = emb.tolist()
 
     return chunks
-
 
 
 def store_doc_chunks(
@@ -465,7 +471,7 @@ def search_doc_chunks(
         query_embedding=query_embedding,
         conn_string=db_string
     )
-    
+
     # 4. Diversity Filter via MMR (Select 4 diverse chunks)
     mmr_chunks = _apply_mmr_filter(
         candidates=candidates,
