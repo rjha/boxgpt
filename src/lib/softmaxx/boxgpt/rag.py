@@ -1,16 +1,15 @@
-import re
 import logging
 from pathlib import Path
 from dataclasses import dataclass
-from typing import List, Dict, Any
+from typing import Any, Literal
 # postgres 
 import psycopg
 from pgvector.psycopg import register_vector
 # embeddings 
 import numpy as np
-from sentence_transformers import SentenceTransformer
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-
+import softmaxx.boxgpt.parser as box_parser
+from softmaxx.boxgpt.encoder import TextEncoder
 
 
 @dataclass(frozen=True)
@@ -45,7 +44,7 @@ def _get_vector_candidates(
     query_embedding: list[float],
     conn_string: str,
     limit: int = 20
-) -> List[Dict[str, Any]]:
+) -> list[dict[str, Any]]:
     """Retrieves top K candidates ordered by vector cosine distance."""
 
     sql_query = """
@@ -106,7 +105,7 @@ def _get_lexical_candidates(
     query_str: str,
     conn_string: str,
     limit: int = 20
-) -> List[Dict[str, Any]]:
+) -> list[dict[str, Any]]:
     """Retrieves top K candidates ordered by tsvector full-text match score."""
 
     sql_query = """
@@ -162,17 +161,16 @@ def _get_lexical_candidates(
 
 
 def _compute_rrf(
-    vector_results: List[Dict[str, Any]],
-    lexical_results: List[Dict[str, Any]],
-    top_candidates_limit: int = 20,
+    vector_results: list[dict[str, Any]],
+    lexical_results: list[dict[str, Any]],
     config: RRFTuningConfig = RRFTuningConfig()
-) -> List[Dict[str, Any]]:
+) -> list[dict[str, Any]]:
     """
     Combines independent Vector and Lexical result sets using 
     Reciprocal Rank Fusion (RRF)
     """
-    combined_records: Dict[Any, Dict[str, Any]] = {}
-    rrf_scores: Dict[Any, float] = {}
+    combined_records: dict[Any, dict[str, Any]] = {}
+    rrf_scores: dict[Any, float] = {}
 
     # Process Vector Search Ranks
     for item in vector_results:
@@ -211,86 +209,47 @@ def _compute_rrf(
     return sorted_candidates[:config.top_candidates_limit]
 
 
-# @todo remove - use boxgpt.parse module 
-def _parse_markdown_to_sections(markdown_text: str) -> List[Dict[str, Any]]:
-    """
-    Parses a cleaned markdown document into sections based on headers (#, ##, ###)
-    and tracks approximate page numbers from '--- Page X ---' markers.
-    """
-    sections = []
-    current_title = "Introduction"
-    current_page = 1
-    current_content_lines = []
-
-    lines = markdown_text.splitlines()
-    for line in lines:
-        # Track page numbers if present in markdown
-        page_match = re.match(r"^---\s+Page\s+(\d+)\s+---", line.strip(), re.IGNORECASE)
-        if page_match:
-            current_page = int(page_match.group(1))
-            continue
-
-        # Detect markdown headers
-        header_match = re.match(r"^(#{1,4})\s+(.+)", line.strip())
-        if header_match:
-            # If we already accumulated content for the previous section, save it
-            if current_content_lines:
-                sections.append({
-                    "section_title": current_title,
-                    "page_range": [current_page, current_page],
-                    "content": "\n".join(current_content_lines).strip()
-                })
-                current_content_lines = []
-            
-            current_title = header_match.group(2).strip()
-            continue
-
-        current_content_lines.append(line)
-
-    # Append the final section
-    if current_content_lines:
-        sections.append({
-            "section_title": current_title,
-            "page_range": [current_page, current_page],
-            "content": "\n".join(current_content_lines).strip()
-        })
-
-    return sections
-
 
 def _execute_hybrid_search(
     query_str: str,
     query_embedding: list[float],
     conn_string: str,
-    candidate_limit: int = 20,
     rrf_config: RRFTuningConfig = RRFTuningConfig()
-) -> List[Dict[str, Any]]:
+) -> list[dict[str, Any]]:
     """
     Orchestrates fetching vector + keyword candidates from DB 
     and running RRF fusion in Python.
     """
     # 1. Fetch top candidates from both search mechanisms in DB passing conn_string
-    vector_candidates = _get_vector_candidates(query_embedding, conn_string=conn_string, limit=candidate_limit)
-    lexical_candidates = _get_lexical_candidates(query_str, conn_string=conn_string, limit=candidate_limit)
+    vector_candidates = _get_vector_candidates(
+        query_embedding, 
+        conn_string=conn_string, 
+        limit=rrf_config.top_candidates_limit
+    )
+
+    lexical_candidates = _get_lexical_candidates(
+        query_str, 
+        conn_string=conn_string, 
+        limit=rrf_config.top_candidates_limit
+    )
 
     # 2. Perform RRF fusion using RRF fusion config
     merged_candidates = _compute_rrf(
         vector_results=vector_candidates,
         lexical_results=lexical_candidates,
-        top_candidates_limit=candidate_limit,
+        top_candidates_limit=rrf_config.top_candidates_limit,
         config=rrf_config
     )
 
     return merged_candidates
 
 
-
 def _apply_mmr_filter(
-    candidates: List[Dict[str, Any]],
+    candidates: list[dict[str, Any]],
     query_embedding: list[float],
     final_top_k: int = 4,
     lambda_param: float = 0.7
-) -> List[Dict[str, Any]]:
+) -> list[dict[str, Any]]:
     """
     Applies Maximal Marginal Relevance (MMR) to balance query relevance 
     and result diversity among candidate vectors.
@@ -305,7 +264,7 @@ def _apply_mmr_filter(
     # Precalculate similarity to query for all candidates
     query_sims = [_cosine_similarity(q_vec, c_vec) for c_vec in cand_vecs]
 
-    selected_indices: List[int] = []
+    selected_indices: list[int] = []
     unselected_indices = list(range(len(candidates)))
 
     # Cache for max similarity between unselected candidate and already selected set
@@ -347,17 +306,18 @@ def _apply_mmr_filter(
 #######################################
 
 # Create Vector embeddings
-def chunk_markdown_content(
+def chunk_markdown_file(
     doc_path: Path, 
     max_chunk_chars: int = 1500, 
-    chunk_overlap: int = 150
-) -> List[Dict[str, Any]]:
+    chunk_overlap: int = 150,
+    strategy: Literal["regex", "fsm"] = "regex"
+) -> list[dict[str, Any]]:
     """
     Reads a cleaned markdown file, parses it into sections, and produces 
     a list of chunk dictionaries with English section context prepended.
     """
     markdown_text = doc_path.read_text(encoding="utf-8")
-    sections = _parse_markdown_to_sections(markdown_text)
+    sections = box_parser.infer_sections(markdown_text=markdown_text, strategy=strategy)
 
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=max_chunk_chars,
@@ -365,7 +325,7 @@ def chunk_markdown_content(
         separators=["\n\n", "\n", ". ", " ", ""]
     )
 
-    chunks: List[Dict[str, Any]] = []
+    chunks: list[dict[str, Any]] = []
 
     for section in sections:
         section_title = section.get("section_title", "General")
@@ -398,13 +358,11 @@ def chunk_markdown_content(
 
 
 def add_embeddings(
-    chunks: List[Dict[str, Any]], 
-    model: SentenceTransformer, 
-    batch_size: int = 16
-) -> List[Dict[str, Any]]:
+    chunks: list[dict[str, Any]], 
+    text_encoder: TextEncoder, 
+) -> list[dict[str, Any]]:
     """
-    Encodes chunk texts in batches using BAAI/bge-m3 and attaches 
-    1024-dimensional float arrays to each chunk object.
+    Encodes chunk texts in batches using TextEncoder instance 
     """
     if not chunks:
         return []
@@ -412,17 +370,15 @@ def add_embeddings(
     logger = logging.getLogger("main." + __name__)
     # Extract all prepended texts into a flat list for batching
     texts_to_encode = [chunk["embedding_text"] for chunk in chunks]
-
-    logger.info(f"Generating embeddings for {len(texts_to_encode)} chunks (Batch size: {batch_size})...")
-    # Generate embeddings in a single batch pass (returns NumPy array)
-    embeddings = model.encode(
-        texts_to_encode, 
-        batch_size=batch_size, 
-        show_progress_bar=True,
-        normalize_embeddings=True  # Normalizing simplifies cosine distance calculations
+    logger.info(
+        f"Generate embeddings: {len(texts_to_encode)} chunks "
+        f"(Batch size: {text_encoder.config.batch_size})..."
     )
 
-    # Convert NumPy arrays to Python float lists and attach back to payload dicts
+    
+    embeddings = text_encoder.encode(texts_to_encode)
+    # Text Encoder returns NumPy arrays. We convert numpy arrays 
+    # to Python float lists and attach back to payload dictionaries
     for chunk, emb in zip(chunks, embeddings):
         chunk["embedding"] = emb.tolist()
 
@@ -433,8 +389,8 @@ def add_embeddings(
 def store_doc_chunks(
     document_slug: str,
     document_name: str, 
-    document_metadata: Dict[Any, Any], 
-    chunks: List[Dict[str, Any]], 
+    document_metadata: dict[Any, Any], 
+    chunks: list[dict[str, Any]], 
     conn_string: str
 ):
     """
@@ -492,23 +448,24 @@ def store_doc_chunks(
 
 
 def search_doc_chunks(
-        db_string:str, 
-        model:SentenceTransformer, 
-        user_query:str
-    ):
+    db_string: str, 
+    text_encoder: TextEncoder, 
+    user_query: str
+) -> list[dict[str, Any]]:
 
     logger = logging.getLogger("main." + __name__)
-    query_embedding = model.encode(user_query, normalize_embeddings=True).tolist()
+
+    # user_query is a string, and encoder expects an array of strings
+    # encoder returns a numpy array that should be converted to list[floats]
+    query_embedding = text_encoder.encode([user_query])[0].tolist()
     
     #  Hybrid Search with RRF (Top 20 candidates)
     candidates = _execute_hybrid_search(
         query_str=user_query,
         query_embedding=query_embedding,
-        conn_string=db_string,
-        candidate_limit=20
+        conn_string=db_string
     )
-
-
+    
     # 4. Diversity Filter via MMR (Select 4 diverse chunks)
     mmr_chunks = _apply_mmr_filter(
         candidates=candidates,
