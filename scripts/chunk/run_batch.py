@@ -3,9 +3,27 @@ import sys
 import time
 import logging 
 from pathlib import Path
-from sentence_transformers import SentenceTransformer
-import softmaxx.config as s_config
-import scripts.chunk.common as chunker 
+import softmaxx.boxgpt.rag as box_rag 
+from softmaxx.boxgpt.client.llm import DigitalOceanClient 
+
+from softmaxx.config import (
+    AppConfig, 
+    get_logger_config, 
+    get_database_config,
+    DatabaseConfig
+)
+
+from softmaxx.boxgpt.encoder import (
+    TextEncoder,
+    LocalBGEM3Encoder, 
+    DOBGEM3Encoder
+)
+
+from scripts.chunk.common import (
+    read_json_file,
+    save_json_to_file,
+    transform_slug
+)
 
 
 def signal_handler(sig, frame):
@@ -13,7 +31,7 @@ def signal_handler(sig, frame):
     sys.exit(130)
 
 
-def process_batch(source_dir: Path, target_dir: Path, model:SentenceTransformer):
+def process_batch(source_dir: Path, target_dir: Path, text_encoder:TextEncoder):
     logger = logging.getLogger("main." + __name__)
     # input check: source_dir and target_dir
     if not (source_dir.exists() and source_dir.is_dir()):
@@ -30,37 +48,37 @@ def process_batch(source_dir: Path, target_dir: Path, model:SentenceTransformer)
     for md_file in md_files:
         logger.info(f"process markdown file: {md_file}")
 
-        # Target is where chunk+embeddings will be saved
+        # chunk+embeddings will be saved to target dir
         doc_slug = md_file.stem 
-        doc_name = chunker.transform_slug(doc_slug=doc_slug)
+        doc_name = transform_slug(doc_slug=doc_slug)
         logger.info(f"doc slug:{doc_slug}, name: {doc_name}")
         target_path = target_dir / f"{doc_slug}_chunk.json"
+
         # skip if already processed
         if target_path.exists():
             logger.info(f"skipping chunked file: {target_path.name}")
             continue
-
-        raw_chunks = chunker.get_chunks(md_file)
-        enriched_chunks = chunker.add_embedding(raw_chunks=raw_chunks, model=model)
-        chunker.save_to_file(chunks=enriched_chunks, target_path=target_path)
+        
+        raw_chunks = box_rag.chunk_markdown_file(md_file)
+        enriched_chunks = box_rag.add_embeddings(chunks=raw_chunks, text_encoder=text_encoder)
+        save_json_to_file(content=enriched_chunks, target_path=target_path)
         logger.info(f"chunks saved to file -> {target_path}")
 
         # Run database operation using chunk+embeddings file 
-        db_config:s_config.DatabaseConfig = s_config.get_database_config()
+        db_config: DatabaseConfig = get_database_config()
         db_string = db_config.get_uri() 
-        chunker.save_to_pgvector(
-            db_string=db_string,
-            chunk_file_path=target_path, 
-             doc_info={
-                "slug": doc_slug,
-                "name": doc_name,
-                "meta": {
-                    "source_file": md_file.name,
-                    "pipeline": "bge-m3-rag",
-                }
-            }
-        )
-        
+
+        chunks = read_json_file(target_path)
+        box_rag.store_doc_chunks(
+            document_slug=doc_slug,
+            document_name=doc_name, 
+            document_metadata= {
+                "source_file": md_file.name,
+                "pipeline": "bge-m3-rag",
+            },
+            chunks=chunks,
+            conn_string=db_string)
+
         logger.info(f"chunks saved to pg_vector")
         # give CPU a breather!
         time.sleep(4)
@@ -76,19 +94,24 @@ def main():
     
     time.sleep(1)
 
-    s_config.AppConfig.load()
-    log_config = s_config.get_logger_config("local")
-    s_config.AppConfig.init_logging(log_file=log_config.log_file)
+    AppConfig.load()
+    log_config = get_logger_config("local")
+    AppConfig.init_logging(log_file=log_config.log_file)
 
     # @IMP: check SRC and TARGET_DIR
     SRC_DIR = Path('~/backup/ab-out/smp/pp').expanduser()
-    MODEL_PATH = "/home/rjha/code/models/bge-m3"
     TARGET_DIR = Path('~/code/github/boxgpt/scripts/x.out/chunks').expanduser()
 
-    # run the batch
-    model_instance = SentenceTransformer(MODEL_PATH)
-    process_batch(source_dir=SRC_DIR, target_dir=TARGET_DIR, model=model_instance)
+    # Local text encoder 
+    # LOCAL_BGEM3_PATH = "/home/rjha/code/models/bge-m3"
+    # text_encoder = LocalBGEM3Encoder(model_path=LOCAL_BGEM3_PATH)
 
+    # api text encoder
+    api_keys = AppConfig.get("api_keys")
+    do_api_client = DigitalOceanClient(api_key=api_keys["DO_INFERENCE_KEY"])
+    text_encoder = DOBGEM3Encoder(api_client=do_api_client)
+    # run the batch 
+    process_batch(source_dir=SRC_DIR, target_dir=TARGET_DIR, text_encoder=text_encoder)
 
 
 if __name__ == "__main__":

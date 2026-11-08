@@ -1,14 +1,32 @@
 import logging
 from pathlib import Path
-from sentence_transformers import SentenceTransformer
-import softmaxx.config as s_config
-import scripts.chunk.common as chunker 
+
+import softmaxx.boxgpt.rag as box_rag 
+from softmaxx.boxgpt.client.llm import DigitalOceanClient 
+
+from softmaxx.config import (
+    AppConfig, 
+    get_logger_config, 
+    get_database_config,
+    DatabaseConfig
+)
+
+from softmaxx.boxgpt.encoder import (
+    LocalBGEM3Encoder, 
+    DOBGEM3Encoder
+)
+
+from scripts.chunk.common import (
+    read_json_file,
+    save_json_to_file,
+    transform_slug
+)
 
 
 def main():
-    s_config.AppConfig.load()
-    log_config = s_config.get_logger_config("local")
-    s_config.AppConfig.init_logging(log_file=log_config.log_file)
+    AppConfig.load()
+    log_config = get_logger_config("local")
+    AppConfig.init_logging(log_file=log_config.log_file)
     logger = logging.getLogger("main." + __name__)
     
     # @IMP: verify source, target and model paths
@@ -16,38 +34,40 @@ def main():
     BACKUP_DIR = Path('/home/rjha/backup/ab-out/smp/pp')
     FILE_NAME = "smpe_i018_maintenance_procedure_for_lt_breakers.md"
     SRC_PATH = BACKUP_DIR / FILE_NAME
-    
-    MODEL_PATH = "/home/rjha/code/models/bge-m3"
     TARGET_PATH = BUILD_DIR / "chunk" / "ab_pp_chunk.json"
     
+    # Local text encoder 
+    # LOCAL_BGEM3_PATH = "/home/rjha/code/models/bge-m3"
+    # text_encoder = LocalBGEM3Encoder(model_path=LOCAL_BGEM3_PATH)
+
+    # api text encoder
+    api_keys = AppConfig.get("api_keys")
+    do_api_client = DigitalOceanClient(api_key=api_keys["DO_INFERENCE_KEY"])
+    text_encoder = DOBGEM3Encoder(api_client=do_api_client)
+
     # step by step verification
-    model_instance = SentenceTransformer(MODEL_PATH)
-    print(f" loaded model from {MODEL_PATH}")
-
-    raw_chunks = chunker.get_chunks(SRC_PATH)
-    enriched_chunks = chunker.add_embedding(raw_chunks=raw_chunks, model=model_instance)
-    chunker.save_to_file(chunks=enriched_chunks, target_path=TARGET_PATH)
+    # STEP 1. read and chunk markdown file
+    # STEP 2. add embeddings
+    # STEP 3. save the embeddings into file
+    raw_chunks = box_rag.chunk_markdown_file(SRC_PATH)
+    enriched_chunks = box_rag.add_embeddings(chunks=raw_chunks, text_encoder=text_encoder)
+    save_json_to_file(content=enriched_chunks, target_path=TARGET_PATH)
     
-    db_config:s_config.DatabaseConfig = s_config.get_database_config()
+    db_config:DatabaseConfig = get_database_config()
     db_string = db_config.get_uri() 
-
     doc_slug = SRC_PATH.stem 
-    doc_name = chunker.transform_slug(doc_slug)
+    doc_name = transform_slug(doc_slug)
+    chunks = read_json_file(TARGET_PATH)
 
-    
-    chunker.save_to_pgvector(
-        db_string=db_string,
-        chunk_file_path=TARGET_PATH, 
-        doc_info={
-            "slug": doc_slug,
-            "name": doc_name,
-            "meta": {
+    box_rag.store_doc_chunks(
+            document_slug=doc_slug,
+            document_name=doc_name, 
+            document_metadata= {
                 "source_file": SRC_PATH.name,
                 "pipeline": "bge-m3-rag",
-            }
-        }
-    )
-    
+            },
+            chunks=chunks,
+            conn_string=db_string)
     
     
 if __name__ == "__main__":
