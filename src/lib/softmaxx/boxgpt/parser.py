@@ -1,15 +1,15 @@
 import re
-from typing import List, Dict, Any
+from typing import Any, Literal
 
 
 
 def _build_chunks(
     title: str, 
     content: str, 
-    page_range: List[int], 
+    page_range: list[int], 
     max_chars: int, 
     overlap: int
-) -> List[Dict[str, Any]]:
+) -> list[dict[str, Any]]:
     """Enforces max character caps and creates sliding window sub-chunks with overlap."""
     if len(content) <= max_chars:
         return [{
@@ -46,18 +46,11 @@ def _build_chunks(
 
 
 
-# #####################################
-# PUBLIC METHODS 
-#
-#######################################
-
-
-
-def svm_parse_markdown(
+def _infer_sections_fsm(
     markdown_text: str, 
     max_chars: int = 4000, 
     overlap: int = 300
-) -> List[Dict[str, Any]]:
+) -> list[dict[str, Any]]:
     """
     State machine parser for clean Markdown documents.
     States: 
@@ -150,7 +143,7 @@ def svm_parse_markdown(
 
 
 
-def simple_parse_markdown(markdown_text: str) -> List[Dict[str, Any]]:
+def _infer_sections_regex(markdown_text: str) -> list[dict[str, Any]]:
     """
     Parses a cleaned markdown document into sections based on headers (#, ##, ###)
     and tracks approximate page numbers from '--- Page X ---' markers.
@@ -196,3 +189,11 @@ def simple_parse_markdown(markdown_text: str) -> List[Dict[str, Any]]:
     return sections
 
 
+# #####################################
+# PUBLIC METHODS 
+#
+#######################################
+
+
+def infer_sections(markdown_text: str, strategy: Literal["regex", "fsm"]) -> list[dict[str, Any]]:
+    return _infer_sections_regex(markdown_text=markdown_text)
