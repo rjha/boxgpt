@@ -7,6 +7,7 @@ import softmaxx.boxgpt.rag as box_rag
 from softmaxx.boxgpt.client.llm import DigitalOceanClient 
 from scripts.constants import XOUT_DIR, DOC_DIR
 
+
 from softmaxx.config import (
     AppConfig, 
     get_logger_config, 
@@ -98,10 +99,6 @@ def main():
     AppConfig.load()
     log_config = get_logger_config("local")
     AppConfig.init_logging(log_file=log_config.log_file)
-
-    # @IMP: check SRC and TARGET_DIR
-    SRC_DIR = DOC_DIR / "smp" / "pp"
-    TARGET_DIR = XOUT_DIR / "chunks"
     
     # Local text encoder 
     # LOCAL_BGEM3_PATH = "/home/rjha/code/models/bge-m3"
@@ -112,6 +109,9 @@ def main():
     do_api_client = DigitalOceanClient(api_key=api_keys["DO_INFERENCE_KEY"])
     text_encoder = DOBGEM3Encoder(api_client=do_api_client)
     # run the batch 
+    # @IMP: check SRC and TARGET_DIR
+    SRC_DIR = DOC_DIR / "smp" / "pp"
+    TARGET_DIR = XOUT_DIR / "chunks"  
     process_batch(source_dir=SRC_DIR, target_dir=TARGET_DIR, text_encoder=text_encoder)
 
 

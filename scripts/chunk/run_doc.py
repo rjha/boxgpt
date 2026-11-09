@@ -29,11 +29,6 @@ def main():
     AppConfig.init_logging(log_file=log_config.log_file)
     logger = logging.getLogger("main." + __name__)
     
-    # @IMP: verify source, target and model paths
-    FILE_NAME = "smpe_i018_maintenance_procedure_for_lt_breakers.md"
-    SRC_PATH = DOC_DIR / "smp" /" pp" / FILE_NAME
-    TARGET_PATH = XOUT_DIR / "chunk" / "ab_pp_chunk.json"
-    
     # Local text encoder 
     # LOCAL_BGEM3_PATH = "/home/rjha/code/models/bge-m3"
     # text_encoder = LocalBGEM3Encoder(model_path=LOCAL_BGEM3_PATH)
@@ -47,7 +42,12 @@ def main():
     # STEP 1. read and chunk markdown file
     # STEP 2. add embeddings
     # STEP 3. save the embeddings into file
-    raw_chunks = box_rag.chunk_markdown_file(SRC_PATH)
+
+    # @IMP: verify source, target and model paths
+    SRC_PATH = DOC_DIR / "sample" / "pp" / "sample_ocr_pp.md"
+    TARGET_PATH = XOUT_DIR / "chunk" / "sample_pp_chunk.json"
+    
+    raw_chunks = box_rag.chunk_markdown_file(SRC_PATH, strategy="fsm")
     enriched_chunks = box_rag.add_embeddings(chunks=raw_chunks, text_encoder=text_encoder)
     save_json_to_file(content=enriched_chunks, target_path=TARGET_PATH)
     

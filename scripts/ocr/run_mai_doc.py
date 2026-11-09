@@ -13,9 +13,9 @@ def main():
     mistral_api_key = api_keys["MISTRAL"]
     ocr_client = MistralClient(api_key=mistral_api_key)
     
-    # No changes below this
-    source_path = DOC_DIR / "sop"/ "sample01.pdf"
-    target_path = XOUT_DIR / "ocr" / "mai_ocr.json"
+    # No changes below this 
+    source_path = DOC_DIR / "sample"/ "sample.pdf"
+    target_path = XOUT_DIR / "ocr" / "sample_ocr.json"
     ocr_client.process(source_path=source_path, target_path=target_path)
     
 

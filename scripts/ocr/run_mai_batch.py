@@ -1,9 +1,9 @@
 import signal 
 import sys
 import time
-from pathlib import Path
 from softmaxx.config import AppConfig, get_logger_config
 from softmaxx.boxgpt.client.ocr import MistralClient, MistralClientConfig 
+from scripts.constants import XOUT_DIR, DOC_DIR
 
 
 def signal_handler(sig, frame):
@@ -29,12 +29,7 @@ def main():
 
     # Instantiate the class with the API key
     ocr_client = MistralClient(api_key=mistral_api_key)
-    
-    # @IMP: check source folder and 
-    SRC_DIR = Path('~/backup/ab-docs/sop').expanduser()
-    ROOT_DIR = Path('~/code/github/boxgpt/scripts/x.out').expanduser()
-    TARGET_DIR = ROOT_DIR / "ocr"
-
+   
     # @IMP: when dial_mistral=False, the batch processing will not 
     # call mistral API at all. dial_mistral can be used for testing 
     # the directory walkthrough without calling API.
@@ -42,7 +37,7 @@ def main():
         dial_mistral=True,
         network_delay=5.0)
     
-    ocr_client.process_batch(SRC_DIR, TARGET_DIR, mistral_config)
+    ocr_client.process_batch(DOC_DIR / "RCN", XOUT_DIR / "ocr", mistral_config)
     
 
 if __name__ == "__main__":

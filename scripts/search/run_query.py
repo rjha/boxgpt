@@ -38,7 +38,7 @@ def main():
 
     
     # @IMP: user query 
-    user_query = "what are the PPE requirements for compressor maintenance?"
+    user_query = "Do we have a document written by abdul?"
     db_config: DatabaseConfig = get_database_config()
     db_string = db_config.get_uri() 
     mmr_chunks = box_rag.search_doc_chunks(
