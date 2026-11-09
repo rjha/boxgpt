@@ -16,7 +16,7 @@ from softmaxx.boxgpt.encoder import (
     DOBGEM3Encoder
 )
 
-from scripts.chunk.common import (
+from softmaxx.boxgpt.util import (
     read_json_file,
     save_json_to_file,
     transform_slug
