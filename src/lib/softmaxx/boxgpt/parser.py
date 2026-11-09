@@ -48,7 +48,7 @@ def _build_chunks(
 
 def _infer_sections_fsm(
     markdown_text: str, 
-    max_chars: int = 4000, 
+    max_chars: int = 2000, 
     overlap: int = 300
 ) -> list[dict[str, Any]]:
     """
@@ -195,5 +195,15 @@ def _infer_sections_regex(markdown_text: str) -> list[dict[str, Any]]:
 #######################################
 
 
-def infer_sections(markdown_text: str, strategy: Literal["regex", "fsm"]) -> list[dict[str, Any]]:
-    return _infer_sections_regex(markdown_text=markdown_text)
+def infer_sections(
+        markdown_text: str, 
+        strategy: Literal["regex", "fsm"]
+    ) -> list[dict[str, Any]]:
+    """Infers sections from markdown using requested strategy."""
+    match strategy:
+        case "regex":
+            return _infer_sections_regex(markdown_text=markdown_text)
+        case "fsm":
+            return _infer_sections_fsm(markdown_text=markdown_text, max_chars=2000)
+        case _:
+            raise ValueError(f"unknown inference strategy {strategy}")        
