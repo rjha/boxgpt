@@ -237,7 +237,6 @@ def _execute_hybrid_search(
     merged_candidates = _compute_rrf(
         vector_results=vector_candidates,
         lexical_results=lexical_candidates,
-        top_candidates_limit=rrf_config.top_candidates_limit,
         config=rrf_config
     )
 
