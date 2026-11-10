@@ -16,7 +16,14 @@ CREATE DATABASE rags01_db WITH OWNER = xapi_app;
 Now connect to rags01_db as xapi_app and create objects. 
 $ psql -h 127.0.0.1 -U xapi_app -d rags01_db -p 5432
 
+## How to connect depends on the trust settings 
+## and if postgres is running inside docker
+
+$sudo -u postgres psql
 $psql -h 127.0.0.1 -U xapi_admin -p 5432
+
+## For app users, 
+$psql -h 127.0.0.1 -p 5432 -U xapi_app -d rags01_db
 
 # Run the schema scripts
 
@@ -65,3 +72,28 @@ docker cp ./pg_hba.conf postgres-vector:/var/lib/postgresql/data/pg_hba.conf
 docker restart postgres-vector
 7. verify 
 psql -h 127.0.0.1 -U xapi_admin -d rags01_db -p 5432
+
+
+# Taking backup 
+$ pg_dump -h 127.0.0.1 -p 5432 -U xapi_admin -d rags01_db --format=plain -f rags01_db.sql
+
+# Loading from backup 
+$ psql -U xapi_app -d rags01_db -f /tmp/rags01_db_bkp.sql
+
+
+
+# check: is postgres on remote IP open? 
+nc -zv 165.232.176.205  5432
+
+# create vector extension 
+- first install pg vector extension on linux machine 
+- Login as superuser into target database 
+- CREATE EXTENSION vector;
+- quit and login into database as app user 
+- check using \dx or 
+
+SELECT name, installed_version, default_version, comment 
+FROM pg_available_extensions 
+WHERE name = 'vector';
+
+
