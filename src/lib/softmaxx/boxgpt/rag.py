@@ -309,7 +309,7 @@ def chunk_markdown_file(
     doc_path: Path, 
     max_chunk_chars, 
     chunk_overlap: int,
-    strategy: Literal["regex", "fsm"] = "fsm"
+    strategy: Literal["regex", "fsm"] = "regex"
 ) -> list[dict[str, Any]]:
     """
     Reads a cleaned markdown file, parses it into sections, and produces 
