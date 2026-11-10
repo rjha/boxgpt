@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS doc_source (
 CREATE TABLE IF NOT EXISTS doc_chunks (
     id SERIAL PRIMARY KEY,
     doc_id INT REFERENCES doc_source(id) ON DELETE CASCADE,
-    section_title VARCHAR(255),
+    section_title VARCHAR(512),
     page_start INT,
     page_end INT,
     chunk_index INT,
