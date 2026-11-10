@@ -307,16 +307,21 @@ def _apply_mmr_filter(
 # Create Vector embeddings
 def chunk_markdown_file(
     doc_path: Path, 
-    max_chunk_chars: int = 1500, 
-    chunk_overlap: int = 150,
-    strategy: Literal["regex", "fsm"] = "regex"
+    max_chunk_chars, 
+    chunk_overlap: int,
+    strategy: Literal["regex", "fsm"] = "fsm"
 ) -> list[dict[str, Any]]:
     """
     Reads a cleaned markdown file, parses it into sections, and produces 
     a list of chunk dictionaries with English section context prepended.
     """
     markdown_text = doc_path.read_text(encoding="utf-8")
-    sections = box_parser.infer_sections(markdown_text=markdown_text, strategy=strategy)
+    sections = box_parser.infer_sections(
+        markdown_text = markdown_text, 
+        max_chars = max_chunk_chars,
+        overlap = chunk_overlap,
+        strategy = strategy
+    )
 
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=max_chunk_chars,
