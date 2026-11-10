@@ -2,6 +2,7 @@
 from typing import Protocol
 from dataclasses import dataclass
 import numpy as np
+from openai import OpenAI
 from sentence_transformers import SentenceTransformer
 from softmaxx.boxgpt.client.llm import DigitalOceanClient
 
@@ -53,6 +54,9 @@ class LocalBGEM3Encoder:
         return embeddings
 
 
+# @todo remove - Bad design 
+# use native openai client 
+
 class DOBGEM3Encoder:
     EMBEDDING_DIM = 1024
     def __init__(self, 
@@ -95,5 +99,50 @@ class DOBGEM3Encoder:
         return emb_matrix
     
 
+class OpenAIBGEM3Encoder:
+    """
+    An adapter that satisfies the TextEncoder interface contract,
+    allowing box_rag to interact directly with the native OpenAI client.
+    """
+    EMBEDDING_DIM = 1024
+
+    def __init__(self, api_client: OpenAI, config: EncoderConfig = EncoderConfig()):
+        self._api_client = api_client
+        self._config = config
+
+    @property
+    def config(self) -> EncoderConfig:
+        return self._config 
+
+    def encode(self, texts: list[str]) -> np.ndarray:
+        if not texts:
+            return np.empty((0, self.EMBEDDING_DIM), dtype=np.float32)
+
+        if len(texts) > self._config.batch_size:
+            raise ValueError(
+                f"Input length ({len(texts)}) exceeds configured batch_size "
+                f"({self._config.batch_size})."
+            )
+        
+        # Interacting purely via the native standard call structure
+        api_response = self._api_client.embeddings.create(
+            input=texts,
+            model="bge-m3",
+            encoding_format="float"
+        )
+        
+        # Maintain positioning index stability
+        sorted_items = sorted(api_response.data, key=lambda item: item.index)
+        emb_matrix = np.array(
+            [item.embedding for item in sorted_items],
+            dtype=np.float32,
+        )
+
+        # L2-normalization loop matching baseline expectations
+        if self._config.normalize_embeddings:
+            norms = np.linalg.norm(emb_matrix, axis=1, keepdims=True)
+            emb_matrix = emb_matrix / np.maximum(norms, 1e-12)
+        
+        return emb_matrix
 
     
