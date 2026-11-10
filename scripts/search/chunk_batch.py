@@ -61,7 +61,13 @@ def process_batch(source_dir: Path, target_dir: Path, text_encoder:TextEncoder):
             logger.info(f"skipping chunked file: {target_path.name}")
             continue
         
-        raw_chunks = box_rag.chunk_markdown_file(md_file)
+        raw_chunks = box_rag.chunk_markdown_file(
+            doc_path=md_file, 
+            max_chunk_chars=2000,
+            chunk_overlap=300,
+            strategy="fsm"
+        )
+        
         enriched_chunks = box_rag.add_embeddings(chunks=raw_chunks, text_encoder=text_encoder)
         save_json_to_file(content=enriched_chunks, target_path=target_path)
         logger.info(f"chunks saved to file -> {target_path}")
@@ -83,7 +89,7 @@ def process_batch(source_dir: Path, target_dir: Path, text_encoder:TextEncoder):
 
         logger.info(f"chunks saved to pg_vector")
         # give CPU a breather!
-        time.sleep(4)
+        time.sleep(3)
 
 
                 
@@ -91,7 +97,7 @@ def main():
    
     print(" ##################################### ")
     print(" @@@  CHUNKS BATCH SCRIPT   @@@        ")
-    print(" @@@  Press CTRL+C to abort        @@@ ")
+    print(" @@@  Press CTRL+C to abort        @@@ ") 
     print(" ##################################### ")
     
     time.sleep(1)
@@ -110,8 +116,8 @@ def main():
     text_encoder = DOBGEM3Encoder(api_client=do_api_client)
     # run the batch 
     # @IMP: check SRC and TARGET_DIR
-    SRC_DIR = DOC_DIR / "smp" / "pp"
-    TARGET_DIR = XOUT_DIR / "chunks"  
+    SRC_DIR = DOC_DIR / "rcn" / "pp"
+    TARGET_DIR = DOC_DIR / "rcn" / "chunks"
     process_batch(source_dir=SRC_DIR, target_dir=TARGET_DIR, text_encoder=text_encoder)
 
 

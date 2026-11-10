@@ -47,7 +47,13 @@ def main():
     SRC_PATH = DOC_DIR / "sample" / "pp" / "sample_ocr_pp.md"
     TARGET_PATH = XOUT_DIR / "chunk" / "sample_pp_chunk.json"
     
-    raw_chunks = box_rag.chunk_markdown_file(SRC_PATH, strategy="fsm")
+    raw_chunks = box_rag.chunk_markdown_file(
+        doc_path=SRC_PATH, 
+        max_chunk_chars=2000,
+        chunk_overlap=300,
+        strategy="fsm"
+    )
+    
     enriched_chunks = box_rag.add_embeddings(chunks=raw_chunks, text_encoder=text_encoder)
     save_json_to_file(content=enriched_chunks, target_path=TARGET_PATH)
     
