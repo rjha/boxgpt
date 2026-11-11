@@ -1,0 +1,90 @@
+
+
+
+# How to remove old postgres from Ubuntu 24
+
+sudo systemctl stop postgresql
+  867  sudo apt purge postgresql* -y
+  868  sudo apt autoremove -y
+  869  sudo rm -rf /var/lib/postgresql/
+  870  sudo rm -rf /etc/postgresql/
+  871  sudo rm -rf /var/log/postgresql/
+  872  sudo deluser --remove-home postgres
+  873  sudo delgroup postgres
+  874  dpkg -l | grep postgres
+
+
+
+# How to install docker and compose on Ubuntu
+
+Remove old packages if at all 
+$ sudo apt remove $(dpkg --get-selections docker.io docker-compose docker-compose-v2 | cut -f1)
+$ sudo apt remove $(dpkg --get-selections docker-doc docker-buildx podman-docker containerd runc | cut -f1)
+
+=> Better follow Docker offical document from https://docs.docker.com/engine/install/ubuntu/
+
+
+# pulling docker image using compose 
+sudo usermod -aG docker $USER
+newgrp docker
+
+docker compose -f postgres18.yaml pull
+ 2015  docker compose -f postgres18.yaml up -d
+ 2016  docker compose -f postgres18.yaml ps
+ 2017  docker exec -it postgres-vector-18 df -h /dev/shm
+
+## Verify 
+$ docker ps 
+$ sudo systemctl status postgres.service 
+
+## Add docker service to systemcrl 
+sudo systemctl enable docker
+
+## manual start and stop of this instance 
+docker compose -f postgres18.yaml stop
+docker compose -f postgres18.yaml start
+
+
+# Install official postgres 18 client
+After docker install, install postgres18 official client on Ubuntu, 
+because client and server version mismatch can create issues.
+
+sudo apt install -y postgresql-common
+905  sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+906  sudo apt install postgresql-client-18
+
+
+# Connecting 
+
+$psql -h 127.0.0.1 -U xapi_admin -p 5432
+CREATE USER xapi_app WITH PASSWORD 'softmaxx@23';
+CREATE DATABASE rags01_db WITH OWNER = xapi_app;
+
+$ psql -h 127.0.0.1 -d rags01_db  -U xapi_admin -p 5432
+rags01_db=# CREATE EXTENSION vector;
+\q 
+
+
+
+
+# RESET superuser password for docker postgres
+
+1. find docker container name 
+docker ps
+2. copy pg_hba.conf file to local area  
+docker cp postgres-vector:/var/lib/postgresql/data/pg_hba.conf ./pg_hba.conf
+3. edit to change scram-sha-256 to trust and copy back 
+vim pg_hba.conf
+docker cp ./pg_hba.conf postgres-vector:/var/lib/postgresql/data/pg_hba.conf
+4. restart docker container 
+docker restart postgres-vector
+5. login using superuser and reset the password 
+docker exec -it postgres-vector psql -U xapi_admin -d postgres
+=>  ALTER USER xapi_admin WITH PASSWORD 'your_new_secure_password';
+6. change trust to scram-sha-256 again and copy back 
+vim pg_hba.conf
+docker cp ./pg_hba.conf postgres-vector:/var/lib/postgresql/data/pg_hba.conf
+docker restart postgres-vector
+7. verify 
+psql -h 127.0.0.1 -U xapi_admin -d rags01_db -p 5432
+

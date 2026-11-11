@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS doc_chunks (
 CREATE INDEX IF NOT EXISTS idx_hnsw_doc_chunks 
 ON doc_chunks 
 USING hnsw (embedding vector_cosine_ops)
-WITH (m = 16, ef_construction = 64);
+WITH (m = 16, ef_construction = 128);
 
 -- full-text search index (gin (to_tsvector(...)))
 -- to implement hybrid search, combining keyword/lexical 
