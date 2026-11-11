@@ -1,5 +1,7 @@
+import numpy as np 
 from sentence_transformers import SentenceTransformer
 from softmaxx.boxgpt.encoder import EncoderConfig
+
 
 """
 The local BAAI/BGE-m3 encoder pulls in massive dependencies 
