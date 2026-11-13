@@ -10,6 +10,7 @@ import numpy as np
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 import softmaxx.boxgpt.parser as box_parser
 from softmaxx.boxgpt.encoder import TextEncoder
+from softmaxx.trace import Trace
 
 
 @dataclass(frozen=True)
@@ -214,14 +215,16 @@ def _execute_hybrid_search(
     query_str: str,
     query_embedding: list[float],
     conn_string: str,
-    rrf_config: RRFTuningConfig = RRFTuningConfig()
+    rrf_config: RRFTuningConfig = RRFTuningConfig(),
+    verbose: bool = False
 ) -> list[dict[str, Any]]:
     """
     Orchestrates fetching vector + keyword candidates from DB 
     and running RRF fusion in Python.
     """
     logger = logging.getLogger("main." + __name__)
-
+    trace = Trace(logger, enabled=verbose)
+    
     # Fetch top candidates from both search 
     # mechanisms in DB passing conn_string
     vector_candidates = _get_vector_candidates(
@@ -237,13 +240,16 @@ def _execute_hybrid_search(
     )
     
     # 2. Perform RRF fusion using RRF fusion config
-    merged_candidates = _compute_rrf(
+    rrf_candidates = _compute_rrf(
         vector_results=vector_candidates,
         lexical_results=lexical_candidates,
         config=rrf_config
     )
 
-    return merged_candidates
+    trace.log("Vector chunks", Trace.Type.MAPS, vector_candidates, keys=["id"])
+    trace.log("Lexical chunks", Trace.Type.MAPS, lexical_candidates, keys=["id"])
+    trace.log("RRF chunks", Trace.Type.MAPS, rrf_candidates, keys=["id"])
+    return rrf_candidates
 
 
 def _apply_mmr_filter(
@@ -478,10 +484,13 @@ def store_doc_chunks(
 def search_doc_chunks(
     db_string: str, 
     text_encoder: TextEncoder, 
-    user_query: str
+    user_query: str,
+    verbose: bool = False
 ) -> list[dict[str, Any]]:
 
     logger = logging.getLogger("main." + __name__)
+    trace = Trace(logger, enabled=verbose)
+
     # user_query is a string, and encoder expects an array of strings
     # encoder returns a numpy array that should be converted to list[floats]
     query_embedding = text_encoder.encode([user_query])[0].tolist()
@@ -490,16 +499,18 @@ def search_doc_chunks(
     candidates = _execute_hybrid_search(
         query_str=user_query,
         query_embedding=query_embedding,
-        conn_string=db_string
+        conn_string=db_string,
+        verbose=verbose
     )
-    
+
     # 4. Diversity Filter via MMR (Select 4 diverse chunks)
     mmr_chunks = _apply_mmr_filter(
         candidates=candidates,
-        final_top_k=4,
+        final_top_k=6,
         lambda_param=0.7
     )
-
+    
+    trace.log("MMR chunks", Trace.Type.MAPS, mmr_chunks, keys=["id"])
     return mmr_chunks 
 
 
