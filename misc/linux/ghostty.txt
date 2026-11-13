@@ -1,0 +1,72 @@
+window-padding-x = 5
+window-padding-y = 5
+theme=GitHub Light High Contrast
+term = xterm-256color
+# -------------------------
+# extra things to Try
+# ---------------------------
+# shell-integration-features=no-title
+# 1.top | bottom | hidden
+gtk-tabs-location = bottom
+# 2. remove GTK window means
+# no separate mouse grab area
+gtk-titlebar = true
+# 3.flat | raised | raised-border
+gtk-toolbar-style = flat
+# 4.setting to tabs will fix the looks but
+# we cannot drag on tabs using the mouse
+# native | tabs
+gtk-titlebar-style = native
+# 5.setting wide-tabs to false gives us
+# more corner area for mouse grab
+gtk-wide-tabs = false
+# 6. custom css
+gtk-custom-css = ./buffer.css
+
+
+
+/* 1. Flat, sharp status-line container at the bottom */
+tabbar tabbox {
+  background-color: #e4e4e4;
+  border-top: 1px solid #9e9e9e;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* 2. Square, flat inactive buffers with sharp vertical dividers */
+tabbar tab {
+  border-radius: 0px;
+  margin: 0px;
+  padding: 0px 8px;
+  background-color: #e4e4e4;
+  color: #424242;
+  /* border-right: 1px solid #bdbdbd;*/
+  box-shadow: none;
+}
+
+
+/* 3. Monospace buffer text (like Vim/Emacs statusline) */
+tabbar tab label {
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+/* 4. Active buffer: high-contrast inverted/bright block with top indicator */
+tabbar tab:selected {
+  background-color: #ffffff;
+  color: #000000;
+  /* border-top: 2px solid #005faf; */
+}
+
+tabbar tab:selected label {
+  font-weight: normal;
+}
+
+
+/* 5. Subtle hover feedback on inactive buffers */
+tabbar tab:hover:not(:selected) {
+  background-color: #eeeeee;
+  color: #000000;
+}
+
