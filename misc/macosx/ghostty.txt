@@ -1,0 +1,37 @@
+
+# To edit config file 
+
+$ ghostty +edit-config
+it will also print the config file path 
+
+
+# macosx config changes 
+# ---------------------------------
+# customizations
+# ---------------------------------
+# split-divider-color = red
+theme = Carbon Paper 
+minimum-contrast = 3
+font-family = "JetBrains Mono"
+
+
+## Vim key bindings 
+# Bind Mac command keys to Ghostty clipboard actions
+# needed for vim copy+paste with CMD+C and CMD+V
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+
+
+# Themes to try 
+$ghostty +list-themes
+
+## Light high contrast themes 
+theme = Apple System Colors Light
+theme = Github Light High Contrast
+
+## Paper feel themes 
+theme = Modus Operandi Tinted
+theme = Carbon Paper
+
+## Dark themes 
+theme = TokyoNight Night
