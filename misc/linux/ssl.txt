@@ -1,0 +1,55 @@
+
+# SSL Wildcard  certifcate 
+
+We want SSL Wildcard certificate to match x.domain.com, y.domain.com and any other z.domain.com 
+using the same SSL certificate. Please remember the caveat that the wildcard certificates cannot 
+do nested domains matching. It is not a limitation in our case, but something to be aware of. 
+
+The reason we did not pick SAN (Subject Alternative Name) certifcate is because we want to do 
+dynamic forwarding using an SSL frontend. That is we want to create VM and assign then an SSL 
+endpoint automatically, so we do not know all the subdomains beforehand. 
+
+
+# DNS-01 validation 
+
+The Wildcard certificate has to DNS-01 validation to ensure that all current and future subdomains 
+belong to you. Just verifying an IP address for x.domain.com is not enough in this case. (HTTP-01 validation). 
+
+The DNS-01 validation can be done via a DNS TXT record. However, cerbots kind of automatic certificate renewal 
+programs would fail. Certbot needs to talk to you DNS server programmatically in this case. 
+
+To enable automatic certbot DNS-01 authentication, we need to 
+
+* Keep DNS records with a service provider that allows api based access (automatic) 
+* Get API key from the provider 
+* Install the service agent together with certbot. 
+
+## Digital Ocean DNS service  
+
+Moving to digital ocean service for DNS records requires two steps. We need to tell our domain provider (NameCheap) 
+to use digital ocean DNS servers. To do so, we go to 
+NameCheap domain > Advance DNS Panel and add custom DNS servers,
+
+* ns1.digitalocean.com 
+* ns2.digitalocean.com 
+* ns3.digitalocean.com 
+
+Now any eqnuiry for DNS records will be handled by Digital ocean name servers.  The steps to add this domain records 
+in digital ocean are as follows, 
+
+* Go to Digital Ocean Dashboard | Networking | Add a domain. 
+* Add 2 A records, one is * and another is @ (domain all catcher)
+* Both should point to an IP address that is our SSL front end 
+
+
+## Digital ocean api key for domain management 
+
+Next, we need to get an api key so we can do domain management using the api key. 
+When generating API key, 
+
+* scope it to domain management only 
+* provide create/ delete/ update and read rights 
+* create an API key 
+
+This api key will be used on the SSL frontend machine. 
+
