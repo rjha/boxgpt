@@ -1,5 +1,6 @@
 import json
 import re
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -10,9 +11,10 @@ from softmaxx.config import AppConfig, get_logger_config
 from softmaxx.boxgpt.client.llm import DigitalOceanClient
 
 logger = logging.getLogger("main." + __name__)
-
 # get a lazy instance 
 _client: DigitalOceanClient | None = None
+ROW_PREFIX_RE = re.compile(r"^-\s+\*\*Row\s+(\d+)")
+
 
 def _get_client() -> DigitalOceanClient:
     """Lazily create DigitalOceanClient once after AppConfig is initialized."""
@@ -30,7 +32,7 @@ class Stage3Config:
     model: str
     prompt_path: Path
     temperature: float = 0.0
-    verbose: bool = True
+    verbose: bool = False
 
 
 def _extract_raw_text(response: Any) -> str:
@@ -61,12 +63,49 @@ def _extract_raw_text(response: Any) -> str:
 
 
 def parse_json_from_llm_text(raw_text: str) -> dict[str, Any]:
-    """Strip optional markdown fences and parse raw JSON text."""
+    """Extract and parse a JSON object from raw LLM output, with or without fences."""
     text = raw_text.strip()
     fence_match = re.search(r"```(?:json)?\s*([\s\S]*?)\s*```", text, flags=re.IGNORECASE)
     if fence_match:
-        text = fence_match.group(1).strip()
-    return json.loads(text)
+        candidate = fence_match.group(1).strip()
+        try:
+            parsed = json.loads(candidate)
+            if isinstance(parsed, dict):
+                return parsed
+        except json.JSONDecodeError:
+            pass
+
+    start = text.find("{")
+    if start == -1:
+        raise ValueError("No JSON object found in LLM response.")
+
+    depth = 0
+    in_string = False
+    escape = False
+    for idx in range(start, len(text)):
+        ch = text[idx]
+        if escape:
+            escape = False
+            continue
+        if ch == "\\" and in_string:
+            escape = True
+            continue
+        if ch == '"':
+            in_string = not in_string
+            continue
+        if in_string:
+            continue
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                parsed = json.loads(text[start : idx + 1])
+                if not isinstance(parsed, dict):
+                    raise ValueError("Top-level JSON value must be an object.")
+                return parsed
+
+    raise ValueError("Unterminated JSON object in LLM response.")
 
 
 def validate_key_map(key_map: SheetKeyMap, skeleton_text: str) -> list[str]:
@@ -90,11 +129,14 @@ def validate_key_map(key_map: SheetKeyMap, skeleton_text: str) -> list[str]:
     mapped_rows = {int(r) for r in key_map.row_keys.keys()}
     ignored_rows = set(key_map.ignore_rows)
     for line in skeleton_text.splitlines():
-        if line.startswith("- **Row "):
-            row_str = line.split("**Row ")[1].split("**")[0].split()[0]
-            r_num = int(row_str)
-            if r_num not in mapped_rows and r_num not in ignored_rows:
-                warnings.append(f"Row {r_num} was neither mapped in row_keys nor listed in ignore_rows.")
+        match = ROW_PREFIX_RE.match(line.strip())
+        if not match:
+            continue
+        r_num = int(match.group(1))
+        if r_num not in mapped_rows and r_num not in ignored_rows:
+            warnings.append(
+                f"Row {r_num} was neither mapped in row_keys nor listed in ignore_rows."
+            )
 
     return warnings
 
@@ -107,7 +149,6 @@ def call_llm_for_keymap(skeleton_text: str, config: Stage3Config) -> str:
         {"role": "user", "content": skeleton_text},
     ]
 
-   
     response = _get_client().chat_02(
         model=config.model,
         llm_messages=messages,
@@ -119,44 +160,67 @@ def call_llm_for_keymap(skeleton_text: str, config: Stage3Config) -> str:
 
 
 def run_stage3(
-    skeleton_dir: str | Path,
-    target_dir: str | Path,
+    skeleton_dir: Path,
+    target_dir: Path,
     config: Stage3Config,
 ) -> list[Path]:
     """Run Stage 3 over *.skeleton.md -> *.keymap.json (plus *.warnings.json if needed)."""
-    src = Path(skeleton_dir)
-    dst = Path(target_dir)
+    # src = Path(skeleton_dir)
+    # dst = Path(target_dir)
 
     outputs: list[Path] = []
-    for skel_path in sorted(src.glob("*.skeleton.md")):
-        skeleton_text = skel_path.read_text(encoding="utf-8")
-        # get LLM response 
-        raw_text = call_llm_for_keymap(skeleton_text, config)
+    logger.info(f"processing skeleton dir {skeleton_dir}")
+    skeleton_files = sorted(skeleton_dir.glob("*.skeleton.md"))
+    
+    for skeleton_file in skeleton_files:
+        logger.info(f"=> processing skeleton file {skeleton_file}")
+        skeleton_text = skeleton_file.read_text(encoding="utf-8")
+        stem = skeleton_file.name.removesuffix(".skeleton.md")
+        llm_response_file = target_dir / f"{stem}.raw.txt"
+
+        # store LLM response text on disk 
+        # do not call LLM if this file exists 
+        if llm_response_file.exists() and llm_response_file.stat().st_size > 0:
+            logger.info(f"loading LLM response from {llm_response_file}")
+            raw_text = llm_response_file.read_text(encoding="utf-8")
+        else:
+            logger.info("call LLM to get key mappings")
+            raw_text = call_llm_for_keymap(skeleton_text, config)
+            llm_response_file.write_text(raw_text, encoding="utf-8")
+
+        logger.info("parse LLM key mapping response")
         payload = parse_json_from_llm_text(raw_text)
         # validate LLM response
+        logger.info("validate LLM response")
         key_map = SheetKeyMap.model_validate(payload)
 
         warnings = validate_key_map(key_map, skeleton_text)
-        stem = skel_path.name.removesuffix(".skeleton.md")
-        map_out = dst / f"{stem}.keymap.json"
+        # stem = skeleton_file.name.removesuffix(".skeleton.md")
+        map_out = target_dir / f"{stem}.keymap.json"
         map_out.write_text(key_map.model_dump_json(indent=2), encoding="utf-8")
         outputs.append(map_out)
 
         if warnings:
-            warn_out = dst / f"{stem}.warnings.json"
+            warn_out = target_dir / f"{stem}.warnings.json"
             warn_out.write_text(json.dumps(warnings, indent=2), encoding="utf-8")
+        
+        logger.info("skeleton file processed")
+        time.sleep(2)
 
     return outputs
 
+
 def main():
-    source_dir = DOC_DIR / "excel" / "stage02"
+    source_dir = XOUT_DIR / "excel" / "stage02"
     target_dir = XOUT_DIR / "excel" / "stage03"
     resource_dir = Path(AppConfig.get("resource_dir")).resolve()
-    keymap_prompt_path = resource_dir / "pyxl" / "keymap" / "prompt.txt"
+    keymap_prompt_dir = resource_dir / "prompts" / "pyxl" / "keymap"
+    keymap_prompt_path = keymap_prompt_dir / "prompt.txt"
     
     config: Stage3Config = Stage3Config(
         model=DigitalOceanClient.SONNET_55_MODEL,
-        prompt_path=keymap_prompt_path
+        prompt_path=keymap_prompt_path,
+        verbose=True
     )
 
     run_stage3(
