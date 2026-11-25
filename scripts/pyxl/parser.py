@@ -53,6 +53,20 @@ def dump_workbook_for_llm(excel_path, output_dir):
               "origin_value": top_left_val,
           }
 
+    # Determine active grid column bounds (all columns with at least one non-empty cell or merge)
+    active_col_indices = sorted({
+        c
+        for r in range(1, ws_val.max_row + 1)
+        for c in range(1, ws_val.max_column + 1)
+        if ws_val.cell(r, c).value is not None
+        or ws_frm.cell(r, c).value is not None
+        or ws_val.cell(r, c).comment is not None
+        or (r, c) in merge_map
+    })
+    min_col = active_col_indices[0] if active_col_indices else 1
+    max_col = active_col_indices[-1] if active_col_indices else 0
+    grid_cols = list(range(min_col, max_col + 1)) if max_col >= min_col else []
+
     rows_data = []
     md_lines = [f"# Sheet: {sheet_name}\n"]
     if merged_ranges:
@@ -63,7 +77,8 @@ def dump_workbook_for_llm(excel_path, output_dir):
       row_cells = []
       md_row_tokens = []
 
-      for c in range(1, ws_val.max_column + 1):
+      has_row_content = False
+      for c in grid_cols:
         col_letter = get_column_letter(c)
         is_hidden_col = bool(ws_val.column_dimensions[col_letter].hidden)
 
@@ -80,9 +95,8 @@ def dump_workbook_for_llm(excel_path, output_dir):
         comment = cell_val.comment.text.strip() if cell_val.comment else None
         merge_info = merge_map.get((r, c))
 
-        # Skip empty, unmerged, uncommented cells to keep LLM payload compact
-        if val is None and raw_frm is None and comment is None and not merge_info:
-          continue
+        if val is not None or raw_frm is not None or comment is not None or merge_info:
+          has_row_content = True
 
         # Structural & hierarchy cues for schema inference
         is_bold = bool(cell_val.font and cell_val.font.bold)
@@ -133,7 +147,7 @@ def dump_workbook_for_llm(excel_path, output_dir):
             disp += f" *(Note: {comment})*"
           md_row_tokens.append(f"`{col_letter}{r}`: {disp}")
 
-      if row_cells:
+      if has_row_content:
         row_obj = {"row_idx": r, "cells": row_cells}
         if is_hidden_row:
           row_obj["hidden_row"] = True
@@ -153,6 +167,8 @@ def dump_workbook_for_llm(excel_path, output_dir):
         "dimensions": {
             "max_row": ws_val.max_row,
             "max_col": ws_val.max_column,
+            "grid_col_start": get_column_letter(min_col) if grid_cols else None,
+            "grid_col_end": get_column_letter(max_col) if grid_cols else None,
             "non_empty_rows": len(rows_data),
         },
         "merged_ranges": merged_ranges,
@@ -179,7 +195,7 @@ def dump_workbook_for_llm(excel_path, output_dir):
 
 
 if __name__ == "__main__":
-  target_dir = XOUT_DIR / "excel" / "stage01"
   source_file = DOC_DIR / "excel" / "plant-performance.xlsx"
+  target_dir = XOUT_DIR / "excel" / "stage01"
   manifest = dump_workbook_for_llm(source_file, target_dir)
   print(f"Extracted {manifest['sheet_count']} sheets.")
