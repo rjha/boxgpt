@@ -149,7 +149,7 @@ def call_llm_for_keymap(skeleton_text: str, config: Stage3Config) -> str:
         {"role": "user", "content": skeleton_text},
     ]
 
-    response = _get_client().chat_02(
+    response = _get_client().chat_stream(
         model=config.model,
         llm_messages=messages,
         temperature=config.temperature,
