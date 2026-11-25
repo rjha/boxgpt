@@ -211,8 +211,8 @@ def run_stage3(
 
 
 def main():
-    source_dir = XOUT_DIR / "excel" / "stage02"
-    target_dir = XOUT_DIR / "excel" / "stage03"
+    source_dir = XOUT_DIR / "excel" / "skeleton"
+    target_dir = XOUT_DIR / "excel" / "keymap"
     resource_dir = Path(AppConfig.get("resource_dir")).resolve()
     keymap_prompt_dir = resource_dir / "prompts" / "pyxl" / "keymap"
     keymap_prompt_path = keymap_prompt_dir / "prompt.txt"

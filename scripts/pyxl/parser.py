@@ -196,6 +196,6 @@ def dump_workbook_for_llm(excel_path, output_dir):
 
 if __name__ == "__main__":
   source_file = DOC_DIR / "excel" / "plant-performance.xlsx"
-  target_dir = XOUT_DIR / "excel" / "stage01"
+  target_dir = XOUT_DIR / "excel" / "sheet"
   manifest = dump_workbook_for_llm(source_file, target_dir)
   print(f"Extracted {manifest['sheet_count']} sheets.")

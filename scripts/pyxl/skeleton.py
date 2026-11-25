@@ -91,8 +91,8 @@ def run_stage2(
 
 
 def main():
-    source_dir = XOUT_DIR / "excel" / "stage01"
-    target_dir = XOUT_DIR / "excel" / "stage02"
+    source_dir = XOUT_DIR / "excel" / "sheet"
+    target_dir = XOUT_DIR / "excel" / "skeleton"
     run_stage2(source_dir=source_dir, target_dir=target_dir)
 
 
