@@ -3,10 +3,11 @@ from softmaxx.config import AppConfig
 
 
 def rag_query_message(user_query, chunks):
-    resource_path = Path(AppConfig.get("resource_dir")).resolve()
-    rag_prompt_path = resource_path / "prompts" / "rag"
-    system_prompt = ( rag_prompt_path/ "system_rag.txt").read_text(encoding="utf-8").strip()
-    user_template = (rag_prompt_path / "user_rag_template.txt").read_text(encoding="utf-8")
+    resource_dir = Path(AppConfig.get("resource_dir")).resolve()
+    rag_prompt_dir = resource_dir / "prompts" / "rag"
+    
+    system_prompt = (rag_prompt_dir / "system.txt").read_text(encoding="utf-8").strip()
+    user_template = (rag_prompt_dir / "user.txt").read_text(encoding="utf-8")
     
     # Build structured context string from MMR chunks
     context_builder = []
