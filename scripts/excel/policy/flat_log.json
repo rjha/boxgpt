@@ -1,0 +1,14 @@
+{
+  "policy_version": "1.0",
+  "sheet_shape": "flat_log",
+  "rules": {
+    "skip_hidden_rows": true,
+    "skip_hidden_cells": true,
+    "ignore_empty_columns": true,
+    "date_output_format": "%Y-%m-%d",
+    "drop_summary_rows": true,
+    "min_populated_ratio": 0.25,
+    "required_non_empty_cols": ["Posting Date", "Resource"],
+    "error_prefixes": ["#"]
+  }
+}

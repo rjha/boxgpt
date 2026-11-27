@@ -1,0 +1,41 @@
+{
+  "policy_version": "2.0",
+  "rules": {
+    "skip_hidden": {
+      "enabled": true,
+      "skip_hidden_rows": true,
+      "skip_hidden_cells": true,
+      "record_skipped": true
+    },
+    "full_span_merged_rows": {
+      "enabled": true,
+      "min_width_coverage": 1.0,
+      "treat_as": "non_data_banner"
+    },
+    "empty_columns": {
+      "enabled": true,
+      "record_ignored": true
+    },
+    "column_headers": {
+      "auto_detect_header_rows": true,
+      "date_output_format": "%b-%y",
+      "uppercase_dates": true,
+      "join_separator": " / "
+    },
+    "section_hierarchy": {
+      "lookahead_cells": 20,
+      "max_occupancy_ratio": 0.20,
+      "key_separator": " / ",
+      "record_empty_header_keys": true
+    },
+    "unlabeled_rows": {
+      "ignore_with_data": true,
+      "record_ignored": true
+    },
+    "error_cells": {
+      "enabled": true,
+      "error_prefixes": ["#"],
+      "record_errors": true
+    }
+  }
+}
