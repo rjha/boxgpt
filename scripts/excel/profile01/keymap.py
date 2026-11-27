@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 import logging
-from scripts.pyxl.model import SheetKeyMap
+from scripts.excel.model import SheetKeyMap
 from scripts.constants import DOC_DIR, XOUT_DIR
 from softmaxx.config import AppConfig, get_logger_config
 from softmaxx.boxgpt.client.llm import DigitalOceanClient
@@ -169,9 +169,9 @@ def run_stage3(
     # dst = Path(target_dir)
 
     outputs: list[Path] = []
-    logger.info(f"processing skeleton dir {skeleton_dir}")
     skeleton_files = sorted(skeleton_dir.glob("*.skeleton.md"))
-    
+    logger.info(f"Found {len(skeleton_files)} skeleton files in dir {skeleton_dir}")
+
     for skeleton_file in skeleton_files:
         logger.info(f"=> processing skeleton file {skeleton_file}")
         skeleton_text = skeleton_file.read_text(encoding="utf-8")
