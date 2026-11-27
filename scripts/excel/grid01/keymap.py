@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 import logging
-from scripts.excel.profile01.model import SheetKeyMap
+from scripts.excel.grid01.model import SheetKeyMap
 from scripts.constants import DOC_DIR, XOUT_DIR
 from softmaxx.config import AppConfig, get_logger_config
 from softmaxx.boxgpt.client.llm import DigitalOceanClient
