@@ -5,7 +5,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
-from scripts.constants import DOC_DIR, XOUT_DIR
+from scripts.constants import XOUT_DIR
 from softmaxx.config import AppConfig, get_logger_config
 
 
@@ -230,7 +230,7 @@ def build_sheet_kv(
     }
 
 
-def run_stage4(
+def emit_kv_sheet(
     sheet_dir: Path,
     keymap_dir: Path,
     target_dir: Path,
@@ -276,7 +276,7 @@ def main() -> None:
     target_dir = XOUT_DIR / "excel" / "kv"
 
     config = Stage4Config(include_nulls=False, key_separator="::")
-    run_stage4(
+    emit_kv_sheet(
         sheet_dir=sheet_dir,
         keymap_dir=keymap_dir,
         target_dir=target_dir,

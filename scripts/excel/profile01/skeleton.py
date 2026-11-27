@@ -68,7 +68,7 @@ def skeleton_from_markdown(md_text: str, header_cutoff_row: int = 4) -> str:
     return "\n".join(out_lines)
 
 
-def run_stage2(
+def run_sheet_to_skeleton(
     source_dir: Path,
     target_dir: Path,
     header_cutoff_row: int = 4,
@@ -93,7 +93,7 @@ def run_stage2(
 def main():
     source_dir = XOUT_DIR / "excel" / "sheet"
     target_dir = XOUT_DIR / "excel" / "skeleton"
-    run_stage2(source_dir=source_dir, target_dir=target_dir)
+    run_sheet_to_skeleton(source_dir=source_dir, target_dir=target_dir)
 
 
 if __name__ == "__main__":
